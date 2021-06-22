@@ -11,7 +11,7 @@ import SwiftUI
 struct PocketBaristaApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            AppTabView()
         }
     }
 }

@@ -8,18 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		7F4CB2B726818D0E003F0D06 /* PocketBaristaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4CB2B626818D0E003F0D06 /* PocketBaristaApp.swift */; };
-		7F4CB2B926818D0E003F0D06 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4CB2B826818D0E003F0D06 /* ContentView.swift */; };
 		7F4CB2BB26818D0F003F0D06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F4CB2BA26818D0F003F0D06 /* Assets.xcassets */; };
 		7F4CB2BE26818D0F003F0D06 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F4CB2BD26818D0F003F0D06 /* Preview Assets.xcassets */; };
+		7F4CB2C826818DCD003F0D06 /* AppTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4CB2C726818DCD003F0D06 /* AppTabView.swift */; };
+		7F4CB2CB26818E6F003F0D06 /* BrewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4CB2CA26818E6F003F0D06 /* BrewView.swift */; };
+		7F4CB2CD26818EC2003F0D06 /* BrewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4CB2CC26818EC2003F0D06 /* BrewViewModel.swift */; };
+		7F4CB2D02681925C003F0D06 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4CB2CF2681925C003F0D06 /* Constants.swift */; };
+		7F4CB2D326819789003F0D06 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4CB2D226819789003F0D06 /* FavoritesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		7F4CB2B326818D0E003F0D06 /* PocketBarista.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PocketBarista.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F4CB2B626818D0E003F0D06 /* PocketBaristaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PocketBaristaApp.swift; sourceTree = "<group>"; };
-		7F4CB2B826818D0E003F0D06 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7F4CB2BA26818D0F003F0D06 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7F4CB2BD26818D0F003F0D06 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7F4CB2BF26818D0F003F0D06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7F4CB2C726818DCD003F0D06 /* AppTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabView.swift; sourceTree = "<group>"; };
+		7F4CB2CA26818E6F003F0D06 /* BrewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewView.swift; sourceTree = "<group>"; };
+		7F4CB2CC26818EC2003F0D06 /* BrewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewViewModel.swift; sourceTree = "<group>"; };
+		7F4CB2CF2681925C003F0D06 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		7F4CB2D226819789003F0D06 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,8 +60,9 @@
 		7F4CB2B526818D0E003F0D06 /* PocketBarista */ = {
 			isa = PBXGroup;
 			children = (
+				7F4CB2CE2681924A003F0D06 /* Utilities */,
+				7F4CB2C526818D49003F0D06 /* Views */,
 				7F4CB2B626818D0E003F0D06 /* PocketBaristaApp.swift */,
-				7F4CB2B826818D0E003F0D06 /* ContentView.swift */,
 				7F4CB2BA26818D0F003F0D06 /* Assets.xcassets */,
 				7F4CB2BF26818D0F003F0D06 /* Info.plist */,
 				7F4CB2BC26818D0F003F0D06 /* Preview Content */,
@@ -69,6 +78,49 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		7F4CB2C526818D49003F0D06 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7F4CB2C626818D52003F0D06 /* Screens */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		7F4CB2C626818D52003F0D06 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				7F4CB2C926818E64003F0D06 /* BrewView */,
+				7F4CB2D426819793003F0D06 /* FavoritesView */,
+				7F4CB2C726818DCD003F0D06 /* AppTabView.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		7F4CB2C926818E64003F0D06 /* BrewView */ = {
+			isa = PBXGroup;
+			children = (
+				7F4CB2CC26818EC2003F0D06 /* BrewViewModel.swift */,
+				7F4CB2CA26818E6F003F0D06 /* BrewView.swift */,
+			);
+			path = BrewView;
+			sourceTree = "<group>";
+		};
+		7F4CB2CE2681924A003F0D06 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				7F4CB2CF2681925C003F0D06 /* Constants.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		7F4CB2D426819793003F0D06 /* FavoritesView */ = {
+			isa = PBXGroup;
+			children = (
+				7F4CB2D226819789003F0D06 /* FavoritesView.swift */,
+			);
+			path = FavoritesView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -79,6 +131,7 @@
 				7F4CB2AF26818D0E003F0D06 /* Sources */,
 				7F4CB2B026818D0E003F0D06 /* Frameworks */,
 				7F4CB2B126818D0E003F0D06 /* Resources */,
+				7F4CB2D126819499003F0D06 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -133,12 +186,36 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		7F4CB2D126819499003F0D06 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		7F4CB2AF26818D0E003F0D06 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7F4CB2B926818D0E003F0D06 /* ContentView.swift in Sources */,
+				7F4CB2D02681925C003F0D06 /* Constants.swift in Sources */,
+				7F4CB2CB26818E6F003F0D06 /* BrewView.swift in Sources */,
+				7F4CB2D326819789003F0D06 /* FavoritesView.swift in Sources */,
+				7F4CB2C826818DCD003F0D06 /* AppTabView.swift in Sources */,
+				7F4CB2CD26818EC2003F0D06 /* BrewViewModel.swift in Sources */,
 				7F4CB2B726818D0E003F0D06 /* PocketBaristaApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
