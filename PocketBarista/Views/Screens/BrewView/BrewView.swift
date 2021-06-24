@@ -9,6 +9,7 @@ import SwiftUI
 
 struct BrewView: View {
     @ObservedObject var viewModel = BrewViewModel()
+    @State var showingSheet = false
     var body: some View {
         VStack(spacing: 32) {
             BrewPreferencesView(
@@ -23,6 +24,17 @@ struct BrewView: View {
                 waterMeasurement: $viewModel.waterRequiredMeasurement,
                 coffeeValue: viewModel.coffeeRequiredValue,
                 coffeeMeasurement: $viewModel.coffeeRequiredMeasurement)
+            Button(action: {
+                showingSheet = true
+            }, label: {
+                Text("Log Brew")
+            })
+        }
+        .sheet(isPresented: $showingSheet, content: {
+            LogBrewView()
+        })
+        .onAppear {
+            viewModel.changedValue()
         }
     }
 }
@@ -30,42 +42,91 @@ struct BrewView: View {
 struct AmountBrewLine: View {
     @Binding var quantity: String
     @Binding var measurement: MeasurementType
+    @State var showingMeasurementSheet = false
+    @State var showingNumberSheet = false
     var body: some View {
-        Text("I'm brewing ")
-            .foregroundColor(.secondary)
-        + Text(quantity)
-            .underline()
-        + Text(" ")
-            + Text(measurement.rawValue)
-            .underline()
+        HStack(spacing: 0) {
+            Text("I'm brewing ")
+                .foregroundColor(.secondary)
+            Text(quantity)
+                .underline()
+                .onTapGesture {
+                    showingNumberSheet = true
+                }
+            Text(" ")
+            Text(measurement.rawValue)
+                .underline()
+                .onTapGesture {
+                    showingMeasurementSheet = true
+                }
+        }
+        .sheet(isPresented: $showingMeasurementSheet, content: {
+            MeasurementSelectionView(selection: $measurement)
+        })
+        .sheet(isPresented: $showingNumberSheet, content: {
+            QuantitySelectionView(selection: $quantity)
+        })
     }
 }
 
 struct CoffeeRatioLine: View {
     @Binding var quantity: String
     @Binding var measurement: MeasurementType
+    @State var showingMeasurementSheet = false
+    @State var showingNumberSheet = false
     var body: some View {
-        Text(quantity)
-            .underline()
-        + Text(" ")
-            + Text(measurement.rawValue)
-            .underline()
-        + Text(" coffee")
-            .foregroundColor(.secondary)
+        HStack(spacing: 0) {
+            Text(quantity)
+                .underline()
+                .onTapGesture {
+                    showingNumberSheet = true
+                }
+            Text(" ")
+            Text(measurement.rawValue)
+                .underline()
+                .onTapGesture {
+                    showingMeasurementSheet = true
+                }
+            Text(" coffee")
+                .foregroundColor(.secondary)
+        }
+        .sheet(isPresented: $showingMeasurementSheet, content: {
+            MeasurementSelectionView(selection: $measurement)
+        })
+        .sheet(isPresented: $showingNumberSheet, content: {
+            QuantitySelectionView(selection: $quantity)
+        })
     }
 }
 
-struct WaterRatioLine: View {
+struct RatioSelectionLine: View {
+    var categoryText: String
     @Binding var quantity: String
     @Binding var measurement: MeasurementType
+    @State var showingMeasurementSheet = false
+    @State var showingNumberSheet = false
     var body: some View {
-        Text(quantity)
-            .underline()
-        + Text(" ")
-            + Text(measurement.rawValue)
-            .underline()
-        + Text(" water")
-            .foregroundColor(.secondary)
+        HStack(spacing: 1) {
+            Text(quantity)
+                .underline()
+                .onTapGesture {
+                    showingNumberSheet = true
+                }
+            Text(" ")
+            Text(measurement.rawValue)
+                .underline()
+                .onTapGesture {
+                    showingMeasurementSheet = true
+                }
+            Text(" \(categoryText)")
+                .foregroundColor(.secondary)
+        }
+        .sheet(isPresented: $showingMeasurementSheet, content: {
+            MeasurementSelectionView(selection: $measurement)
+        })
+        .sheet(isPresented: $showingNumberSheet, content: {
+            QuantitySelectionView(selection: $quantity)
+        })
     }
 }
 
@@ -87,10 +148,14 @@ struct BrewPreferencesView: View {
             AmountBrewLine(quantity: $brewQuantity, measurement: $brewMeasurement)
             Text("with a ratio of")
                 .foregroundColor(.secondary)
-            CoffeeRatioLine(quantity: $coffeeRatioQuantity, measurement: $coffeeRatioMeasurement)
+            RatioSelectionLine(categoryText: "coffee",
+                               quantity: $coffeeRatioQuantity,
+                               measurement: $coffeeRatioMeasurement)
             Text("to")
                 .foregroundColor(.secondary)
-            WaterRatioLine(quantity: $waterRatioQuantity, measurement: $waterRatioMeasurement)
+            RatioSelectionLine(categoryText: "water",
+                               quantity: $waterRatioQuantity,
+                               measurement: $waterRatioMeasurement)
         }
         .font(.largeTitle)
         .multilineTextAlignment(.center)
@@ -102,18 +167,36 @@ struct RequiredValuesView: View {
     @Binding var waterMeasurement: MeasurementType
     var coffeeValue: Float
     @Binding var coffeeMeasurement: MeasurementType
+    @State var showingWaterSheet = false
+    @State var showingCoffeeSheet = false
     var body: some View {
         VStack {
             Text("This will be:")
-            waterValue.textDisplay()
-                + Text(" \(waterMeasurement.rawValue)")
-                .underline()
-                + Text(" water")
-            coffeeValue.textDisplay()
-                + Text(" \(coffeeMeasurement.rawValue)")
-                .underline()
-                + Text(" coffee")
+            HStack {
+                waterValue.textDisplay()
+                Text(" \(waterMeasurement.rawValue)")
+                    .underline()
+                    .onTapGesture {
+                        showingWaterSheet = true
+                    }
+                Text(" water")
+            }
+            HStack {
+                coffeeValue.textDisplay()
+                Text(" \(coffeeMeasurement.rawValue)")
+                    .underline()
+                    .onTapGesture {
+                        showingCoffeeSheet = true
+                    }
+                Text(" coffee")
+            }
         }
         .font(.title)
+        .sheet(isPresented: $showingWaterSheet, content: {
+            MeasurementSelectionView(selection: $waterMeasurement)
+        })
+        .sheet(isPresented: $showingCoffeeSheet, content: {
+            MeasurementSelectionView(selection: $coffeeMeasurement)
+        })
     }
 }
