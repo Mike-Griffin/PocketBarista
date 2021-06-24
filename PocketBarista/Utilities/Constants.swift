@@ -11,4 +11,5 @@ enum MeasurementType: String, Equatable, CaseIterable {
     case ounces
     case grams
     case liters
+    case cup
 }
