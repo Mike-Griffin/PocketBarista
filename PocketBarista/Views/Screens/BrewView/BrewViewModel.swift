@@ -23,7 +23,7 @@ class BrewViewModel: ObservableObject {
             changedValue()
         }
     }
-    @Published var coffeeRatioMeasurement: MeasurementType = .grams {
+    @Published var coffeeRatioMeasurement: MeasurementType = .gram {
         didSet {
             changedValue()
         }
@@ -33,19 +33,19 @@ class BrewViewModel: ObservableObject {
             changedValue()
         }
     }
-    @Published var waterRatioMeasurement: MeasurementType = .grams {
+    @Published var waterRatioMeasurement: MeasurementType = .gram {
         didSet {
             changedValue()
         }
     }
     @Published var waterRequiredValue: Float = 0
-    @Published var waterRequiredMeasurement: MeasurementType = .grams {
+    @Published var waterRequiredMeasurement: MeasurementType = .gram {
         didSet {
             changedValue()
         }
     }
     @Published var coffeeRequiredValue: Float = 0
-    @Published var coffeeRequiredMeasurement: MeasurementType = .grams {
+    @Published var coffeeRequiredMeasurement: MeasurementType = .gram {
         didSet {
             changedValue()
         }
@@ -56,10 +56,6 @@ class BrewViewModel: ObservableObject {
         let waterInDisplay = convertToSelectedMeasurement(requiredWater, waterRequiredMeasurement)
         let requiredCoffee = coffeeResultInGrams
         let coffeeInDisplay = convertToSelectedMeasurement(requiredCoffee, coffeeRequiredMeasurement)
-//        print("Coffee ratio: ", coffeeRatio)
-        print("Required water in grams: ", requiredWater)
-        print("Required water in ounces: ", waterInDisplay)
-        print("Required coffee in grams: ", requiredCoffee)
         waterRequiredValue = waterInDisplay
         coffeeRequiredValue = coffeeInDisplay
     }
@@ -92,11 +88,11 @@ class BrewViewModel: ObservableObject {
     }
     func convertValueToGrams(_ value: Float, _ measurement: MeasurementType) -> Float {
         switch measurement {
-        case .ounces:
+        case .ounce:
             return value * 28.3495
-        case .grams:
+        case .gram:
             return value
-        case .liters:
+        case .liter:
             return value * 1000
         case .cup:
             return value * 28.3495 * 8
@@ -104,11 +100,11 @@ class BrewViewModel: ObservableObject {
     }
     func convertToSelectedMeasurement(_ value: Float, _ measurement: MeasurementType) -> Float {
         switch measurement {
-        case .ounces:
+        case .ounce:
             return value / 28.3495
-        case .grams:
+        case .gram:
             return value
-        case .liters:
+        case .liter:
             return value / 1000
         case .cup:
             return value / (28.3495 * 8)

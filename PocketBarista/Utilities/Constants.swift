@@ -8,8 +8,15 @@
 import Foundation
 
 enum MeasurementType: String, Equatable, CaseIterable {
-    case ounces
-    case grams
-    case liters
+    case ounce
+    case gram
+    case liter
     case cup
+    func checkPlural(_ val: Float) -> String {
+        if val == 1.0 {
+            return self.rawValue
+        } else {
+            return self.rawValue + "s"
+        }
+    }
 }

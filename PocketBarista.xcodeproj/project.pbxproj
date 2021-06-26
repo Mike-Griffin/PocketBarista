@@ -15,10 +15,14 @@
 		7F4CB2D02681925C003F0D06 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4CB2CF2681925C003F0D06 /* Constants.swift */; };
 		7F4CB2D326819789003F0D06 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4CB2D226819789003F0D06 /* FavoritesView.swift */; };
 		7F4CB2D62682DEA8003F0D06 /* BrewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4CB2D52682DEA8003F0D06 /* BrewView.swift */; };
+		7F79F1CC2686BCC2000BD6B4 /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F79F1CB2686BCC2000BD6B4 /* RatingView.swift */; };
 		7FFCF8B226840B9F00041FA5 /* Float+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFCF8B126840B9F00041FA5 /* Float+Ext.swift */; };
 		7FFCF8B42684300F00041FA5 /* MeasurementSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFCF8B32684300F00041FA5 /* MeasurementSelectionView.swift */; };
 		7FFCF8B72684321900041FA5 /* QuantitySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFCF8B62684321900041FA5 /* QuantitySelectionView.swift */; };
 		7FFCF8BA2684371300041FA5 /* LogBrewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFCF8B92684371300041FA5 /* LogBrewView.swift */; };
+		7FFCF8BC26854A1700041FA5 /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFCF8BB26854A1700041FA5 /* View+Ext.swift */; };
+		7FFCF8BE2686A2B500041FA5 /* CustomModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFCF8BD2686A2B500041FA5 /* CustomModifiers.swift */; };
+		7FFCF8C02686B83E00041FA5 /* LogBrewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFCF8BF2686B83E00041FA5 /* LogBrewViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,10 +36,14 @@
 		7F4CB2CF2681925C003F0D06 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7F4CB2D226819789003F0D06 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		7F4CB2D52682DEA8003F0D06 /* BrewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewView.swift; sourceTree = "<group>"; };
+		7F79F1CB2686BCC2000BD6B4 /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
 		7FFCF8B126840B9F00041FA5 /* Float+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Float+Ext.swift"; sourceTree = "<group>"; };
 		7FFCF8B32684300F00041FA5 /* MeasurementSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurementSelectionView.swift; sourceTree = "<group>"; };
 		7FFCF8B62684321900041FA5 /* QuantitySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuantitySelectionView.swift; sourceTree = "<group>"; };
 		7FFCF8B92684371300041FA5 /* LogBrewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogBrewView.swift; sourceTree = "<group>"; };
+		7FFCF8BB26854A1700041FA5 /* View+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
+		7FFCF8BD2686A2B500041FA5 /* CustomModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomModifiers.swift; sourceTree = "<group>"; };
+		7FFCF8BF2686B83E00041FA5 /* LogBrewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogBrewViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,8 +97,10 @@
 		7F4CB2C526818D49003F0D06 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7F4CB2C726818DCD003F0D06 /* AppTabView.swift */,
 				7FFCF8B52684320700041FA5 /* CustomViews */,
 				7F4CB2C626818D52003F0D06 /* Screens */,
+				7FFCF8BD2686A2B500041FA5 /* CustomModifiers.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -101,7 +111,6 @@
 				7FFCF8B82684370700041FA5 /* LogBrew */,
 				7F4CB2C926818E64003F0D06 /* BrewView */,
 				7F4CB2D426819793003F0D06 /* FavoritesView */,
-				7F4CB2C726818DCD003F0D06 /* AppTabView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -136,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				7FFCF8B126840B9F00041FA5 /* Float+Ext.swift */,
+				7FFCF8BB26854A1700041FA5 /* View+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -145,6 +155,7 @@
 			children = (
 				7FFCF8B32684300F00041FA5 /* MeasurementSelectionView.swift */,
 				7FFCF8B62684321900041FA5 /* QuantitySelectionView.swift */,
+				7F79F1CB2686BCC2000BD6B4 /* RatingView.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -152,6 +163,7 @@
 		7FFCF8B82684370700041FA5 /* LogBrew */ = {
 			isa = PBXGroup;
 			children = (
+				7FFCF8BF2686B83E00041FA5 /* LogBrewViewModel.swift */,
 				7FFCF8B92684371300041FA5 /* LogBrewView.swift */,
 			);
 			path = LogBrew;
@@ -254,9 +266,13 @@
 				7F4CB2D62682DEA8003F0D06 /* BrewView.swift in Sources */,
 				7F4CB2C826818DCD003F0D06 /* AppTabView.swift in Sources */,
 				7F4CB2CD26818EC2003F0D06 /* BrewViewModel.swift in Sources */,
+				7FFCF8BC26854A1700041FA5 /* View+Ext.swift in Sources */,
 				7FFCF8B226840B9F00041FA5 /* Float+Ext.swift in Sources */,
+				7FFCF8BE2686A2B500041FA5 /* CustomModifiers.swift in Sources */,
 				7FFCF8BA2684371300041FA5 /* LogBrewView.swift in Sources */,
 				7F4CB2B726818D0E003F0D06 /* PocketBaristaApp.swift in Sources */,
+				7FFCF8C02686B83E00041FA5 /* LogBrewViewModel.swift in Sources */,
+				7F79F1CC2686BCC2000BD6B4 /* RatingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
