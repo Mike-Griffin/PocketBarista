@@ -42,4 +42,18 @@ struct CoreDataManager {
             }
         }
     }
+    func addCoffee(name: String, roaster: PBRoaster?) {
+        let coffee = PBCoffee(context: container.viewContext)
+        coffee.name = name
+        save()
+    }
+    func fetchCoffees() -> [PBCoffee] {
+        let request = NSFetchRequest<PBCoffee>(entityName: DataModel.coffee)
+        do {
+            return try container.viewContext.fetch(request)
+        } catch {
+            print("Error loading coffee data")
+            return []
+        }
+    }
 }
