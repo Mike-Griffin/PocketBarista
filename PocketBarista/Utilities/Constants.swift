@@ -20,3 +20,9 @@ enum MeasurementType: String, Equatable, CaseIterable {
         }
     }
 }
+
+enum DataModel {
+    static let main = "Main"
+    static let coffee = "PBCoffee"
+    static let roaster = "PBRoaster"
+}

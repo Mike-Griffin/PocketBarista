@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct FavoritesView: View {
+    @ObservedObject var viewModel = FavoritesViewModel()
     @State private var showingCreateCoffee = false
     @State private var showingCreateRoaster = false
     var body: some View {
@@ -17,8 +18,14 @@ struct FavoritesView: View {
                 DisclosureGroup("Testing disclosure group") {
                     Text("More stuff inside here")
                 }
+                ForEach(viewModel.coffees) { coffee in
+                    Text(coffee.name ?? "Uh oh no name")
+                }
             }
-
+            .onAppear {
+                viewModel.fetchCoffees()
+                print(viewModel.coffees)
+            }
             .sheet(isPresented: $showingCreateCoffee, content: {
                 CreateCoffeeView()
             })

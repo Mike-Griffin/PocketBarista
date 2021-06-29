@@ -18,6 +18,11 @@ struct CreateCoffeeView: View {
                 Section {
                     TextField("Name", text: $viewModel.name)
                 }
+                Button(action: {
+                    viewModel.addCoffee()
+                }, label: {
+                    Text("Save")
+                })
             }
         }
     }
