@@ -13,24 +13,39 @@ struct FavoritesView: View {
     @State private var showingCreateRoaster = false
     var body: some View {
         NavigationView {
-            VStack {
-                Text("Favorites")
-                DisclosureGroup("Testing disclosure group") {
-                    Text("More stuff inside here")
+            List {
+                Section(header: Text("Coffees")) {
+                    ForEach(viewModel.coffees) { coffee in
+                        HStack {
+                            Text(coffee.name ?? "Uh oh no name")
+                            Spacer()
+                            Menu {
+                                Button {
+                                    viewModel.deleteCoffee(coffee)
+                                } label: {
+                                    Text("Delete Coffee")
+                                }
+                            } label: {
+                                Image(systemName: "ellipsis")
+                            }
+                        }
+                    }
                 }
-                ForEach(viewModel.coffees) { coffee in
-                    Text(coffee.name ?? "Uh oh no name")
+                Section(header: Text("Roasters")) {
+                    ForEach(viewModel.roasters) { roaster in
+                        Text(roaster.name ?? "Uh oh no name")
+                    }
                 }
             }
             .onAppear {
                 viewModel.fetchCoffees()
-                print(viewModel.coffees)
+                viewModel.fetchRoasters()
             }
             .sheet(isPresented: $showingCreateCoffee, content: {
                 CreateCoffeeView()
             })
             .sheet(isPresented: $showingCreateRoaster, content: {
-                Text("Create Roaster View will go here soon")
+                CreateRoasterView()
             })
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {

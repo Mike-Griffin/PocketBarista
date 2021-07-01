@@ -14,6 +14,12 @@ struct AppTabView: View {
                 .tabItem { Label("Home", systemImage: "house") }
             FavoritesView()
                 .tabItem { Label("Favorites", systemImage: "star")}
+            NavigationView {
+                CreateCoffeeView()
+            }
+                .tabItem {
+                    Label("Coffee", systemImage: "bed.double")
+                }
         }
     }
 }

@@ -42,9 +42,19 @@ struct CoreDataManager {
             }
         }
     }
+    func delete(_ object: NSManagedObject) {
+        container.viewContext.delete(object)
+        save()
+    }
     func addCoffee(name: String, roaster: PBRoaster?) {
         let coffee = PBCoffee(context: container.viewContext)
         coffee.name = name
+        save()
+    }
+    func addRoaster(name: String, location: String) {
+        let roaster = PBRoaster(context: container.viewContext)
+        roaster.name = name
+        roaster.location = location
         save()
     }
     func fetchCoffees() -> [PBCoffee] {
@@ -53,6 +63,15 @@ struct CoreDataManager {
             return try container.viewContext.fetch(request)
         } catch {
             print("Error loading coffee data")
+            return []
+        }
+    }
+    func fetchRoasters() -> [PBRoaster] {
+        let request = NSFetchRequest<PBRoaster>(entityName: DataModel.roaster)
+        do {
+            return try container.viewContext.fetch(request)
+        } catch {
+            print("Error loading roaster data")
             return []
         }
     }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CreateCoffeeView: View {
-    @ObservedObject var viewModel = CreateCoffeeViewModel()
+    @StateObject var viewModel = CreateCoffeeViewModel()
     var body: some View {
         VStack {
             Text("Create Coffee Bean")
@@ -17,6 +17,14 @@ struct CreateCoffeeView: View {
             Form {
                 Section {
                     TextField("Name", text: $viewModel.name)
+                    if !viewModel.availableRoasters.isEmpty {
+                        Picker("Roaster", selection: $viewModel.roasterIndex) {
+                            ForEach(0 ..< viewModel.availableRoasters.count) { index in
+                                Text(viewModel.availableRoasters[index].name!)
+                            }
+                        }
+                        .pickerStyle(WheelPickerStyle())
+                    }
                 }
                 Button(action: {
                     viewModel.addCoffee()
