@@ -36,6 +36,12 @@ struct BrewView: View {
                     label: {
                         Text("Log Brew")
                     })
+                    .simultaneousGesture(TapGesture().onEnded({ _ in
+                        viewModel.saveDefaults()
+                    }))
+                    .simultaneousGesture(LongPressGesture().onEnded({ _ in
+                        viewModel.saveDefaults()
+                    }))
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .contentShape(Rectangle())

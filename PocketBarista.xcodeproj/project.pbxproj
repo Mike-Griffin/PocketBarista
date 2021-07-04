@@ -16,8 +16,8 @@
 		7F4CB2D326819789003F0D06 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4CB2D226819789003F0D06 /* FavoritesView.swift */; };
 		7F4CB2D62682DEA8003F0D06 /* BrewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4CB2D52682DEA8003F0D06 /* BrewView.swift */; };
 		7F79F1CC2686BCC2000BD6B4 /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F79F1CB2686BCC2000BD6B4 /* RatingView.swift */; };
-		7F79F1CE2686C588000BD6B4 /* CreateCoffeeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F79F1CD2686C588000BD6B4 /* CreateCoffeeView.swift */; };
-		7F79F1D12686C5DF000BD6B4 /* CreateCoffeeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F79F1D02686C5DF000BD6B4 /* CreateCoffeeViewModel.swift */; };
+		7F79F1CE2686C588000BD6B4 /* CoffeeBeanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F79F1CD2686C588000BD6B4 /* CoffeeBeanView.swift */; };
+		7F79F1D12686C5DF000BD6B4 /* CoffeeBeanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F79F1D02686C5DF000BD6B4 /* CoffeeBeanViewModel.swift */; };
 		7FCB40A1268D65C900785B6C /* CreateRoasterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCB40A0268D65C900785B6C /* CreateRoasterView.swift */; };
 		7FCB40A3268D660200785B6C /* CreateRoasterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCB40A2268D660200785B6C /* CreateRoasterViewModel.swift */; };
 		7FF45F8D268AC3EA00E93D25 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF45F8C268AC3EA00E93D25 /* CoreDataManager.swift */; };
@@ -44,8 +44,8 @@
 		7F4CB2D226819789003F0D06 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		7F4CB2D52682DEA8003F0D06 /* BrewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewView.swift; sourceTree = "<group>"; };
 		7F79F1CB2686BCC2000BD6B4 /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
-		7F79F1CD2686C588000BD6B4 /* CreateCoffeeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCoffeeView.swift; sourceTree = "<group>"; };
-		7F79F1D02686C5DF000BD6B4 /* CreateCoffeeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCoffeeViewModel.swift; sourceTree = "<group>"; };
+		7F79F1CD2686C588000BD6B4 /* CoffeeBeanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeBeanView.swift; sourceTree = "<group>"; };
+		7F79F1D02686C5DF000BD6B4 /* CoffeeBeanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeBeanViewModel.swift; sourceTree = "<group>"; };
 		7FCB40A0268D65C900785B6C /* CreateRoasterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRoasterView.swift; sourceTree = "<group>"; };
 		7FCB40A2268D660200785B6C /* CreateRoasterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRoasterViewModel.swift; sourceTree = "<group>"; };
 		7FF45F8C268AC3EA00E93D25 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
@@ -163,8 +163,8 @@
 		7F79F1CF2686C5A3000BD6B4 /* CreateCoffeeView */ = {
 			isa = PBXGroup;
 			children = (
-				7F79F1D02686C5DF000BD6B4 /* CreateCoffeeViewModel.swift */,
-				7F79F1CD2686C588000BD6B4 /* CreateCoffeeView.swift */,
+				7F79F1D02686C5DF000BD6B4 /* CoffeeBeanViewModel.swift */,
+				7F79F1CD2686C588000BD6B4 /* CoffeeBeanView.swift */,
 			);
 			path = CreateCoffeeView;
 			sourceTree = "<group>";
@@ -312,7 +312,7 @@
 				7FFCF8B72684321900041FA5 /* QuantitySelectionView.swift in Sources */,
 				7FF45F8D268AC3EA00E93D25 /* CoreDataManager.swift in Sources */,
 				7F4CB2D62682DEA8003F0D06 /* BrewView.swift in Sources */,
-				7F79F1CE2686C588000BD6B4 /* CreateCoffeeView.swift in Sources */,
+				7F79F1CE2686C588000BD6B4 /* CoffeeBeanView.swift in Sources */,
 				7F4CB2C826818DCD003F0D06 /* AppTabView.swift in Sources */,
 				7F4CB2CD26818EC2003F0D06 /* BrewViewModel.swift in Sources */,
 				7FFCF8BC26854A1700041FA5 /* View+Ext.swift in Sources */,
@@ -321,7 +321,7 @@
 				7FFCF8BA2684371300041FA5 /* LogBrewView.swift in Sources */,
 				7F4CB2B726818D0E003F0D06 /* PocketBaristaApp.swift in Sources */,
 				7FFCF8C02686B83E00041FA5 /* LogBrewViewModel.swift in Sources */,
-				7F79F1D12686C5DF000BD6B4 /* CreateCoffeeViewModel.swift in Sources */,
+				7F79F1D12686C5DF000BD6B4 /* CoffeeBeanViewModel.swift in Sources */,
 				7FCB40A3268D660200785B6C /* CreateRoasterViewModel.swift in Sources */,
 				7F79F1CC2686BCC2000BD6B4 /* RatingView.swift in Sources */,
 				7FF45F92268ACF7600E93D25 /* FavoritesViewModel.swift in Sources */,

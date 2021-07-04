@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct FavoritesView: View {
-    @ObservedObject var viewModel = FavoritesViewModel()
-    @State private var showingCreateCoffee = false
-    @State private var showingCreateRoaster = false
+    @StateObject var viewModel = FavoritesViewModel()
     var body: some View {
         NavigationView {
             List {
@@ -22,8 +20,15 @@ struct FavoritesView: View {
                             Menu {
                                 Button {
                                     viewModel.deleteCoffee(coffee)
+                                    viewModel.fetchCoffees()
                                 } label: {
                                     Text("Delete Coffee")
+                                }
+                                Button {
+                                    viewModel.editedCoffee = coffee
+                                    viewModel.showingCreateCoffee = true
+                                } label: {
+                                    Text("Edit Coffee")
                                 }
                             } label: {
                                 Image(systemName: "ellipsis")
@@ -41,22 +46,29 @@ struct FavoritesView: View {
                 viewModel.fetchCoffees()
                 viewModel.fetchRoasters()
             }
-            .sheet(isPresented: $showingCreateCoffee, content: {
-                CreateCoffeeView()
+            .sheet(isPresented: $viewModel.showingCreateCoffee,
+                   onDismiss: {
+                    viewModel.fetchCoffees()
+                   },
+                   content: {
+                CoffeeBeanView(viewModel: CoffeeBeanViewModel(coffee: viewModel.editedCoffee ))
             })
-            .sheet(isPresented: $showingCreateRoaster, content: {
+            .sheet(isPresented: $viewModel.showingCreateRoaster,
+                   onDismiss: {
+                    viewModel.fetchRoasters()
+                   }, content: {
                 CreateRoasterView()
             })
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Menu {
                         Button {
-                            showingCreateCoffee = true
+                            viewModel.showingCreateCoffee = true
                         } label: {
                             Text("Create Coffee")
                         }
                         Button {
-                            showingCreateRoaster = true
+                            viewModel.showingCreateRoaster = true
                         } label: {
                             Text("Create Roaster")
                         }

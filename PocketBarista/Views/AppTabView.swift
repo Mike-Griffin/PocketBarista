@@ -15,7 +15,7 @@ struct AppTabView: View {
             FavoritesView()
                 .tabItem { Label("Favorites", systemImage: "star")}
             NavigationView {
-                CreateCoffeeView()
+                CoffeeBeanView(viewModel: CoffeeBeanViewModel())
             }
                 .tabItem {
                     Label("Coffee", systemImage: "bed.double")

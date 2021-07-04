@@ -26,3 +26,14 @@ enum DataModel {
     static let coffee = "PBCoffee"
     static let roaster = "PBRoaster"
 }
+
+enum DefaultsKeys: String {
+    case brewQuantity
+    case brewMeasurement
+    case coffeeRatioQuantity
+    case coffeeRatioMeasurement
+    case waterRatioQuantity
+    case waterRatioMeasurement
+    case coffeeRequiredMeasurement
+    case waterRequiredMeasurement
+}

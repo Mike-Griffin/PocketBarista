@@ -14,7 +14,6 @@ struct CoreDataManager {
         let manager = CoreDataManager(inMemory: true)
         let coffee = PBCoffee(context: manager.container.viewContext)
         coffee.name = "Golden Sunshine"
-        coffee.originLocation = "Papua New Guinea"
         let roaster = PBRoaster(context: manager.container.viewContext)
         roaster.name = "Chromatic"
         roaster.location = "San Jose"
@@ -46,9 +45,17 @@ struct CoreDataManager {
         container.viewContext.delete(object)
         save()
     }
-    func addCoffee(name: String, roaster: PBRoaster?) {
+    func addCoffee(name: String, roaster: PBRoaster?, rating: Int) {
         let coffee = PBCoffee(context: container.viewContext)
         coffee.name = name
+        if let roaster = roaster {
+            print("roaster in the core data manager add coffee")
+            print(roaster)
+            coffee.roaster = roaster
+        }
+        if rating > 0 && rating <= 5 {
+            coffee.rating = Int16(rating)
+        }
         save()
     }
     func addRoaster(name: String, location: String) {
