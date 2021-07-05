@@ -15,7 +15,12 @@ struct FavoritesView: View {
                 Section(header: Text("Coffees")) {
                     ForEach(viewModel.coffees) { coffee in
                         HStack {
-                            Text(coffee.name ?? "Uh oh no name")
+                            Button {
+                                viewModel.selectedCoffee = coffee
+                                viewModel.showingCreateCoffee = true
+                            } label: {
+                                Text(coffee.name ?? "Uh oh no name")
+                            }
                             Spacer()
                             Menu {
                                 Button {
@@ -25,7 +30,7 @@ struct FavoritesView: View {
                                     Text("Delete Coffee")
                                 }
                                 Button {
-                                    viewModel.editedCoffee = coffee
+                                    viewModel.selectedCoffee = coffee
                                     viewModel.showingCreateCoffee = true
                                 } label: {
                                     Text("Edit Coffee")
@@ -51,8 +56,8 @@ struct FavoritesView: View {
                     viewModel.fetchCoffees()
                    },
                    content: {
-                CoffeeBeanView(viewModel: CoffeeBeanViewModel(coffee: viewModel.editedCoffee ))
-            })
+                        CoffeeBeanView(viewModel: CoffeeBeanViewModel(coffee: viewModel.selectedCoffee))
+                   })
             .sheet(isPresented: $viewModel.showingCreateRoaster,
                    onDismiss: {
                     viewModel.fetchRoasters()

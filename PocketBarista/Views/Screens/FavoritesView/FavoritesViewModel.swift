@@ -12,7 +12,7 @@ class FavoritesViewModel: ObservableObject {
     @Published var roasters: [PBRoaster] = []
     @Published var showingCreateCoffee = false
     @Published var showingCreateRoaster = false
-    @Published var editedCoffee: PBCoffee?
+    @Published var selectedCoffee: PBCoffee?
     let manager = CoreDataManager.shared
     func fetchCoffees() {
         coffees = manager.fetchCoffees()
