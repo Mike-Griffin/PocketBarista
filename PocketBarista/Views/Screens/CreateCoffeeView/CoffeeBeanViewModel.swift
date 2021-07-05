@@ -5,7 +5,7 @@
 //  Created by Mike Griffin on 6/25/21.
 //
 
-import Foundation
+import UIKit
 
 class CoffeeBeanViewModel: ObservableObject {
     @Published var name: String = ""
@@ -15,6 +15,8 @@ class CoffeeBeanViewModel: ObservableObject {
     @Published var roasterSelectExpanded = false
     @Published var rating: Int = 0
     @Published var review = ""
+    @Published var isShowingPhotoPicker = false
+    @Published var image: UIImage?
     @Published var coffee: PBCoffee?
     private var roasterHasBeenExpanded = false
     let manager = CoreDataManager.shared

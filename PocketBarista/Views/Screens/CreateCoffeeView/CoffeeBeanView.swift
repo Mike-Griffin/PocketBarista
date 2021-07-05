@@ -35,6 +35,22 @@ struct CoffeeBeanView: View {
                         }
                     }
                     RatingView(rating: $viewModel.rating)
+                    Button(action: {
+                        viewModel.isShowingPhotoPicker = true
+                    }, label: {
+                        HStack {
+                            Text("Add Image")
+                            Spacer()
+                            Image(systemName: "camera.fill")
+                        }
+                    })
+                    if viewModel.image != nil {
+                        Image(uiImage: viewModel.image!)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 160, height: 160)
+                            .clipShape(Circle())
+                    }
                 }
                 Button(action: {
                     viewModel.saveCoffee()
@@ -49,6 +65,9 @@ struct CoffeeBeanView: View {
             // for when the sheet has been closed and opened again
             viewModel.updateState()
         }
+        .sheet(isPresented: $viewModel.isShowingPhotoPicker, content: {
+            PhotoPicker(image: $viewModel.image)
+        })
     }
 }
 
