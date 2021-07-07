@@ -6,6 +6,7 @@
 //
 
 import CoreData
+import UIKit
 
 struct CoreDataManager {
     static let shared = CoreDataManager()
@@ -45,7 +46,7 @@ struct CoreDataManager {
         container.viewContext.delete(object)
         save()
     }
-    func addCoffee(name: String, roaster: PBRoaster?, rating: Int) {
+    func addCoffee(name: String, roaster: PBRoaster?, rating: Int, image: UIImage?) {
         let coffee = PBCoffee(context: container.viewContext)
         coffee.name = name
         if let roaster = roaster {
@@ -55,6 +56,9 @@ struct CoreDataManager {
         }
         if rating > 0 && rating <= 5 {
             coffee.rating = Int16(rating)
+        }
+        if let image = image {
+            coffee.image = image.pngData()
         }
         save()
     }

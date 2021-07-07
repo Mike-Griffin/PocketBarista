@@ -34,6 +34,9 @@ class CoffeeBeanViewModel: ObservableObject {
                     roasterLabel = "Roaster: \(name)"
                 }
             }
+            if let imageData = coffee?.image {
+                image = UIImage(data: imageData)
+            }
         }
         if roasterLabel.isEmpty {
             roasterLabel = "Select Roaster"
@@ -47,7 +50,7 @@ class CoffeeBeanViewModel: ObservableObject {
         }
         print(rating)
         if coffee == nil {
-            manager.addCoffee(name: name, roaster: roaster, rating: rating)
+            manager.addCoffee(name: name, roaster: roaster, rating: rating, image: image)
         } else {
             print("need to handle the edit coffee case")
         }
