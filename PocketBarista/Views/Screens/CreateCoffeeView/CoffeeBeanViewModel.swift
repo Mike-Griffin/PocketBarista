@@ -18,6 +18,8 @@ class CoffeeBeanViewModel: ObservableObject {
     @Published var isShowingPhotoPicker = false
     @Published var image: UIImage?
     @Published var coffee: PBCoffee?
+    @Published var isShowingTagPicker = false
+    @Published var tags: [PBTag] = []
     private var roasterHasBeenExpanded = false
     let manager = CoreDataManager.shared
     init(coffee: PBCoffee? = nil) {
@@ -28,6 +30,7 @@ class CoffeeBeanViewModel: ObservableObject {
         if coffee != nil {
             name = coffee?.name ?? ""
             rating = Int(coffee?.rating ?? 0)
+            tags = coffee?.tags?.allObjects as? [PBTag] ?? []
             if let roaster = coffee?.roaster {
                 roasterIndex = availableRoasters.firstIndex(of: roaster) ?? 0
                 if let name = roaster.name {
@@ -48,9 +51,8 @@ class CoffeeBeanViewModel: ObservableObject {
         if roasterHasBeenExpanded || roasterIndex != 0 {
             roaster = availableRoasters[roasterIndex]
         }
-        print(rating)
         if coffee == nil {
-            manager.addCoffee(name: name, roaster: roaster, rating: rating, image: image)
+            manager.addCoffee(name: name, roaster: roaster, rating: rating, image: image, tags: tags)
         } else {
             print("need to handle the edit coffee case")
         }

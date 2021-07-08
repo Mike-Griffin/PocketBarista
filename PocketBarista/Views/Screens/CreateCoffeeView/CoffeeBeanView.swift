@@ -51,6 +51,15 @@ struct CoffeeBeanView: View {
                             .frame(width: 160, height: 160)
                             .clipShape(Circle())
                     }
+                    Button(action: {
+                        viewModel.isShowingTagPicker = true
+                    }, label: {
+                        if !viewModel.tags.isEmpty, let tag1 = viewModel.tags[0] {
+                            Text(tag1.name!)
+                        } else {
+                            Text("Select Tags")
+                        }
+                    })
                 }
                 Button(action: {
                     viewModel.saveCoffee()
@@ -67,6 +76,9 @@ struct CoffeeBeanView: View {
         }
         .sheet(isPresented: $viewModel.isShowingPhotoPicker, content: {
             PhotoPicker(image: $viewModel.image)
+        })
+        .sheet(isPresented: $viewModel.isShowingTagPicker, content: {
+            SelectTagsView(tags: $viewModel.tags)
         })
     }
 }

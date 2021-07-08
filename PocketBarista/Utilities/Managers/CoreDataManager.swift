@@ -46,7 +46,7 @@ struct CoreDataManager {
         container.viewContext.delete(object)
         save()
     }
-    func addCoffee(name: String, roaster: PBRoaster?, rating: Int, image: UIImage?) {
+    func addCoffee(name: String, roaster: PBRoaster?, rating: Int, image: UIImage?, tags: [PBTag]) {
         let coffee = PBCoffee(context: container.viewContext)
         coffee.name = name
         if let roaster = roaster {
@@ -60,12 +60,19 @@ struct CoreDataManager {
         if let image = image {
             coffee.image = image.pngData()
         }
+        let tagsSet = Set(tags) as NSSet
+        coffee.addToTags(tagsSet)
         save()
     }
     func addRoaster(name: String, location: String) {
         let roaster = PBRoaster(context: container.viewContext)
         roaster.name = name
         roaster.location = location
+        save()
+    }
+    func addTag(name: String) {
+        let tag = PBTag(context: container.viewContext)
+        tag.name = name
         save()
     }
     func fetchCoffees() -> [PBCoffee] {
@@ -83,6 +90,15 @@ struct CoreDataManager {
             return try container.viewContext.fetch(request)
         } catch {
             print("Error loading roaster data")
+            return []
+        }
+    }
+    func fetchTags() -> [PBTag] {
+        let request = NSFetchRequest<PBTag>(entityName: DataModel.tag)
+        do {
+            return try container.viewContext.fetch(request)
+        } catch {
+            print("Error loading tag data")
             return []
         }
     }

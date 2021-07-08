@@ -6,7 +6,7 @@
         <attribute name="rating" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="review" optional="YES" attributeType="String"/>
         <relationship name="roaster" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PBRoaster" inverseName="coffees" inverseEntity="PBRoaster"/>
-        <relationship name="tags" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PBTag" inverseName="coffees" inverseEntity="PBTag"/>
+        <relationship name="tags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PBTag" inverseName="coffees" inverseEntity="PBTag"/>
     </entity>
     <entity name="PBRoaster" representedClassName="PBRoaster" elementID="PBRoaster" syncable="YES" codeGenerationType="class">
         <attribute name="location" optional="YES" attributeType="String"/>
