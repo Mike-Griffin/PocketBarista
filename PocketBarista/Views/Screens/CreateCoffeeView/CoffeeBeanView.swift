@@ -39,7 +39,7 @@ struct CoffeeBeanView: View {
                         viewModel.isShowingPhotoPicker = true
                     }, label: {
                         HStack {
-                            Text("Add Image")
+                            Text("\(viewModel.image != nil ? "Edit" : "Add") Image")
                             Spacer()
                             Image(systemName: "camera.fill")
                         }

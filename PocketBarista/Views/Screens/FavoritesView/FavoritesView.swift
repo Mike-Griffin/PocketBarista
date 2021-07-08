@@ -37,6 +37,7 @@ struct FavoritesView: View {
                                 }
                             } label: {
                                 Image(systemName: "ellipsis")
+                                    .frame(width: 30, height: 30)
                             }
                         }
                     }
