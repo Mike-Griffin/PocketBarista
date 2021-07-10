@@ -5,7 +5,7 @@
 //  Created by Mike Griffin on 6/21/21.
 //
 
-import Foundation
+import UIKit
 
 enum MeasurementType: String, Equatable, CaseIterable {
     case ounce
@@ -37,4 +37,8 @@ enum DefaultsKeys: String {
     case waterRatioMeasurement
     case coffeeRequiredMeasurement
     case waterRequiredMeasurement
+}
+
+enum PlaceholderImage {
+    static let coffeeMug = UIImage(named: "mug")!
 }

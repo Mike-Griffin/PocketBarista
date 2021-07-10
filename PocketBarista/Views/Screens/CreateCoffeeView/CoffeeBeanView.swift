@@ -13,6 +13,24 @@ struct CoffeeBeanView: View {
     var body: some View {
         NavigationView {
             VStack {
+                ZStack {
+                    Image(uiImage: viewModel.image)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 84, height: 84)
+
+                    Image(systemName: "square.and.pencil")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 12, height: 12)
+                        .offset(y: 30)
+                        .foregroundColor(.white)
+
+                }
+                .clipShape(Circle())
+                .onTapGesture {
+                    viewModel.isShowingPhotoPicker = true
+                }
                 Form {
                     Section {
                         TextField("Name", text: $viewModel.name)
@@ -23,27 +41,14 @@ struct CoffeeBeanView: View {
                                     Text(roaster!.name!).tag(roaster)
                                 }
                             }
-//                            .onChange(of: viewModel.roasterIndex, perform: { _ in
-//                                viewModel.updateRoasterLabel()
-//                            })
+                        } else {
+                            NavigationLink(destination: CreateRoasterView(), label: {
+                                Text("No roasters exist. Create one")
+                            })
                         }
-                        RatingView(rating: $viewModel.rating)
-                        Button(action: {
-                            viewModel.isShowingPhotoPicker = true
-                        }, label: {
-                            HStack {
-                                Text("\(viewModel.image != nil ? "Edit" : "Add") Image")
-                                Spacer()
-                                Image(systemName: "camera.fill")
-                            }
-                        })
-                        if viewModel.image != nil {
-                            Image(uiImage: viewModel.image!)
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 160, height: 160)
-                                .clipShape(Circle())
-                        }
+
+                    }
+                    Section {
                         Button(action: {
                             viewModel.isShowingTagPicker = true
                         }, label: {
@@ -54,6 +59,14 @@ struct CoffeeBeanView: View {
                             }
                         })
                     }
+                    Section {
+                        HStack {
+                            Text("Rating")
+                            Spacer()
+                            RatingView(rating: $viewModel.rating)
+                        }
+                        ReviewTextArea(text: $viewModel.review)
+                    }
                     Button(action: {
                         viewModel.saveCoffee()
                         presentationMode.wrappedValue.dismiss()
@@ -63,6 +76,27 @@ struct CoffeeBeanView: View {
                 }
             }
             .navigationTitle(viewModel.coffee == nil ? "Create Coffee Bean" : "")
+            .toolbar(content: {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        print("saving")
+                    } label: {
+                        Text("Save")
+                    }
+
+                }
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button {
+                        print("dismiss the view")
+                    } label: {
+                        HStack {
+                            Image(systemName: "chevron.backward")
+                            Text("Back")
+                        }
+                    }
+                }
+            })
+
         }
         .onAppear {
             // doing this to reset all the values in the view model
@@ -81,5 +115,16 @@ struct CoffeeBeanView: View {
 struct CreateCoffeeView_Previews: PreviewProvider {
     static var previews: some View {
         CoffeeBeanView(viewModel: CoffeeBeanViewModel())
+    }
+}
+
+struct ReviewTextArea: View {
+    @Binding var text: String
+    var body: some View {
+        ZStack(alignment: .topLeading) {
+            TextEditor(text: $text)
+            Text(text.isEmpty ? "Review" : "")
+        }
+
     }
 }

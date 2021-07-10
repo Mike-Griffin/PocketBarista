@@ -16,7 +16,7 @@ class CoffeeBeanViewModel: ObservableObject {
     @Published var rating: Int = 0
     @Published var review = ""
     @Published var isShowingPhotoPicker = false
-    @Published var image: UIImage?
+    @Published var image: UIImage = PlaceholderImage.coffeeMug
     @Published var coffee: PBCoffee?
     @Published var isShowingTagPicker = false
     @Published var tags: [PBTag] = []
@@ -37,7 +37,7 @@ class CoffeeBeanViewModel: ObservableObject {
 //
 //            }
             if let imageData = coffee?.image {
-                image = UIImage(data: imageData)
+                image = UIImage(data: imageData) ?? PlaceholderImage.coffeeMug
             }
         }
     }
