@@ -48,6 +48,7 @@ struct FavoritesView: View {
                     }
                 }
             }
+            .navigationBarTitleDisplayMode(.inline)
             .onAppear {
                 viewModel.fetchCoffees()
                 viewModel.fetchRoasters()

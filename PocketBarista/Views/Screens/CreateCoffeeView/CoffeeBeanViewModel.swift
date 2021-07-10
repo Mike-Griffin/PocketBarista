@@ -9,10 +9,10 @@ import UIKit
 
 class CoffeeBeanViewModel: ObservableObject {
     @Published var name: String = ""
-    @Published var availableRoasters: [PBRoaster]
+    @Published var availableRoasters: [PBRoaster?]
     @Published var roasterIndex: Int = 0
+    @Published var selectedRoaster: PBRoaster?
     @Published var roasterLabel: String
-    @Published var roasterSelectExpanded = false
     @Published var rating: Int = 0
     @Published var review = ""
     @Published var isShowingPhotoPicker = false
@@ -31,28 +31,20 @@ class CoffeeBeanViewModel: ObservableObject {
             name = coffee?.name ?? ""
             rating = Int(coffee?.rating ?? 0)
             tags = coffee?.tags?.allObjects as? [PBTag] ?? []
-            if let roaster = coffee?.roaster {
-                roasterIndex = availableRoasters.firstIndex(of: roaster) ?? 0
-                if let name = roaster.name {
-                    roasterLabel = "Roaster: \(name)"
-                }
-            }
+            selectedRoaster = coffee?.roaster
+//            if let roaster = coffee?.roaster {
+//                selectedRoaster = roaster
+//
+//            }
             if let imageData = coffee?.image {
                 image = UIImage(data: imageData)
             }
         }
-        if roasterLabel.isEmpty {
-            roasterLabel = "Select Roaster"
-        }
     }
     func saveCoffee() {
         guard !name.isEmpty else { return }
-        var roaster: PBRoaster?
-        if roasterHasBeenExpanded || roasterIndex != 0 {
-            roaster = availableRoasters[roasterIndex]
-        }
         if coffee == nil {
-            manager.addCoffee(name: name, roaster: roaster, rating: rating, image: image, tags: tags)
+            manager.addCoffee(name: name, roaster: selectedRoaster, rating: rating, image: image, tags: tags)
         } else {
             print("need to handle the edit coffee case")
         }
@@ -60,11 +52,11 @@ class CoffeeBeanViewModel: ObservableObject {
     func fetchRoasters() {
         availableRoasters = manager.fetchRoasters()
     }
-    func updateRoasterLabel() {
-        roasterHasBeenExpanded = true
-        let roaster = availableRoasters[roasterIndex]
-        roasterLabel = "Roaster: \(roaster.name!)"
-    }
+//    func updateRoasterLabel() {
+//        roasterHasBeenExpanded = true
+//        let roaster = availableRoasters[roasterIndex]
+//        roasterLabel = "Roaster: \(roaster.name!)"
+//    }
     func updateState() {
         if coffee == nil {
             name = ""
