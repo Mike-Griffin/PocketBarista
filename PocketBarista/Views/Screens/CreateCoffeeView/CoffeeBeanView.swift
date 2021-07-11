@@ -52,7 +52,7 @@ struct CoffeeBeanView: View {
                         Button(action: {
                             viewModel.isShowingTagPicker = true
                         }, label: {
-                            if !viewModel.tags.isEmpty, let tag1 = viewModel.tags[0] {
+                            if !viewModel.tags.isEmpty, let tag1 = viewModel.tags[1] {
                                 Text(tag1.name!)
                             } else {
                                 Text("Select Tags")

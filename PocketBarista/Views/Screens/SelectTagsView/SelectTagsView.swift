@@ -19,12 +19,12 @@ struct SelectTagsView: View {
                 && viewModel.searchText.isEmpty {
                 Text("No tags yet. Start typing the name of a tag")
             } else {
-                ForEach(0 ..< viewModel.availableTags.count) { index in
+                ForEach(viewModel.availableTags) { tag in
                     Button(action: {
                         print("implement the select tag logic")
-                        tags.append(viewModel.availableTags[index])
+                        tags.append(tag)
                     }, label: {
-                        Text(viewModel.availableTags[index].name ?? "no tag name uh oh")
+                        Text(tag.name ?? "no tag name uh oh").tag(tag)
                     })
                 }
             }
