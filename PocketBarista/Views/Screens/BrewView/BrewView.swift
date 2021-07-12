@@ -11,7 +11,8 @@ struct BrewView: View {
     @ObservedObject var viewModel = BrewViewModel()
     var body: some View {
         NavigationView {
-            VStack(spacing: 32) {
+            VStack(spacing: 48) {
+                Spacer()
                 BrewPreferencesView(
                     brewQuantity: $viewModel.brewQuantity,
                     brewMeasurement: $viewModel.brewMeasurement,
@@ -20,6 +21,7 @@ struct BrewView: View {
                     waterRatioQuantity: $viewModel.waterRatioQuantity,
                     waterRatioMeasurement: $viewModel.waterRatioMeasurement
                 )
+                Spacer()
                 RequiredValuesView(
                     waterValue: viewModel.waterRequiredValue,
                     waterMeasurement: $viewModel.waterRequiredMeasurement,
@@ -44,6 +46,7 @@ struct BrewView: View {
                     }))
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .offset(y: -48)
             .contentShape(Rectangle())
             .onTapGesture {
                 dismissKeyboard()
@@ -87,7 +90,7 @@ struct AmountBrewLine: View {
     @State var showingNumberSheet = false
     var body: some View {
         HStack(spacing: 0) {
-            Text("I'm brewing ")
+            Text("Now brewing ")
                 .foregroundColor(.secondary)
             QuantityTextField(quantity: $quantity)
             Text(" ")
@@ -156,7 +159,7 @@ struct RequiredValuesView: View {
     @State var showingCoffeeSheet = false
     var body: some View {
         VStack {
-            Text("This will be:")
+            Text("You will need:")
             HStack {
                 waterValue.textDisplay()
                 Text(" \(waterMeasurement.checkPlural(waterValue))")
