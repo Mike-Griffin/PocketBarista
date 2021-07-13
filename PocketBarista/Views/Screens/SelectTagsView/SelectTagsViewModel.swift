@@ -8,7 +8,13 @@
 import Foundation
 
 class SelectTagsViewModel: ObservableObject {
-    @Published var availableTags: [PBTag] = []
+    @Published var availableTags: [PBTag] = [] {
+        didSet {
+            if searchText.isEmpty {
+                searchTags = availableTags
+            }
+        }
+    }
     @Published var searchTags: [PBTag] = []
     @Published var searchText = "" {
         didSet {
@@ -19,8 +25,24 @@ class SelectTagsViewModel: ObservableObject {
             }
         }
     }
+    let manager = CoreDataManager.shared
     func fetchTags() {
-        availableTags = CoreDataManager.shared.fetchTags()
+        manager.fetchTags { [self] result in
+            if Thread.isMainThread {
+                print("main thread fetch tags in the select tags")
+            } else {
+                print("NOT the main thread fetch tags in the select tags NOT NOT")
+            }
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let tags):
+                    self.availableTags = tags
+                case .failure(_):
+                    // TODO reconsider if I want to just break
+                    self.availableTags = []
+                }
+            }
+        }
     }
     func saveTag() {
         if !searchText.isEmpty {

@@ -19,13 +19,22 @@ struct SelectTagsView: View {
                 && viewModel.searchText.isEmpty {
                 Text("No tags yet. Start typing the name of a tag")
             } else {
-                ForEach(viewModel.availableTags) { tag in
-                    Button(action: {
-                        print("implement the select tag logic")
+                ForEach(viewModel.searchTags) { tag in
+                    HStack {
+                        Text(tag.name!)
+                        Spacer()
+                        Image(systemName: tags.contains(tag) ? "checkmark.square" : "square")
+                    }
+                    .onTapGesture {
+                        print("implement the select tag stuff")
                         tags.append(tag)
-                    }, label: {
-                        Text(tag.name ?? "no tag name uh oh").tag(tag)
-                    })
+                    }
+//                    Button(action: {
+//                        print("implement the select tag logic")
+//                        tags.append(tag)
+//                    }, label: {
+//                        Text(tag.name ?? "no tag name uh oh").tag(tag)
+//                    })
                 }
             }
             if viewModel.searchTags.isEmpty && !viewModel.searchText.isEmpty {

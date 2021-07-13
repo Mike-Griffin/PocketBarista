@@ -15,6 +15,7 @@ struct RatingView: View {
                 Image(systemName: index < rating ? "star.fill" : "star")
                     .onTapGesture {
                         rating = index + 1
+                        print("rating selected??")
                     }
             }
         }

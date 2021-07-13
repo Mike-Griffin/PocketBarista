@@ -15,10 +15,32 @@ class FavoritesViewModel: ObservableObject {
     @Published var selectedCoffee: PBCoffee?
     let manager = CoreDataManager.shared
     func fetchCoffees() {
-        coffees = manager.fetchCoffees()
+        manager.fetchCoffees { [self] result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let coffees):
+                    print("great success")
+                    self.coffees = coffees
+                case .failure(_):
+                    // TODO reconsider if I need to set coffees to blank
+                    break
+                }
+            }
+        }
     }
     func fetchRoasters() {
-        roasters = manager.fetchRoasters()
+        manager.fetchRoasters { [self] result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let roasters):
+                    self.roasters = roasters
+                case .failure(_):
+                    // TODO reconsider if I want to just break
+                    self.roasters = []
+                }
+            }
+        }
+
     }
     func deleteCoffee(_ coffee: PBCoffee) {
         manager.delete(coffee)

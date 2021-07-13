@@ -5,11 +5,11 @@
 //  Created by Mike Griffin on 6/25/21.
 //
 
-import UIKit
+import SwiftUI
 
 class CoffeeBeanViewModel: ObservableObject {
     @Published var name: String = ""
-    @Published var availableRoasters: [PBRoaster?]
+    @Published var availableRoasters: [PBRoaster?] = []
     @Published var roasterIndex: Int = 0
     @Published var selectedRoaster: PBRoaster?
     @Published var roasterLabel: String
@@ -20,13 +20,16 @@ class CoffeeBeanViewModel: ObservableObject {
     @Published var coffee: PBCoffee?
     @Published var isShowingTagPicker = false
     @Published var tags: [PBTag] = []
+    let columns = [GridItem(.flexible()),
+                   GridItem(.flexible()),
+                   GridItem(.flexible())]
     private var roasterHasBeenExpanded = false
     let manager = CoreDataManager.shared
     init(coffee: PBCoffee? = nil) {
         roasterLabel = ""
         name = ""
         self.coffee = coffee
-        availableRoasters = manager.fetchRoasters()
+
         if coffee != nil {
             name = coffee?.name ?? ""
             rating = Int(coffee?.rating ?? 0)
@@ -40,6 +43,22 @@ class CoffeeBeanViewModel: ObservableObject {
                 image = UIImage(data: imageData) ?? PlaceholderImage.coffeeMug
             }
         }
+        manager.fetchRoasters { [self] result in
+            if Thread.isMainThread {
+                print("main thread fetch roasters in the coffee bean")
+            } else {
+                print("NOT the main thread fetch roasters in the coffee bean NOT NOT")
+            }
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let roasters):
+                    self.availableRoasters = roasters
+                case .failure(_):
+                    // TODO reconsider if I want to just break
+                    self.availableRoasters = []
+                }
+            }
+        }
     }
     func saveCoffee() {
         guard !name.isEmpty else { return }
@@ -50,13 +69,18 @@ class CoffeeBeanViewModel: ObservableObject {
         }
     }
     func fetchRoasters() {
-        availableRoasters = manager.fetchRoasters()
+        manager.fetchRoasters { [self] result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let roasters):
+                    self.availableRoasters = roasters
+                case .failure(_):
+                    // TODO reconsider if I want to just break
+                    self.availableRoasters = []
+                }
+            }
+        }
     }
-//    func updateRoasterLabel() {
-//        roasterHasBeenExpanded = true
-//        let roaster = availableRoasters[roasterIndex]
-//        roasterLabel = "Roaster: \(roaster.name!)"
-//    }
     func updateState() {
         if coffee == nil {
             name = ""
