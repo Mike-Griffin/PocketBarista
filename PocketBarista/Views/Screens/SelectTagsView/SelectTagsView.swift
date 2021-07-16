@@ -12,20 +12,21 @@ struct SelectTagsView: View {
     @StateObject var viewModel = SelectTagsViewModel()
     var body: some View {
         VStack {
-            TextField("Search Tag", text: $viewModel.searchText)
-                .padding(24)
-                .autocapitalization(.none)
+            SearchField(searchText: $viewModel.searchText)
             if viewModel.availableTags.isEmpty
                 && viewModel.searchText.isEmpty {
                 Text("No tags yet. Start typing the name of a tag")
             } else {
                 ForEach(viewModel.availableTags) { tag in
-                    Button(action: {
-                        print("implement the select tag logic")
+                    HStack {
+                        Text(tag.name!)
+                        Spacer()
+                        Image(systemName: tags.contains(tag) ? "checkmark.square" : "square")
+                    }
+                    .padding(.horizontal)
+                    .onTapGesture {
                         tags.append(tag)
-                    }, label: {
-                        Text(tag.name ?? "no tag name uh oh").tag(tag)
-                    })
+                    }
                 }
             }
             if viewModel.searchTags.isEmpty && !viewModel.searchText.isEmpty {

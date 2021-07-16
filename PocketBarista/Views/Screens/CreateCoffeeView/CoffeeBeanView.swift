@@ -52,12 +52,15 @@ struct CoffeeBeanView: View {
                         Button(action: {
                             viewModel.isShowingTagPicker = true
                         }, label: {
-                            if !viewModel.tags.isEmpty, let tag1 = viewModel.tags[1] {
-                                Text(tag1.name!)
-                            } else {
-                                Text("Select Tags")
-                            }
+                            Text("Select Tags")
                         })
+                        if !viewModel.tags.isEmpty {
+                            LazyVGrid(columns: viewModel.columns, content: {
+                                ForEach(viewModel.tags) { tag in
+                                    Text(tag.name!)
+                                }
+                            })
+                        }
                     }
                     Section {
                         HStack {
@@ -79,7 +82,8 @@ struct CoffeeBeanView: View {
             .toolbar(content: {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
-                        print("saving")
+                        viewModel.saveCoffee()
+                        presentationMode.wrappedValue.dismiss()
                     } label: {
                         Text("Save")
                     }

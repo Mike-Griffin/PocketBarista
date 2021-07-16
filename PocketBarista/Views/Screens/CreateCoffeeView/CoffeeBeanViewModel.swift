@@ -5,7 +5,7 @@
 //  Created by Mike Griffin on 6/25/21.
 //
 
-import UIKit
+import SwiftUI
 
 class CoffeeBeanViewModel: ObservableObject {
     @Published var name: String = ""
@@ -20,7 +20,9 @@ class CoffeeBeanViewModel: ObservableObject {
     @Published var coffee: PBCoffee?
     @Published var isShowingTagPicker = false
     @Published var tags: [PBTag] = []
-    private var roasterHasBeenExpanded = false
+    let columns = [GridItem(.flexible()),
+                   GridItem(.flexible()),
+                   GridItem(.flexible())]
     let manager = CoreDataManager.shared
     init(coffee: PBCoffee? = nil) {
         roasterLabel = ""
@@ -32,10 +34,6 @@ class CoffeeBeanViewModel: ObservableObject {
             rating = Int(coffee?.rating ?? 0)
             tags = coffee?.tags?.allObjects as? [PBTag] ?? []
             selectedRoaster = coffee?.roaster
-//            if let roaster = coffee?.roaster {
-//                selectedRoaster = roaster
-//
-//            }
             if let imageData = coffee?.image {
                 image = UIImage(data: imageData) ?? PlaceholderImage.coffeeMug
             }
@@ -52,11 +50,6 @@ class CoffeeBeanViewModel: ObservableObject {
     func fetchRoasters() {
         availableRoasters = manager.fetchRoasters()
     }
-//    func updateRoasterLabel() {
-//        roasterHasBeenExpanded = true
-//        let roaster = availableRoasters[roasterIndex]
-//        roasterLabel = "Roaster: \(roaster.name!)"
-//    }
     func updateState() {
         if coffee == nil {
             name = ""

@@ -22,6 +22,7 @@
 		7FCB2048269EA00600968EDB /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCB2047269EA00600968EDB /* SettingsView.swift */; };
 		7FCB204D26A10DCB00968EDB /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCB204C26A10DCA00968EDB /* SettingsViewModel.swift */; };
 		7FCB204F26A10E5900968EDB /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCB204E26A10E5900968EDB /* UserDefaultsManager.swift */; };
+		7FCB205126A20A3000968EDB /* SearchField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCB205026A20A3000968EDB /* SearchField.swift */; };
 		7FCB40A1268D65C900785B6C /* CreateRoasterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCB40A0268D65C900785B6C /* CreateRoasterView.swift */; };
 		7FCB40A3268D660200785B6C /* CreateRoasterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCB40A2268D660200785B6C /* CreateRoasterViewModel.swift */; };
 		7FEC221226963959007466D7 /* spotlight120.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FEC21F826963958007466D7 /* spotlight120.png */; };
@@ -82,6 +83,7 @@
 		7FCB2047269EA00600968EDB /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		7FCB204C26A10DCA00968EDB /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		7FCB204E26A10E5900968EDB /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
+		7FCB205026A20A3000968EDB /* SearchField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchField.swift; sourceTree = "<group>"; };
 		7FCB40A0268D65C900785B6C /* CreateRoasterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRoasterView.swift; sourceTree = "<group>"; };
 		7FCB40A2268D660200785B6C /* CreateRoasterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRoasterViewModel.swift; sourceTree = "<group>"; };
 		7FEC21F826963958007466D7 /* spotlight120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spotlight120.png; sourceTree = "<group>"; };
@@ -329,6 +331,7 @@
 				7FFCF8B32684300F00041FA5 /* MeasurementSelectionView.swift */,
 				7FFCF8B62684321900041FA5 /* QuantitySelectionView.swift */,
 				7F79F1CB2686BCC2000BD6B4 /* RatingView.swift */,
+				7FCB205026A20A3000968EDB /* SearchField.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -476,6 +479,7 @@
 				7FCB2048269EA00600968EDB /* SettingsView.swift in Sources */,
 				7FFCF8B226840B9F00041FA5 /* Float+Ext.swift in Sources */,
 				7FFCF8BE2686A2B500041FA5 /* CustomModifiers.swift in Sources */,
+				7FCB205126A20A3000968EDB /* SearchField.swift in Sources */,
 				7FFCF8BA2684371300041FA5 /* LogBrewView.swift in Sources */,
 				7F4CB2B726818D0E003F0D06 /* PocketBaristaApp.swift in Sources */,
 				7FFCF8C02686B83E00041FA5 /* LogBrewViewModel.swift in Sources */,
