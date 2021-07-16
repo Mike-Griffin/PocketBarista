@@ -16,7 +16,7 @@ struct SelectCoffeeView: View {
             SearchField(searchText: $viewModel.searchText)
             ForEach(viewModel.searchCoffees) { coffee in
                 HStack {
-                    Text(coffee.name!)
+                    Text(coffee.roaster != nil ? "\(coffee.roaster!.name!): \(coffee.name!)" : coffee.name!)
                     Spacer()
                     Image(systemName: viewModel.checkSelected(selected: selectedCoffee, coffee: coffee)
                           ? "checkmark.square"
