@@ -197,7 +197,6 @@ struct QuantityTextField: View {
     var body: some View {
         VStack(spacing: 0) {
             TextField("", text: $quantity) { change in
-                print(change)
                 if previousQuantity.isEmpty {
                     previousQuantity = quantity
                 }

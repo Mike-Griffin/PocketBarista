@@ -21,16 +21,26 @@ struct LogBrewView: View {
                 Text("You're brewing \(brewQuantity) \(brewMeasurement.checkPlural(Float(brewQuantity) ?? 0))")
                 Text("with a ratio of")
                 Text("\(coffeeRatioQuantity) "
-                    + "\(coffeeRatioMeasurement.checkPlural(Float(coffeeRatioQuantity) ?? 0))"
-                    + " coffee to \(waterRatioQuantity)"
-                    + " \(waterRatioMeasurement.checkPlural(Float(waterRatioQuantity) ?? 0)) water")
+                     + "\(coffeeRatioMeasurement.checkPlural(Float(coffeeRatioQuantity) ?? 0))"
+                     + " coffee to \(waterRatioQuantity)"
+                     + " \(waterRatioMeasurement.checkPlural(Float(waterRatioQuantity) ?? 0)) water")
             }
             Form {
-                TextField("Grind Setting", text: $viewModel.grindSetting)
-                RatingView(rating: $viewModel.rating)
+                Section {
+                    TextField("Grind Setting", text: $viewModel.grindSetting)
+                    RatingView(rating: $viewModel.rating)
+                }
+                Section {
+                    Text(viewModel.selectedCoffee == nil ? "Select Coffee" : viewModel.selectedCoffee!.name!)
+                        .onTapGesture(count: 1) {
+                            viewModel.isShowingCoffeePicker = true
+                        }
+                }
             }
-
         }
+        .sheet(isPresented: $viewModel.isShowingCoffeePicker, content: {
+            SelectCoffeeView(selectedCoffee: $viewModel.selectedCoffee)
+        })
     }
 }
 

@@ -12,7 +12,6 @@ class CoffeeBeanViewModel: ObservableObject {
     @Published var availableRoasters: [PBRoaster?]
     @Published var roasterIndex: Int = 0
     @Published var selectedRoaster: PBRoaster?
-    @Published var roasterLabel: String
     @Published var rating: Int = 0
     @Published var review = ""
     @Published var isShowingPhotoPicker = false
@@ -25,7 +24,6 @@ class CoffeeBeanViewModel: ObservableObject {
                    GridItem(.flexible())]
     let manager = CoreDataManager.shared
     init(coffee: PBCoffee? = nil) {
-        roasterLabel = ""
         name = ""
         self.coffee = coffee
         availableRoasters = manager.fetchRoasters()

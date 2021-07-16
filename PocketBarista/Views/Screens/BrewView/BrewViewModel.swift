@@ -151,7 +151,6 @@ class BrewViewModel: ObservableObject {
         }
     }
     func saveDefaults() {
-        print("saving defaults")
         defaults.set(brewQuantity, forKey: DefaultsKeys.brewQuantity.rawValue)
         defaults.set(brewMeasurement.rawValue, forKey: DefaultsKeys.brewMeasurement.rawValue)
         defaults.set(coffeeRatioQuantity, forKey: DefaultsKeys.coffeeRatioQuantity.rawValue)

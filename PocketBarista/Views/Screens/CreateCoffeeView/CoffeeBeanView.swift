@@ -91,7 +91,7 @@ struct CoffeeBeanView: View {
                 }
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button {
-                        print("dismiss the view")
+                        presentationMode.wrappedValue.dismiss()
                     } label: {
                         HStack {
                             Image(systemName: "chevron.backward")

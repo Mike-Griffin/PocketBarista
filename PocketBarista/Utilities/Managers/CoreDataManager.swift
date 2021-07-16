@@ -50,8 +50,7 @@ struct CoreDataManager {
         let coffee = PBCoffee(context: container.viewContext)
         coffee.name = name
         if let roaster = roaster {
-            print("roaster in the core data manager add coffee")
-            print(roaster)
+
             coffee.roaster = roaster
         }
         if rating > 0 && rating <= 5 {
