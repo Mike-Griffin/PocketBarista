@@ -13,13 +13,9 @@ struct AppTabView: View {
             BrewView()
                 .tabItem { Label("Home", systemImage: "house") }
             FavoritesView()
-                .tabItem { Label("Favorites", systemImage: "star")}
-            NavigationView {
-                CoffeeBeanView(viewModel: CoffeeBeanViewModel())
-            }
-                .tabItem {
-                    Label("Coffee", systemImage: "bed.double")
-                }
+                .tabItem { Label("Favorites", systemImage: "star") }
+            SettingsView()
+                .tabItem { Label("Settings", systemImage: "gear") }
         }
     }
 }
