@@ -13,7 +13,7 @@ struct SelectCoffeeView: View {
     @Environment(\.presentationMode) var presentationMode
     var body: some View {
         VStack {
-            SearchField(searchText: $viewModel.searchText)
+            SearchField(text: "Search Coffees", searchText: $viewModel.searchText)
             ForEach(viewModel.searchCoffees) { coffee in
                 HStack {
                     Text(coffee.roaster != nil ? "\(coffee.roaster!.name!): \(coffee.name!)" : coffee.name!)

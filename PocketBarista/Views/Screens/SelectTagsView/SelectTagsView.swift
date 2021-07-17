@@ -12,7 +12,7 @@ struct SelectTagsView: View {
     @StateObject var viewModel = SelectTagsViewModel()
     var body: some View {
         VStack {
-            SearchField(searchText: $viewModel.searchText)
+            SearchField(text: "Search Tags", searchText: $viewModel.searchText)
             if viewModel.availableTags.isEmpty
                 && viewModel.searchText.isEmpty {
                 Text("No tags yet. Start typing the name of a tag")
@@ -25,7 +25,11 @@ struct SelectTagsView: View {
                     }
                     .padding(.horizontal)
                     .onTapGesture {
-                        tags.append(tag)
+                        if let index = tags.firstIndex(of: tag) {
+                            tags.remove(at: index)
+                        } else {
+                            tags.append(tag)
+                        }
                     }
                 }
             }

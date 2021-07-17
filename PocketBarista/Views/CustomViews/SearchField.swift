@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct SearchField: View {
+    var text: String
     @Binding var searchText: String
     var body: some View {
-        TextField("Search Tag", text: $searchText)
+        TextField(text, text: $searchText)
             .padding(24)
             .autocapitalization(.none)
     }
@@ -18,6 +19,6 @@ struct SearchField: View {
 
 struct SearchField_Previews: PreviewProvider {
     static var previews: some View {
-        SearchField(searchText: .constant("hello"))
+        SearchField(text: "Search", searchText: .constant("hello"))
     }
 }

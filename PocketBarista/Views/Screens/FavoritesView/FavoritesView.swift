@@ -55,15 +55,16 @@ struct FavoritesView: View {
             }
             .sheet(isPresented: $viewModel.showingCreateCoffee,
                    onDismiss: {
-                    viewModel.fetchCoffees()
-                   },
+                viewModel.fetchCoffees()
+                viewModel.selectedCoffee = nil
+            },
                    content: {
-                        CoffeeBeanView(viewModel: CoffeeBeanViewModel(coffee: viewModel.selectedCoffee))
-                   })
+                CoffeeBeanView(viewModel: CoffeeBeanViewModel(coffee: viewModel.selectedCoffee))
+            })
             .sheet(isPresented: $viewModel.showingCreateRoaster,
                    onDismiss: {
-                    viewModel.fetchRoasters()
-                   }, content: {
+                viewModel.fetchRoasters()
+            }, content: {
                 CreateRoasterView()
             })
             .toolbar {

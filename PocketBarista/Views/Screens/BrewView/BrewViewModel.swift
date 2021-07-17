@@ -50,46 +50,15 @@ class BrewViewModel: ObservableObject {
             changedValue()
         }
     }
-    private var defaults: UserDefaults
     init() {
-        defaults = UserDefaults.standard
-        brewQuantity = defaults.object(forKey: DefaultsKeys.brewQuantity.rawValue) as? String ?? "1"
-        if let brewMeasurementDefault = defaults.object(forKey:
-                                                            DefaultsKeys.brewMeasurement.rawValue) as? String {
-            brewMeasurement = MeasurementType(rawValue: brewMeasurementDefault) ?? .cup
-        } else {
-            brewMeasurement = .cup
-        }
-        coffeeRatioQuantity = defaults.object(forKey:
-                                                DefaultsKeys.coffeeRatioQuantity.rawValue) as? String ?? "1"
-        if let coffeeRatioMeasurementDefault = defaults.object(forKey:
-                                                                DefaultsKeys.coffeeRatioMeasurement.rawValue)
-            as? String {
-            coffeeRatioMeasurement = MeasurementType(rawValue: coffeeRatioMeasurementDefault) ?? .gram
-        } else {
-            coffeeRatioMeasurement = .gram
-        }
-        waterRatioQuantity = defaults.object(forKey:
-                                                DefaultsKeys.waterRatioQuantity.rawValue) as? String ?? "17"
-        if let waterRatioMeasurementDefault = defaults.object(forKey:
-                                                                DefaultsKeys.waterRatioMeasurement.rawValue)
-            as? String {
-            waterRatioMeasurement = MeasurementType(rawValue: waterRatioMeasurementDefault) ?? .gram
-        } else {
-            waterRatioMeasurement = .gram
-        }
-        if let coffeeRequiredDefault = defaults.object(forKey:
-                                                        DefaultsKeys.coffeeRequiredMeasurement.rawValue) as? String {
-            coffeeRequiredMeasurement = MeasurementType(rawValue: coffeeRequiredDefault) ?? .gram
-        } else {
-            coffeeRequiredMeasurement = .gram
-        }
-        if let waterRequiredDefault = defaults.object(forKey:
-                                                        DefaultsKeys.waterRequiredMeasurement.rawValue) as? String {
-            waterRequiredMeasurement = MeasurementType(rawValue: waterRequiredDefault) ?? .gram
-        } else {
-            waterRequiredMeasurement = .gram
-        }
+        brewQuantity = UserDefaultsManager.shared.getBrewQuantity()
+        brewMeasurement = UserDefaultsManager.shared.getBrewMeasurement()
+        coffeeRatioQuantity = UserDefaultsManager.shared.getCoffeeRatioQuantity()
+        coffeeRatioMeasurement = UserDefaultsManager.shared.getCoffeeRatioMeasurement()
+        waterRatioQuantity = UserDefaultsManager.shared.getWaterRatioQuantity()
+        waterRatioMeasurement = UserDefaultsManager.shared.getWaterRatioMeasurement()
+        coffeeRequiredMeasurement = UserDefaultsManager.shared.getCoffeeRequiredMeasurement()
+        waterRequiredMeasurement = UserDefaultsManager.shared.getWaterRequiredMeasurement()
     }
     func changedValue() {
         let requiredWater = brewQuantityToGrams
@@ -151,13 +120,13 @@ class BrewViewModel: ObservableObject {
         }
     }
     func saveDefaults() {
-        defaults.set(brewQuantity, forKey: DefaultsKeys.brewQuantity.rawValue)
-        defaults.set(brewMeasurement.rawValue, forKey: DefaultsKeys.brewMeasurement.rawValue)
-        defaults.set(coffeeRatioQuantity, forKey: DefaultsKeys.coffeeRatioQuantity.rawValue)
-        defaults.set(coffeeRatioMeasurement.rawValue, forKey: DefaultsKeys.coffeeRatioMeasurement.rawValue)
-        defaults.set(waterRatioQuantity, forKey: DefaultsKeys.waterRatioQuantity.rawValue)
-        defaults.set(waterRatioMeasurement.rawValue, forKey: DefaultsKeys.waterRatioMeasurement.rawValue)
-        defaults.set(coffeeRequiredMeasurement.rawValue, forKey: DefaultsKeys.coffeeRequiredMeasurement.rawValue)
-        defaults.set(waterRequiredMeasurement.rawValue, forKey: DefaultsKeys.waterRequiredMeasurement.rawValue)
+        UserDefaultsManager.shared.setBrewQuantity(brewQuantity)
+        UserDefaultsManager.shared.setBrewMeasurement(brewMeasurement)
+        UserDefaultsManager.shared.setCoffeeRatioQuantity(coffeeRatioQuantity)
+        UserDefaultsManager.shared.setCoffeeRatioMeasurement(coffeeRatioMeasurement)
+        UserDefaultsManager.shared.setWaterRatioQuantity(waterRatioQuantity)
+        UserDefaultsManager.shared.setWaterRatioMeasurement(waterRatioMeasurement)
+        UserDefaultsManager.shared.setCoffeeRequiredMeasurement(coffeeRequiredMeasurement)
+        UserDefaultsManager.shared.setWaterRequiredMeasurement(waterRequiredMeasurement)
     }
 }

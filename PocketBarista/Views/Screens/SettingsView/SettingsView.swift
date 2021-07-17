@@ -13,10 +13,22 @@ struct SettingsView: View {
         VStack {
             Text("Settings")
             List {
-                DefaultsSection(heading: "Brew Amount",
-                                quantityVal: $viewModel.brewQuantity,
-                                measurement: $viewModel.brewMeasurement)
+                Section(header: Text("Brew Amount")) {
+                    SectionContent(quantityVal: $viewModel.brewQuantity,
+                                   measurement: $viewModel.brewMeasurement)
+                }
+                Section(header: Text("Coffee Ratio Amount")) {
+                    SectionContent(quantityVal: $viewModel.coffeeRatioQuantity,
+                                   measurement: $viewModel.coffeeRatioMeasurement)
+                }
+                Section(header: Text("Water Ratio Amount")) {
+                    SectionContent(quantityVal: $viewModel.waterRatioQuantity,
+                                   measurement: $viewModel.waterRatioMeasurement)
+                }
             }
+        }
+        .onAppear {
+            viewModel.getDefaults()
         }
     }
 }
@@ -24,28 +36,6 @@ struct SettingsView: View {
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
         SettingsView()
-    }
-}
-
-struct DefaultsSection: View {
-    var heading: String
-    @Binding var quantityVal: String
-    @Binding var measurement: MeasurementType
-    var body: some View {
-        if #available(iOS 15.0, *) {
-            Section(heading) {
-                Section {
-                    SectionContent(quantityVal: $quantityVal,
-                                   measurement: $measurement)
-                }
-            }
-        } else {
-            Section {
-                SectionContent(quantityVal: $quantityVal,
-                               measurement: $measurement)
-            }
-        }
-
     }
 }
 

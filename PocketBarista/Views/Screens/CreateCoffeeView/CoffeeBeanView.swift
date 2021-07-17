@@ -29,7 +29,8 @@ struct CoffeeBeanView: View {
                 }
                 .clipShape(Circle())
                 .onTapGesture {
-                    viewModel.isShowingPhotoPicker = true
+                    //viewModel.isShowingPhotoPicker = true
+                    viewModel.isshowingPhotoActionSheet = true
                 }
                 Form {
                     Section {
@@ -107,8 +108,21 @@ struct CoffeeBeanView: View {
             // for when the sheet has been closed and opened again
             viewModel.updateState()
         }
+        .actionSheet(isPresented: $viewModel.isshowingPhotoActionSheet, content: {
+            ActionSheet(title: Text("Photo from what??"),
+                        buttons: [
+                            .default(Text("Take a new photo")) {
+                                viewModel.photoPickerSourceType = .camera
+                                viewModel.isShowingPhotoPicker = true
+                            },
+                            .default(Text("Phoose from library")) {
+                                viewModel.photoPickerSourceType = .photoLibrary
+                                viewModel.isShowingPhotoPicker = true
+                            }
+                        ])
+        })
         .sheet(isPresented: $viewModel.isShowingPhotoPicker, content: {
-            PhotoPicker(image: $viewModel.image)
+            PhotoPicker(image: $viewModel.image, sourceType: viewModel.photoPickerSourceType)
         })
         .sheet(isPresented: $viewModel.isShowingTagPicker, content: {
             SelectTagsView(tags: $viewModel.tags)

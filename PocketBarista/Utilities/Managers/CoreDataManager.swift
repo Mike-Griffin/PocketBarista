@@ -63,6 +63,9 @@ struct CoreDataManager {
         coffee.addToTags(tagsSet)
         save()
     }
+    func editCoffee(coffee: PBCoffee) {
+        save()
+    }
     func addRoaster(name: String, location: String) {
         let roaster = PBRoaster(context: container.viewContext)
         roaster.name = name

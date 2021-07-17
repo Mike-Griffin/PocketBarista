@@ -15,10 +15,12 @@ class CoffeeBeanViewModel: ObservableObject {
     @Published var rating: Int = 0
     @Published var review = ""
     @Published var isShowingPhotoPicker = false
+    @Published var photoPickerSourceType: UIImagePickerController.SourceType = .photoLibrary
     @Published var image: UIImage = PlaceholderImage.coffeeMug
     @Published var coffee: PBCoffee?
     @Published var isShowingTagPicker = false
     @Published var tags: [PBTag] = []
+    @Published var isshowingPhotoActionSheet = false
     let columns = [GridItem(.flexible()),
                    GridItem(.flexible()),
                    GridItem(.flexible())]
@@ -39,11 +41,20 @@ class CoffeeBeanViewModel: ObservableObject {
     }
     func saveCoffee() {
         guard !name.isEmpty else { return }
-        if coffee == nil {
-            manager.addCoffee(name: name, roaster: selectedRoaster, rating: rating, image: image, tags: tags)
+        if let coffee = coffee {
+            editCoffee(coffee)
         } else {
-            print("need to handle the edit coffee case")
+            manager.addCoffee(name: name, roaster: selectedRoaster, rating: rating, image: image, tags: tags)
         }
+    }
+    private func editCoffee(_ coffee: PBCoffee) {
+        coffee.name = name
+        coffee.roaster = selectedRoaster
+        coffee.rating = Int16(rating)
+        coffee.image = image.pngData()
+        let tagsSet = Set(tags) as NSSet
+        coffee.setValue(tagsSet, forKey: "tags")
+        manager.editCoffee(coffee: coffee)
     }
     func fetchRoasters() {
         availableRoasters = manager.fetchRoasters()
