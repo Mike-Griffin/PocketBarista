@@ -37,6 +37,10 @@ struct BrewView: View {
                                              waterRatioMeasurement: viewModel.waterRatioMeasurement),
                     label: {
                         Text("Log Brew")
+                        .padding()
+                        .foregroundColor(.white)
+                        .background(Color.brandPrimary)
+                        .cornerRadius(15)
                     })
                     .simultaneousGesture(TapGesture().onEnded({ _ in
                         viewModel.saveDefaults()
