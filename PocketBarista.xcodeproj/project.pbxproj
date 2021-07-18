@@ -195,7 +195,7 @@
 			children = (
 				7FEC222C2696A135007466D7 /* SelectTagsView */,
 				7FCB409F268D65BA00785B6C /* CreateRoasterView */,
-				7F79F1CF2686C5A3000BD6B4 /* CreateCoffeeView */,
+				7F79F1CF2686C5A3000BD6B4 /* CoffeeBeanView */,
 				7F4CB2C926818E64003F0D06 /* BrewView */,
 				7FFCF8B82684370700041FA5 /* LogBrewView */,
 				7FCB205426A2217D00968EDB /* SelectCoffeeView */,
@@ -233,13 +233,13 @@
 			path = FavoritesView;
 			sourceTree = "<group>";
 		};
-		7F79F1CF2686C5A3000BD6B4 /* CreateCoffeeView */ = {
+		7F79F1CF2686C5A3000BD6B4 /* CoffeeBeanView */ = {
 			isa = PBXGroup;
 			children = (
 				7F79F1D02686C5DF000BD6B4 /* CoffeeBeanViewModel.swift */,
 				7F79F1CD2686C588000BD6B4 /* CoffeeBeanView.swift */,
 			);
-			path = CreateCoffeeView;
+			path = CoffeeBeanView;
 			sourceTree = "<group>";
 		};
 		7FC47EB22693B230006AAA1E /* UIKit Components */ = {
