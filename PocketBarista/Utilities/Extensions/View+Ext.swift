@@ -11,4 +11,11 @@ extension View {
     func dismissKeyboard() {
         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
+    func playHaptic() {
+        let generator = UINotificationFeedbackGenerator()
+        generator.notificationOccurred(.success)
+    }
+    func keyboardAdaptive() -> some View {
+        return modifier(KeyboardAdaptive())
+    }
 }

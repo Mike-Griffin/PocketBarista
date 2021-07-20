@@ -25,6 +25,7 @@ struct SelectTagsView: View {
                     }
                     .padding(.horizontal)
                     .onTapGesture {
+                        playHaptic()
                         if let index = tags.firstIndex(of: tag) {
                             tags.remove(at: index)
                         } else {

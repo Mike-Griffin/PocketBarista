@@ -24,6 +24,7 @@ struct SelectCoffeeView: View {
                 }
                 .onTapGesture {
                     selectedCoffee = coffee
+                    playHaptic()
                     presentationMode.wrappedValue.dismiss()
                 }
             }

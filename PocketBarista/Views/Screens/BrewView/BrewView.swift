@@ -6,22 +6,20 @@
 //
 
 import SwiftUI
+import Combine
 
 struct BrewView: View {
     @ObservedObject var viewModel = BrewViewModel()
+    @State var showingSpacer = true
     var body: some View {
         NavigationView {
             VStack(spacing: 48) {
                 Spacer()
-                BrewPreferencesView(
-                    brewQuantity: $viewModel.brewQuantity,
-                    brewMeasurement: $viewModel.brewMeasurement,
-                    coffeeRatioQuantity: $viewModel.coffeeRatioQuantity,
-                    coffeeRatioMeasurement: $viewModel.coffeeRatioMeasurement,
-                    waterRatioQuantity: $viewModel.waterRatioQuantity,
-                    waterRatioMeasurement: $viewModel.waterRatioMeasurement
-                )
+                BrewPreferencesView(viewModel: viewModel)
+                if showingSpacer {
                 Spacer()
+                    .onReceive(Publishers.keyboardHeight) { _ in showingSpacer = false }
+                }
                 RequiredValuesView(
                     waterValue: viewModel.waterRequiredValue,
                     waterMeasurement: $viewModel.waterRequiredMeasurement,
@@ -41,6 +39,7 @@ struct BrewView: View {
                         .foregroundColor(.white)
                         .background(Color.brandPrimary)
                         .cornerRadius(15)
+                        .ignoresSafeArea(.keyboard)
                     })
                     .simultaneousGesture(TapGesture().onEnded({ _ in
                         viewModel.saveDefaults()
@@ -62,25 +61,20 @@ struct BrewView: View {
     }
 }
 struct BrewPreferencesView: View {
-    @Binding var brewQuantity: String
-    @Binding var brewMeasurement: MeasurementType
-    @Binding var coffeeRatioQuantity: String
-    @Binding var coffeeRatioMeasurement: MeasurementType
-    @Binding var waterRatioQuantity: String
-    @Binding var waterRatioMeasurement: MeasurementType
+    @ObservedObject var viewModel: BrewViewModel
     var body: some View {
         VStack(spacing: 4) {
-            AmountBrewLine(quantity: $brewQuantity, measurement: $brewMeasurement)
+            AmountBrewLine(quantity: $viewModel.brewQuantity, measurement: $viewModel.brewMeasurement)
             Text("with a ratio of")
                 .foregroundColor(.secondary)
             RatioSelectionLine(categoryText: "coffee",
-                               quantity: $coffeeRatioQuantity,
-                               measurement: $coffeeRatioMeasurement)
+                               quantity: $viewModel.coffeeRatioQuantity,
+                               measurement: $viewModel.coffeeRatioMeasurement)
             Text("to")
                 .foregroundColor(.secondary)
             RatioSelectionLine(categoryText: "water",
-                               quantity: $waterRatioQuantity,
-                               measurement: $waterRatioMeasurement)
+                               quantity: $viewModel.waterRatioQuantity,
+                               measurement: $viewModel.waterRatioMeasurement)
         }
         .font(.largeTitle)
         .multilineTextAlignment(.center)

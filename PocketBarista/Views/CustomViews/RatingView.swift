@@ -14,6 +14,7 @@ struct RatingView: View {
             ForEach(0 ..< 5) { index in
                 Image(systemName: index < rating ? "star.fill" : "star")
                     .onTapGesture {
+                        playHaptic()
                         rating = index + 1
                     }
             }
