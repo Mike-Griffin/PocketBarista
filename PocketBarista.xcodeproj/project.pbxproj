@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F45D57F26A7BFDF004CAB48 /* KeyboardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F45D57E26A7BFDF004CAB48 /* KeyboardHandler.swift */; };
 		7F4CB2B726818D0E003F0D06 /* PocketBaristaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4CB2B626818D0E003F0D06 /* PocketBaristaApp.swift */; };
 		7F4CB2BB26818D0F003F0D06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F4CB2BA26818D0F003F0D06 /* Assets.xcassets */; };
 		7F4CB2BE26818D0F003F0D06 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F4CB2BD26818D0F003F0D06 /* Preview Assets.xcassets */; };
@@ -18,8 +19,6 @@
 		7F79F1CC2686BCC2000BD6B4 /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F79F1CB2686BCC2000BD6B4 /* RatingView.swift */; };
 		7F79F1CE2686C588000BD6B4 /* CoffeeBeanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F79F1CD2686C588000BD6B4 /* CoffeeBeanView.swift */; };
 		7F79F1D12686C5DF000BD6B4 /* CoffeeBeanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F79F1D02686C5DF000BD6B4 /* CoffeeBeanViewModel.swift */; };
-		7F7D0A9F26A6807B00705A68 /* Notification+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7D0A9E26A6807B00705A68 /* Notification+Ext.swift */; };
-		7F7D0AA126A680CE00705A68 /* Publishers+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7D0AA026A680CE00705A68 /* Publishers+Ext.swift */; };
 		7FC2E8AF26A4EA2100670480 /* Color+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC2E8AE26A4EA2100670480 /* Color+Ext.swift */; };
 		7FC47EB42693B33F006AAA1E /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC47EB32693B33F006AAA1E /* PhotoPicker.swift */; };
 		7FCB2048269EA00600968EDB /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCB2047269EA00600968EDB /* SettingsView.swift */; };
@@ -66,11 +65,11 @@
 		7FFCF8B72684321900041FA5 /* QuantitySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFCF8B62684321900041FA5 /* QuantitySelectionView.swift */; };
 		7FFCF8BA2684371300041FA5 /* LogBrewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFCF8B92684371300041FA5 /* LogBrewView.swift */; };
 		7FFCF8BC26854A1700041FA5 /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFCF8BB26854A1700041FA5 /* View+Ext.swift */; };
-		7FFCF8BE2686A2B500041FA5 /* CustomModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFCF8BD2686A2B500041FA5 /* CustomModifiers.swift */; };
 		7FFCF8C02686B83E00041FA5 /* LogBrewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFCF8BF2686B83E00041FA5 /* LogBrewViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7F45D57E26A7BFDF004CAB48 /* KeyboardHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHandler.swift; sourceTree = "<group>"; };
 		7F4CB2B326818D0E003F0D06 /* PocketBarista.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PocketBarista.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F4CB2B626818D0E003F0D06 /* PocketBaristaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PocketBaristaApp.swift; sourceTree = "<group>"; };
 		7F4CB2BA26818D0F003F0D06 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -84,8 +83,6 @@
 		7F79F1CB2686BCC2000BD6B4 /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
 		7F79F1CD2686C588000BD6B4 /* CoffeeBeanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeBeanView.swift; sourceTree = "<group>"; };
 		7F79F1D02686C5DF000BD6B4 /* CoffeeBeanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeBeanViewModel.swift; sourceTree = "<group>"; };
-		7F7D0A9E26A6807B00705A68 /* Notification+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Ext.swift"; sourceTree = "<group>"; };
-		7F7D0AA026A680CE00705A68 /* Publishers+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publishers+Ext.swift"; sourceTree = "<group>"; };
 		7FC2E8AE26A4EA2100670480 /* Color+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Ext.swift"; sourceTree = "<group>"; };
 		7FC47EB32693B33F006AAA1E /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
 		7FCB2047269EA00600968EDB /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -132,7 +129,6 @@
 		7FFCF8B62684321900041FA5 /* QuantitySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuantitySelectionView.swift; sourceTree = "<group>"; };
 		7FFCF8B92684371300041FA5 /* LogBrewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogBrewView.swift; sourceTree = "<group>"; };
 		7FFCF8BB26854A1700041FA5 /* View+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
-		7FFCF8BD2686A2B500041FA5 /* CustomModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomModifiers.swift; sourceTree = "<group>"; };
 		7FFCF8BF2686B83E00041FA5 /* LogBrewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogBrewViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -188,7 +184,6 @@
 		7F4CB2C526818D49003F0D06 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				7FFCF8BD2686A2B500041FA5 /* CustomModifiers.swift */,
 				7F4CB2C726818DCD003F0D06 /* AppTabView.swift */,
 				7FFCF8B52684320700041FA5 /* CustomViews */,
 				7F4CB2C626818D52003F0D06 /* Screens */,
@@ -225,6 +220,7 @@
 			children = (
 				7FF45F8B268AC3CA00E93D25 /* Managers */,
 				7FFCF8B026840B8C00041FA5 /* Extensions */,
+				7F45D57E26A7BFDF004CAB48 /* KeyboardHandler.swift */,
 				7F4CB2CF2681925C003F0D06 /* Constants.swift */,
 			);
 			path = Utilities;
@@ -341,8 +337,6 @@
 				7FFCF8B126840B9F00041FA5 /* Float+Ext.swift */,
 				7FFCF8BB26854A1700041FA5 /* View+Ext.swift */,
 				7FC2E8AE26A4EA2100670480 /* Color+Ext.swift */,
-				7F7D0A9E26A6807B00705A68 /* Notification+Ext.swift */,
-				7F7D0AA026A680CE00705A68 /* Publishers+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -504,10 +498,7 @@
 				7FC47EB42693B33F006AAA1E /* PhotoPicker.swift in Sources */,
 				7FCB2048269EA00600968EDB /* SettingsView.swift in Sources */,
 				7FFCF8B226840B9F00041FA5 /* Float+Ext.swift in Sources */,
-				7F7D0A9F26A6807B00705A68 /* Notification+Ext.swift in Sources */,
-				7FFCF8BE2686A2B500041FA5 /* CustomModifiers.swift in Sources */,
 				7FCB205126A20A3000968EDB /* SearchField.swift in Sources */,
-				7F7D0AA126A680CE00705A68 /* Publishers+Ext.swift in Sources */,
 				7FFCF8BA2684371300041FA5 /* LogBrewView.swift in Sources */,
 				7F4CB2B726818D0E003F0D06 /* PocketBaristaApp.swift in Sources */,
 				7FFCF8C02686B83E00041FA5 /* LogBrewViewModel.swift in Sources */,
@@ -517,6 +508,7 @@
 				7FCB40A3268D660200785B6C /* CreateRoasterViewModel.swift in Sources */,
 				7F79F1CC2686BCC2000BD6B4 /* RatingView.swift in Sources */,
 				7FF45F92268ACF7600E93D25 /* FavoritesViewModel.swift in Sources */,
+				7F45D57F26A7BFDF004CAB48 /* KeyboardHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

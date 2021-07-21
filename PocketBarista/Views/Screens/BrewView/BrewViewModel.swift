@@ -50,6 +50,8 @@ class BrewViewModel: ObservableObject {
             changedValue()
         }
     }
+    @Published var keyboardShowing: Bool? = false
+
     init() {
         brewQuantity = UserDefaultsManager.shared.getBrewQuantity()
         brewMeasurement = UserDefaultsManager.shared.getBrewMeasurement()

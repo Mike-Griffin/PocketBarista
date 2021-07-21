@@ -15,7 +15,4 @@ extension View {
         let generator = UINotificationFeedbackGenerator()
         generator.notificationOccurred(.success)
     }
-    func keyboardAdaptive() -> some View {
-        return modifier(KeyboardAdaptive())
-    }
 }

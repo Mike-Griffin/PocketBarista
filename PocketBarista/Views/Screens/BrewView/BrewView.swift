@@ -10,15 +10,16 @@ import Combine
 
 struct BrewView: View {
     @ObservedObject var viewModel = BrewViewModel()
-    @State var showingSpacer = true
+    @StateObject private var keyboardHandler = KeyboardHandler()
     var body: some View {
         NavigationView {
             VStack(spacing: 48) {
-                Spacer()
+                if !keyboardHandler.keyboardShowing {
+                    Spacer()
+                }
                 BrewPreferencesView(viewModel: viewModel)
-                if showingSpacer {
-                Spacer()
-                    .onReceive(Publishers.keyboardHeight) { _ in showingSpacer = false }
+                if !keyboardHandler.keyboardShowing {
+                    Spacer()
                 }
                 RequiredValuesView(
                     waterValue: viewModel.waterRequiredValue,

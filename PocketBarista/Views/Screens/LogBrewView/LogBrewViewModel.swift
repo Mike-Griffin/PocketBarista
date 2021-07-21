@@ -13,4 +13,5 @@ class LogBrewViewModel: ObservableObject {
     @Published var rating: Int = 0
     @Published var selectedCoffee: PBCoffee?
     @Published var isShowingCoffeePicker        = false
+
 }
