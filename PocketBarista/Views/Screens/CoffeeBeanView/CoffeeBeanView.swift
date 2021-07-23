@@ -34,11 +34,13 @@ struct CoffeeBeanView: View {
                             Spacer()
                             RatingView(rating: $viewModel.rating)
                         }
-                        if #available(iOS 15.0, *) {
-                            ReviewPlaceholderTextEditor(text: $viewModel.review)
-                        } else {
-                            ReviewTitleTextEditor(text: $viewModel.review)
-                        }
+                        ReviewTitleTextEditor(text: $viewModel.review)
+                        // TODO add this iOS 15.0 code later
+//                        if #available(iOS 15.0, *) {
+//                            ReviewPlaceholderTextEditor(text: $viewModel.review)
+//                        } else {
+//                            ReviewTitleTextEditor(text: $viewModel.review)
+//                        }
                     }
                     Button(action: {
                         viewModel.saveCoffee()
@@ -188,18 +190,19 @@ private struct ReviewTitleTextEditor: View {
     }
 }
 
-@available(iOS 15.0, *)
-private struct ReviewPlaceholderTextEditor: View {
-    @FocusState private var isFocused: Bool
-    @Binding var text: String
-    var body: some View {
-        ZStack(alignment: .topLeading) {
-            TextEditor(text: $text)
-                .focused($isFocused, equals: true)
-                .zIndex(1)
-            if !isFocused {
-                Text(text.isEmpty ? "Review" : "")
-            }
-        }
-    }
-}
+// TODO bring in this iOS 15 logic later
+//@available(iOS 15.0, *)
+//private struct ReviewPlaceholderTextEditor: View {
+//    @FocusState private var isFocused: Bool
+//    @Binding var text: String
+//    var body: some View {
+//        ZStack(alignment: .topLeading) {
+//            TextEditor(text: $text)
+//                .focused($isFocused, equals: true)
+//                .zIndex(1)
+//            if !isFocused {
+//                Text(text.isEmpty ? "Review" : "")
+//            }
+//        }
+//    }
+//}
