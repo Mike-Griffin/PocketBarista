@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19141.11" systemVersion="20F71" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20F71" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="PBBrewLog" representedClassName="PBBrewLog" syncable="YES" codeGenerationType="class">
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="grindSetting" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
@@ -9,7 +9,7 @@
         <attribute name="waterQuantity" optional="YES" attributeType="Integer 16" defaultValueString="0.0" usesScalarValueType="YES"/>
         <relationship name="coffee" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PBCoffee" inverseName="brewLogs" inverseEntity="PBCoffee"/>
     </entity>
-    <entity name="PBCoffee" representedClassName="PBCoffee" elementID="PBCoffee" syncable="YES" codeGenerationType="class">
+    <entity name="PBCoffee" representedClassName="PBCoffee" elementID="PBCoffee" syncable="YES">
         <attribute name="image" optional="YES" attributeType="Binary"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="rating" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
@@ -28,9 +28,9 @@
         <relationship name="coffees" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PBCoffee" inverseName="tags" inverseEntity="PBCoffee"/>
     </entity>
     <elements>
+        <element name="PBBrewLog" positionX="-54" positionY="36" width="128" height="134"/>
         <element name="PBCoffee" positionX="-63" positionY="-18" width="128" height="134"/>
         <element name="PBRoaster" positionX="-54" positionY="18" width="128" height="74"/>
         <element name="PBTag" positionX="-63" positionY="27" width="128" height="59"/>
-        <element name="PBBrewLog" positionX="-54" positionY="36" width="128" height="134"/>
     </elements>
 </model>

@@ -10,7 +10,14 @@ import SwiftUI
 struct BrewLogsView: View {
     @StateObject var viewModel = BrewLogsViewModel()
     var body: some View {
-        Text("Hello, Brew Logs!")
+        List {
+            ForEach(viewModel.brewLogs) { log in
+                VStack {
+                    Text(log.coffee != nil ? log.coffee!.displayText : "No Coffee Selected")
+                    Text(log.date?.toDateTime() ?? "no date")
+                }
+            }
+        }
             .onAppear {
                 viewModel.fetchBrewLogs()
                 print(viewModel.brewLogs)
