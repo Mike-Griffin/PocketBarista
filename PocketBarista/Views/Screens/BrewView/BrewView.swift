@@ -48,6 +48,9 @@ struct BrewView: View {
                     .simultaneousGesture(LongPressGesture().onEnded({ _ in
                         viewModel.saveDefaults()
                     }))
+                if keyboardHandler.keyboardShowing {
+                    Spacer()
+                }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .offset(y: -48)

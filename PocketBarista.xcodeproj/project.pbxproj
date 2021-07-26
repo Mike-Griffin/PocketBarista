@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7F45D57F26A7BFDF004CAB48 /* KeyboardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F45D57E26A7BFDF004CAB48 /* KeyboardHandler.swift */; };
+		7F4AA1AC26ADF26500B12E0D /* LargeTextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4AA1AB26ADF26500B12E0D /* LargeTextEditor.swift */; };
 		7F4CB2B726818D0E003F0D06 /* PocketBaristaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4CB2B626818D0E003F0D06 /* PocketBaristaApp.swift */; };
 		7F4CB2BB26818D0F003F0D06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F4CB2BA26818D0F003F0D06 /* Assets.xcassets */; };
 		7F4CB2BE26818D0F003F0D06 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F4CB2BD26818D0F003F0D06 /* Preview Assets.xcassets */; };
@@ -29,6 +30,8 @@
 		7FCB205626A2219A00968EDB /* SelectCoffeeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCB205526A2219A00968EDB /* SelectCoffeeViewModel.swift */; };
 		7FCB40A1268D65C900785B6C /* CreateRoasterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCB40A0268D65C900785B6C /* CreateRoasterView.swift */; };
 		7FCB40A3268D660200785B6C /* CreateRoasterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCB40A2268D660200785B6C /* CreateRoasterViewModel.swift */; };
+		7FD340F026AE407B0057293D /* BrewLogsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD340EF26AE407B0057293D /* BrewLogsView.swift */; };
+		7FD340F226AE408B0057293D /* BrewLogsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD340F126AE408B0057293D /* BrewLogsViewModel.swift */; };
 		7FEC221226963959007466D7 /* spotlight120.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FEC21F826963958007466D7 /* spotlight120.png */; };
 		7FEC221326963959007466D7 /* ipad76.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FEC21F926963958007466D7 /* ipad76.png */; };
 		7FEC221426963959007466D7 /* notification40.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FEC21FA26963958007466D7 /* notification40.png */; };
@@ -70,6 +73,7 @@
 
 /* Begin PBXFileReference section */
 		7F45D57E26A7BFDF004CAB48 /* KeyboardHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHandler.swift; sourceTree = "<group>"; };
+		7F4AA1AB26ADF26500B12E0D /* LargeTextEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeTextEditor.swift; sourceTree = "<group>"; };
 		7F4CB2B326818D0E003F0D06 /* PocketBarista.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PocketBarista.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F4CB2B626818D0E003F0D06 /* PocketBaristaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PocketBaristaApp.swift; sourceTree = "<group>"; };
 		7F4CB2BA26818D0F003F0D06 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -93,6 +97,8 @@
 		7FCB205526A2219A00968EDB /* SelectCoffeeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCoffeeViewModel.swift; sourceTree = "<group>"; };
 		7FCB40A0268D65C900785B6C /* CreateRoasterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRoasterView.swift; sourceTree = "<group>"; };
 		7FCB40A2268D660200785B6C /* CreateRoasterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRoasterViewModel.swift; sourceTree = "<group>"; };
+		7FD340EF26AE407B0057293D /* BrewLogsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewLogsView.swift; sourceTree = "<group>"; };
+		7FD340F126AE408B0057293D /* BrewLogsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewLogsViewModel.swift; sourceTree = "<group>"; };
 		7FEC21F826963958007466D7 /* spotlight120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spotlight120.png; sourceTree = "<group>"; };
 		7FEC21F926963958007466D7 /* ipad76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ipad76.png; sourceTree = "<group>"; };
 		7FEC21FA26963958007466D7 /* notification40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = notification40.png; sourceTree = "<group>"; };
@@ -200,6 +206,7 @@
 				7F4CB2C926818E64003F0D06 /* BrewView */,
 				7FFCF8B82684370700041FA5 /* LogBrewView */,
 				7FCB205426A2217D00968EDB /* SelectCoffeeView */,
+				7FD340EE26AE40680057293D /* BrewLogsView */,
 				7F4CB2D426819793003F0D06 /* FavoritesView */,
 				7FCB2046269E9FE700968EDB /* SettingsView */,
 			);
@@ -280,6 +287,15 @@
 			path = CreateRoasterView;
 			sourceTree = "<group>";
 		};
+		7FD340EE26AE40680057293D /* BrewLogsView */ = {
+			isa = PBXGroup;
+			children = (
+				7FD340F126AE408B0057293D /* BrewLogsViewModel.swift */,
+				7FD340EF26AE407B0057293D /* BrewLogsView.swift */,
+			);
+			path = BrewLogsView;
+			sourceTree = "<group>";
+		};
 		7FEC21F726963958007466D7 /* AppIcon.appiconset */ = {
 			isa = PBXGroup;
 			children = (
@@ -349,6 +365,7 @@
 				7FFCF8B62684321900041FA5 /* QuantitySelectionView.swift */,
 				7F79F1CB2686BCC2000BD6B4 /* RatingView.swift */,
 				7FCB205026A20A3000968EDB /* SearchField.swift */,
+				7F4AA1AB26ADF26500B12E0D /* LargeTextEditor.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -481,6 +498,7 @@
 				7FC2E8AF26A4EA2100670480 /* Color+Ext.swift in Sources */,
 				7FCB205626A2219A00968EDB /* SelectCoffeeViewModel.swift in Sources */,
 				7FF45F90268AC4D600E93D25 /* Main.xcdatamodeld in Sources */,
+				7F4AA1AC26ADF26500B12E0D /* LargeTextEditor.swift in Sources */,
 				7FCB40A1268D65C900785B6C /* CreateRoasterView.swift in Sources */,
 				7FFCF8B42684300F00041FA5 /* MeasurementSelectionView.swift in Sources */,
 				7F4CB2D02681925C003F0D06 /* Constants.swift in Sources */,
@@ -501,6 +519,8 @@
 				7FCB205126A20A3000968EDB /* SearchField.swift in Sources */,
 				7FFCF8BA2684371300041FA5 /* LogBrewView.swift in Sources */,
 				7F4CB2B726818D0E003F0D06 /* PocketBaristaApp.swift in Sources */,
+				7FD340F026AE407B0057293D /* BrewLogsView.swift in Sources */,
+				7FD340F226AE408B0057293D /* BrewLogsViewModel.swift in Sources */,
 				7FFCF8C02686B83E00041FA5 /* LogBrewViewModel.swift in Sources */,
 				7FCB204D26A10DCB00968EDB /* SettingsViewModel.swift in Sources */,
 				7F79F1D12686C5DF000BD6B4 /* CoffeeBeanViewModel.swift in Sources */,

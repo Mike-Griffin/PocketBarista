@@ -27,8 +27,8 @@ struct LogBrewView: View {
             }
             Form {
                 Section {
-                    TextField("Grind Setting", text: $viewModel.grindSetting)
                     RatingView(rating: $viewModel.rating)
+                    LargeTextEditor(text: $viewModel.notes, title: "Notes")
                 }
                 Section {
                     Text(viewModel.selectedCoffee == nil ? "Select Coffee" : viewModel.selectedCoffee!.name!)
@@ -36,6 +36,17 @@ struct LogBrewView: View {
                             viewModel.isShowingCoffeePicker = true
                         }
                 }
+                Section {
+                    TextField("Grind Setting", text: $viewModel.grindSetting)
+                }
+                Button(action: {
+                    viewModel.saveBrewLog(
+                        brewQuantity: brewQuantity,
+                        waterQuantity: waterRatioQuantity,
+                        coffeeQuantity: coffeeRatioQuantity)
+                }, label: {
+                    Text("Save")
+                })
             }
         }
         .sheet(isPresented: $viewModel.isShowingCoffeePicker, content: {

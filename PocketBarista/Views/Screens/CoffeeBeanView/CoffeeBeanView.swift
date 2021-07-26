@@ -34,13 +34,7 @@ struct CoffeeBeanView: View {
                             Spacer()
                             RatingView(rating: $viewModel.rating)
                         }
-                        ReviewTitleTextEditor(text: $viewModel.review)
-                        // TODO add this iOS 15.0 code later
-//                        if #available(iOS 15.0, *) {
-//                            ReviewPlaceholderTextEditor(text: $viewModel.review)
-//                        } else {
-//                            ReviewTitleTextEditor(text: $viewModel.review)
-//                        }
+                        LargeTextEditor(text: $viewModel.review, title: "Review")
                     }
                     Button(action: {
                         viewModel.saveCoffee()
@@ -179,30 +173,3 @@ private struct TagsSection: View {
 
     }
 }
-
-private struct ReviewTitleTextEditor: View {
-    @Binding var text: String
-    var body: some View {
-        VStack {
-            Text("Review")
-            TextEditor(text: $text)
-        }
-    }
-}
-
-// TODO bring in this iOS 15 logic later
-//@available(iOS 15.0, *)
-//private struct ReviewPlaceholderTextEditor: View {
-//    @FocusState private var isFocused: Bool
-//    @Binding var text: String
-//    var body: some View {
-//        ZStack(alignment: .topLeading) {
-//            TextEditor(text: $text)
-//                .focused($isFocused, equals: true)
-//                .zIndex(1)
-//            if !isFocused {
-//                Text(text.isEmpty ? "Review" : "")
-//            }
-//        }
-//    }
-//}

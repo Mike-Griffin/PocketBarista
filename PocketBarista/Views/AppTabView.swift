@@ -14,6 +14,8 @@ struct AppTabView: View {
                 .tabItem { Label("Home", systemImage: "house") }
             FavoritesView()
                 .tabItem { Label("Favorites", systemImage: "star") }
+            BrewLogsView()
+                .tabItem { Label("Logs", systemImage: "text.book.closed")}
             SettingsView()
                 .tabItem { Label("Settings", systemImage: "gear") }
         }

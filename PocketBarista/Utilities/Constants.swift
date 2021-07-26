@@ -26,6 +26,7 @@ enum DataModel {
     static let coffee = "PBCoffee"
     static let roaster = "PBRoaster"
     static let tag = "PBTag"
+    static let brewLog = "PBBrewLog"
 }
 
 enum DefaultsKeys: String {

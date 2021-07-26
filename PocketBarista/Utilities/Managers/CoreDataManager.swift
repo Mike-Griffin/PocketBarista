@@ -46,6 +46,16 @@ struct CoreDataManager {
         container.viewContext.delete(object)
         save()
     }
+    // MARK: Coffee
+    func fetchCoffees() -> [PBCoffee] {
+        let request = NSFetchRequest<PBCoffee>(entityName: DataModel.coffee)
+        do {
+            return try container.viewContext.fetch(request)
+        } catch {
+            print("Error loading coffee data")
+            return []
+        }
+    }
     func addCoffee(name: String, roaster: PBRoaster?, rating: Int, image: UIImage?, tags: [PBTag]) {
         let coffee = PBCoffee(context: container.viewContext)
         coffee.name = name
@@ -66,26 +76,7 @@ struct CoreDataManager {
     func editCoffee(coffee: PBCoffee) {
         save()
     }
-    func addRoaster(name: String, location: String) {
-        let roaster = PBRoaster(context: container.viewContext)
-        roaster.name = name
-        roaster.location = location
-        save()
-    }
-    func addTag(name: String) {
-        let tag = PBTag(context: container.viewContext)
-        tag.name = name
-        save()
-    }
-    func fetchCoffees() -> [PBCoffee] {
-        let request = NSFetchRequest<PBCoffee>(entityName: DataModel.coffee)
-        do {
-            return try container.viewContext.fetch(request)
-        } catch {
-            print("Error loading coffee data")
-            return []
-        }
-    }
+    // MARK: Roaster
     func fetchRoasters() -> [PBRoaster] {
         let request = NSFetchRequest<PBRoaster>(entityName: DataModel.roaster)
         do {
@@ -95,6 +86,14 @@ struct CoreDataManager {
             return []
         }
     }
+    func addRoaster(name: String, location: String) {
+        let roaster = PBRoaster(context: container.viewContext)
+        roaster.name = name
+        roaster.location = location
+        save()
+    }
+
+    // MARK: Tag
     func fetchTags() -> [PBTag] {
         let request = NSFetchRequest<PBTag>(entityName: DataModel.tag)
         do {
@@ -103,5 +102,44 @@ struct CoreDataManager {
             print("Error loading tag data")
             return []
         }
+    }
+    func addTag(name: String) {
+        let tag = PBTag(context: container.viewContext)
+        tag.name = name
+        save()
+    }
+    // MARK: BrewLog
+    func fetchBrewLogs() -> [PBBrewLog] {
+        let request = NSFetchRequest<PBBrewLog>(entityName: DataModel.brewLog)
+        do {
+            return try container.viewContext.fetch(request)
+        } catch {
+            print("Error loading brew log data")
+            return []
+        }
+    }
+    func addBrewLog(ratio: Float?, waterQuantity: String, notes: String,
+                    grindSetting: String, rating: Int, coffee: PBCoffee?) {
+        print("this be called my dude")
+        let brewLog = PBBrewLog(context: container.viewContext)
+        let date = Date()
+        brewLog.date = date
+        if let ratio = ratio {
+            brewLog.ratio = ratio
+        }
+        if let waterQuantity = Int16(waterQuantity) {
+            brewLog.waterQuantity = waterQuantity
+        }
+        brewLog.coffee = coffee
+        if !notes.isEmpty {
+            brewLog.notes = notes
+        }
+        if brewLog.rating > 0, brewLog.rating <= 5 {
+            brewLog.rating = Int16(rating)
+        }
+        if let grindSetting = Int16(grindSetting) {
+            brewLog.grindSetting = grindSetting
+        }
+        save()
     }
 }
