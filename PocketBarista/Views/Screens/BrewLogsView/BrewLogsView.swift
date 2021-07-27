@@ -12,10 +12,13 @@ struct BrewLogsView: View {
     var body: some View {
         List {
             ForEach(viewModel.brewLogs) { log in
-                VStack {
+                VStack(alignment: .leading, spacing: 12) {
                     Text(log.coffee != nil ? log.coffee!.displayText : "No Coffee Selected")
-                    Text(log.date?.toDateTime() ?? "no date")
+                        .font(.title3)
+                    Text(log.date?.toDateTime() != nil ? "Brewed \(log.date!.relativeFromToday())" : "no date")
+                        .font(.caption)
                 }
+                .padding()
             }
         }
             .onAppear {

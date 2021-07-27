@@ -9,7 +9,6 @@
 import Foundation
 import CoreData
 
-
 extension PBCoffee {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<PBCoffee> {
@@ -23,7 +22,6 @@ extension PBCoffee {
     @NSManaged public var brewLogs: PBBrewLog?
     @NSManaged public var roaster: PBRoaster?
     @NSManaged public var tags: NSSet?
-    
     var displayText: String {
         guard let name = name else { return "No Name?" }
         if let roaster = roaster {
@@ -56,6 +54,6 @@ extension PBCoffee {
 
 }
 
-extension PBCoffee : Identifiable {
+extension PBCoffee: Identifiable {
 
 }

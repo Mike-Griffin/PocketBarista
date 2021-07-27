@@ -120,7 +120,6 @@ struct CoreDataManager {
     }
     func addBrewLog(ratio: Float?, waterQuantity: String, notes: String,
                     grindSetting: String, rating: Int, coffee: PBCoffee?) {
-        print("this be called my dude")
         let brewLog = PBBrewLog(context: container.viewContext)
         let date = Date()
         brewLog.date = date
