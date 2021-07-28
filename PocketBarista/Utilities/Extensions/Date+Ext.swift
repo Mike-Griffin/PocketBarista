@@ -15,7 +15,6 @@ extension Date {
         formatter.dateFormat = format
         return formatter.string(from: self)
     }
-    
     func toDayOfWeek() -> String {
         let weekdays = [
             "Sunday",
@@ -26,21 +25,20 @@ extension Date {
             "Friday",
             "Saturday"
         ]
-        
         let calendar = Calendar.current.component(.weekday, from: self)
         return weekdays[calendar - 1]
     }
-        
     func relativeFromToday() -> String {
         let date = Date()
         // MARK: Difference from today components
-        let components:DateComponents = Calendar.current.dateComponents([.minute,.day,.month,.year], from: self, to: date)
+        let components: DateComponents = Calendar.current.dateComponents(
+            [.minute, .day, .month, .year], from: self, to: date)
         let year = components.year  ?? 0
         let week = components.weekOfYear  ?? 0
         let day = components.day ?? 0
         let minutes = components.minute ?? 0
         // MARK: Date as components
-        let selfComponents :DateComponents = Calendar.current.dateComponents([.year], from: self)
+        let selfComponents: DateComponents = Calendar.current.dateComponents([.year], from: self)
         let dateYear = selfComponents.year  ?? 0
         if year >= 1 {
             return "in \(dateYear)"

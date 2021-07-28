@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct RatingView: View {
+struct RatingSelectionView: View {
     @Binding var rating: Int
     var body: some View {
         HStack {
@@ -24,6 +24,6 @@ struct RatingView: View {
 
 struct RatingView_Previews: PreviewProvider {
     static var previews: some View {
-        RatingView(rating: .constant(3))
+        RatingSelectionView(rating: .constant(3))
     }
 }

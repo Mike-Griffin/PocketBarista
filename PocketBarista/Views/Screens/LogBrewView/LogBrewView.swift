@@ -27,7 +27,7 @@ struct LogBrewView: View {
             }
             Form {
                 Section {
-                    RatingView(rating: $viewModel.rating)
+                    RatingSelectionView(rating: $viewModel.rating)
                     LargeTextEditor(text: $viewModel.notes, title: "Notes")
                 }
                 Section {

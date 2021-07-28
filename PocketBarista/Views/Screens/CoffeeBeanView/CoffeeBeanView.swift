@@ -32,7 +32,7 @@ struct CoffeeBeanView: View {
                         HStack {
                             Text("Rating")
                             Spacer()
-                            RatingView(rating: $viewModel.rating)
+                            RatingSelectionView(rating: $viewModel.rating)
                         }
                         LargeTextEditor(text: $viewModel.review, title: "Review")
                     }

@@ -17,7 +17,7 @@
 		7F4CB2D02681925C003F0D06 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4CB2CF2681925C003F0D06 /* Constants.swift */; };
 		7F4CB2D326819789003F0D06 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4CB2D226819789003F0D06 /* FavoritesView.swift */; };
 		7F4CB2D62682DEA8003F0D06 /* BrewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4CB2D52682DEA8003F0D06 /* BrewView.swift */; };
-		7F79F1CC2686BCC2000BD6B4 /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F79F1CB2686BCC2000BD6B4 /* RatingView.swift */; };
+		7F79F1CC2686BCC2000BD6B4 /* RatingSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F79F1CB2686BCC2000BD6B4 /* RatingSelectionView.swift */; };
 		7F79F1CE2686C588000BD6B4 /* CoffeeBeanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F79F1CD2686C588000BD6B4 /* CoffeeBeanView.swift */; };
 		7F79F1D12686C5DF000BD6B4 /* CoffeeBeanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F79F1D02686C5DF000BD6B4 /* CoffeeBeanViewModel.swift */; };
 		7F99077726AE59EC00E6FC33 /* Main.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7FF45F8E268AC4D600E93D25 /* Main.xcdatamodeld */; };
@@ -26,6 +26,7 @@
 		7FA4861526AE5478001E1D03 /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA4861426AE5478001E1D03 /* Date+Ext.swift */; };
 		7FC2E8AF26A4EA2100670480 /* Color+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC2E8AE26A4EA2100670480 /* Color+Ext.swift */; };
 		7FC47EB42693B33F006AAA1E /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC47EB32693B33F006AAA1E /* PhotoPicker.swift */; };
+		7FC9D64F26B107FB0066CBD1 /* RatingDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC9D64E26B107FB0066CBD1 /* RatingDisplayView.swift */; };
 		7FCB2048269EA00600968EDB /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCB2047269EA00600968EDB /* SettingsView.swift */; };
 		7FCB204D26A10DCB00968EDB /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCB204C26A10DCA00968EDB /* SettingsViewModel.swift */; };
 		7FCB204F26A10E5900968EDB /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCB204E26A10E5900968EDB /* UserDefaultsManager.swift */; };
@@ -87,7 +88,7 @@
 		7F4CB2CF2681925C003F0D06 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7F4CB2D226819789003F0D06 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		7F4CB2D52682DEA8003F0D06 /* BrewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewView.swift; sourceTree = "<group>"; };
-		7F79F1CB2686BCC2000BD6B4 /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
+		7F79F1CB2686BCC2000BD6B4 /* RatingSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingSelectionView.swift; sourceTree = "<group>"; };
 		7F79F1CD2686C588000BD6B4 /* CoffeeBeanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeBeanView.swift; sourceTree = "<group>"; };
 		7F79F1D02686C5DF000BD6B4 /* CoffeeBeanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeBeanViewModel.swift; sourceTree = "<group>"; };
 		7F9D57DA26AE572700B8B119 /* PBCoffee+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PBCoffee+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -95,6 +96,7 @@
 		7FA4861426AE5478001E1D03 /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
 		7FC2E8AE26A4EA2100670480 /* Color+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Ext.swift"; sourceTree = "<group>"; };
 		7FC47EB32693B33F006AAA1E /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
+		7FC9D64E26B107FB0066CBD1 /* RatingDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingDisplayView.swift; sourceTree = "<group>"; };
 		7FCB2047269EA00600968EDB /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		7FCB204C26A10DCA00968EDB /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		7FCB204E26A10E5900968EDB /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
@@ -380,7 +382,8 @@
 				7FC47EB22693B230006AAA1E /* UIKit Components */,
 				7FFCF8B32684300F00041FA5 /* MeasurementSelectionView.swift */,
 				7FFCF8B62684321900041FA5 /* QuantitySelectionView.swift */,
-				7F79F1CB2686BCC2000BD6B4 /* RatingView.swift */,
+				7F79F1CB2686BCC2000BD6B4 /* RatingSelectionView.swift */,
+				7FC9D64E26B107FB0066CBD1 /* RatingDisplayView.swift */,
 				7FCB205026A20A3000968EDB /* SearchField.swift */,
 				7F4AA1AB26ADF26500B12E0D /* LargeTextEditor.swift */,
 			);
@@ -524,6 +527,7 @@
 				7FCB205326A2216200968EDB /* SelectCoffeeView.swift in Sources */,
 				7FFCF8B72684321900041FA5 /* QuantitySelectionView.swift in Sources */,
 				7FEC22302696A2A8007466D7 /* SelectTagsViewModel.swift in Sources */,
+				7FC9D64F26B107FB0066CBD1 /* RatingDisplayView.swift in Sources */,
 				7FF45F8D268AC3EA00E93D25 /* CoreDataManager.swift in Sources */,
 				7F4CB2D62682DEA8003F0D06 /* BrewView.swift in Sources */,
 				7F79F1CE2686C588000BD6B4 /* CoffeeBeanView.swift in Sources */,
@@ -545,7 +549,7 @@
 				7F79F1D12686C5DF000BD6B4 /* CoffeeBeanViewModel.swift in Sources */,
 				7FCB204F26A10E5900968EDB /* UserDefaultsManager.swift in Sources */,
 				7FCB40A3268D660200785B6C /* CreateRoasterViewModel.swift in Sources */,
-				7F79F1CC2686BCC2000BD6B4 /* RatingView.swift in Sources */,
+				7F79F1CC2686BCC2000BD6B4 /* RatingSelectionView.swift in Sources */,
 				7FF45F92268ACF7600E93D25 /* FavoritesViewModel.swift in Sources */,
 				7F45D57F26A7BFDF004CAB48 /* KeyboardHandler.swift in Sources */,
 				7F9D57DD26AE572700B8B119 /* PBCoffee+CoreDataProperties.swift in Sources */,

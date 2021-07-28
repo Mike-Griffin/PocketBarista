@@ -10,9 +10,9 @@ import SwiftUI
 struct SettingsView: View {
     @StateObject var viewModel = SettingsViewModel()
     var body: some View {
-        VStack {
-            Text("Settings")
+        NavigationView {
             List {
+                Text("Settings")
                 Section(header: Text("Brew Amount")) {
                     SectionContent(quantityVal: $viewModel.brewQuantity,
                                    measurement: $viewModel.brewMeasurement)
@@ -26,10 +26,13 @@ struct SettingsView: View {
                                    measurement: $viewModel.waterRatioMeasurement)
                 }
             }
+            .listStyle(InsetGroupedListStyle())
+            .navigationBarTitleDisplayMode(.inline)
+            .onAppear {
+                viewModel.getDefaults()
+            }
         }
-        .onAppear {
-            viewModel.getDefaults()
-        }
+
     }
 }
 

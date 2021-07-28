@@ -15,8 +15,15 @@ struct BrewLogsView: View {
                 VStack(alignment: .leading, spacing: 12) {
                     Text(log.coffee != nil ? log.coffee!.displayText : "No Coffee Selected")
                         .font(.title3)
-                    Text(log.date?.toDateTime() != nil ? "Brewed \(log.date!.relativeFromToday())" : "no date")
+                    HStack {
+                        HStack {
+                            Text("Rating")
+                            RatingDisplayView(rating: Int(log.rating))
+                        }
+                        Text(log.date?.toDateTime() != nil ? "Brewed \(log.date!.relativeFromToday())" : "no date")
                         .font(.caption)
+                    }
+                    .frame(height: 24)
                 }
                 .padding()
             }
