@@ -27,6 +27,7 @@
 		7FC2E8AF26A4EA2100670480 /* Color+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC2E8AE26A4EA2100670480 /* Color+Ext.swift */; };
 		7FC47EB42693B33F006AAA1E /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC47EB32693B33F006AAA1E /* PhotoPicker.swift */; };
 		7FC9D64F26B107FB0066CBD1 /* RatingDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC9D64E26B107FB0066CBD1 /* RatingDisplayView.swift */; };
+		7FC9D65226B125D20066CBD1 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC9D65126B125D20066CBD1 /* HomeView.swift */; };
 		7FCB2048269EA00600968EDB /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCB2047269EA00600968EDB /* SettingsView.swift */; };
 		7FCB204D26A10DCB00968EDB /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCB204C26A10DCA00968EDB /* SettingsViewModel.swift */; };
 		7FCB204F26A10E5900968EDB /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCB204E26A10E5900968EDB /* UserDefaultsManager.swift */; };
@@ -97,6 +98,7 @@
 		7FC2E8AE26A4EA2100670480 /* Color+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Ext.swift"; sourceTree = "<group>"; };
 		7FC47EB32693B33F006AAA1E /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
 		7FC9D64E26B107FB0066CBD1 /* RatingDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingDisplayView.swift; sourceTree = "<group>"; };
+		7FC9D65126B125D20066CBD1 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		7FCB2047269EA00600968EDB /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		7FCB204C26A10DCA00968EDB /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		7FCB204E26A10E5900968EDB /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 		7F4CB2C626818D52003F0D06 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				7FC9D65026B125B90066CBD1 /* HomeView */,
 				7FEC222C2696A135007466D7 /* SelectTagsView */,
 				7FCB409F268D65BA00785B6C /* CreateRoasterView */,
 				7F79F1CF2686C5A3000BD6B4 /* CoffeeBeanView */,
@@ -276,6 +279,14 @@
 				7FEC21F726963958007466D7 /* AppIcon.appiconset */,
 			);
 			path = "UIKit Components";
+			sourceTree = "<group>";
+		};
+		7FC9D65026B125B90066CBD1 /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				7FC9D65126B125D20066CBD1 /* HomeView.swift */,
+			);
+			path = HomeView;
 			sourceTree = "<group>";
 		};
 		7FCB2046269E9FE700968EDB /* SettingsView */ = {
@@ -530,6 +541,7 @@
 				7FC9D64F26B107FB0066CBD1 /* RatingDisplayView.swift in Sources */,
 				7FF45F8D268AC3EA00E93D25 /* CoreDataManager.swift in Sources */,
 				7F4CB2D62682DEA8003F0D06 /* BrewView.swift in Sources */,
+				7FC9D65226B125D20066CBD1 /* HomeView.swift in Sources */,
 				7F79F1CE2686C588000BD6B4 /* CoffeeBeanView.swift in Sources */,
 				7F4CB2C826818DCD003F0D06 /* AppTabView.swift in Sources */,
 				7F4CB2CD26818EC2003F0D06 /* BrewViewModel.swift in Sources */,

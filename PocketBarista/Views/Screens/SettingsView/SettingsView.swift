@@ -10,7 +10,6 @@ import SwiftUI
 struct SettingsView: View {
     @StateObject var viewModel = SettingsViewModel()
     var body: some View {
-        NavigationView {
             List {
                 Text("Settings")
                 Section(header: Text("Brew Amount")) {
@@ -26,13 +25,10 @@ struct SettingsView: View {
                                    measurement: $viewModel.waterRatioMeasurement)
                 }
             }
-            .listStyle(InsetGroupedListStyle())
-            .navigationBarTitleDisplayMode(.inline)
+            .listStyle(GroupedListStyle())
             .onAppear {
                 viewModel.getDefaults()
             }
-        }
-
     }
 }
 

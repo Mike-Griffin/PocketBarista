@@ -9,10 +9,10 @@ import SwiftUI
 import Combine
 
 struct BrewView: View {
-    @ObservedObject var viewModel = BrewViewModel()
+    @StateObject var viewModel = BrewViewModel()
     @StateObject private var keyboardHandler = KeyboardHandler()
     var body: some View {
-        NavigationView {
+//        NavigationView {
             VStack(spacing: 48) {
                 if !keyboardHandler.keyboardShowing {
                     Spacer()
@@ -60,7 +60,7 @@ struct BrewView: View {
             }
             .onAppear {
                 viewModel.changedValue()
-        }
+//        }
         }
     }
 }
