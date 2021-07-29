@@ -38,6 +38,9 @@
 		7FCB40A3268D660200785B6C /* CreateRoasterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCB40A2268D660200785B6C /* CreateRoasterViewModel.swift */; };
 		7FD340F026AE407B0057293D /* BrewLogsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD340EF26AE407B0057293D /* BrewLogsView.swift */; };
 		7FD340F226AE408B0057293D /* BrewLogsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD340F126AE408B0057293D /* BrewLogsViewModel.swift */; };
+		7FD4338C26B2558E008072AB /* BrewQuantityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD4338B26B2558E008072AB /* BrewQuantityView.swift */; };
+		7FD4338E26B256B2008072AB /* BrewStepsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD4338D26B256B2008072AB /* BrewStepsViewModel.swift */; };
+		7FD4339026B25874008072AB /* BrewStrengthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD4338F26B25874008072AB /* BrewStrengthView.swift */; };
 		7FEC221226963959007466D7 /* spotlight120.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FEC21F826963958007466D7 /* spotlight120.png */; };
 		7FEC221326963959007466D7 /* ipad76.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FEC21F926963958007466D7 /* ipad76.png */; };
 		7FEC221426963959007466D7 /* notification40.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FEC21FA26963958007466D7 /* notification40.png */; };
@@ -109,6 +112,9 @@
 		7FCB40A2268D660200785B6C /* CreateRoasterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRoasterViewModel.swift; sourceTree = "<group>"; };
 		7FD340EF26AE407B0057293D /* BrewLogsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewLogsView.swift; sourceTree = "<group>"; };
 		7FD340F126AE408B0057293D /* BrewLogsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewLogsViewModel.swift; sourceTree = "<group>"; };
+		7FD4338B26B2558E008072AB /* BrewQuantityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewQuantityView.swift; sourceTree = "<group>"; };
+		7FD4338D26B256B2008072AB /* BrewStepsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewStepsViewModel.swift; sourceTree = "<group>"; };
+		7FD4338F26B25874008072AB /* BrewStrengthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewStrengthView.swift; sourceTree = "<group>"; };
 		7FEC21F826963958007466D7 /* spotlight120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spotlight120.png; sourceTree = "<group>"; };
 		7FEC21F926963958007466D7 /* ipad76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ipad76.png; sourceTree = "<group>"; };
 		7FEC21FA26963958007466D7 /* notification40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = notification40.png; sourceTree = "<group>"; };
@@ -210,6 +216,7 @@
 		7F4CB2C626818D52003F0D06 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				7FD4338A26B25559008072AB /* BrewStepViews */,
 				7FC9D65026B125B90066CBD1 /* HomeView */,
 				7FEC222C2696A135007466D7 /* SelectTagsView */,
 				7FCB409F268D65BA00785B6C /* CreateRoasterView */,
@@ -323,6 +330,16 @@
 				7FD340EF26AE407B0057293D /* BrewLogsView.swift */,
 			);
 			path = BrewLogsView;
+			sourceTree = "<group>";
+		};
+		7FD4338A26B25559008072AB /* BrewStepViews */ = {
+			isa = PBXGroup;
+			children = (
+				7FD4338D26B256B2008072AB /* BrewStepsViewModel.swift */,
+				7FD4338B26B2558E008072AB /* BrewQuantityView.swift */,
+				7FD4338F26B25874008072AB /* BrewStrengthView.swift */,
+			);
+			path = BrewStepViews;
 			sourceTree = "<group>";
 		};
 		7FEC21F726963958007466D7 /* AppIcon.appiconset */ = {
@@ -531,6 +548,7 @@
 				7FCB205626A2219A00968EDB /* SelectCoffeeViewModel.swift in Sources */,
 				7F4AA1AC26ADF26500B12E0D /* LargeTextEditor.swift in Sources */,
 				7FCB40A1268D65C900785B6C /* CreateRoasterView.swift in Sources */,
+				7FD4338E26B256B2008072AB /* BrewStepsViewModel.swift in Sources */,
 				7FFCF8B42684300F00041FA5 /* MeasurementSelectionView.swift in Sources */,
 				7F4CB2D02681925C003F0D06 /* Constants.swift in Sources */,
 				7FEC222E2696A146007466D7 /* SelectTagsView.swift in Sources */,
@@ -547,6 +565,7 @@
 				7F4CB2CD26818EC2003F0D06 /* BrewViewModel.swift in Sources */,
 				7FFCF8BC26854A1700041FA5 /* View+Ext.swift in Sources */,
 				7FC47EB42693B33F006AAA1E /* PhotoPicker.swift in Sources */,
+				7FD4338C26B2558E008072AB /* BrewQuantityView.swift in Sources */,
 				7FA4861526AE5478001E1D03 /* Date+Ext.swift in Sources */,
 				7FCB2048269EA00600968EDB /* SettingsView.swift in Sources */,
 				7FFCF8B226840B9F00041FA5 /* Float+Ext.swift in Sources */,
@@ -561,6 +580,7 @@
 				7F79F1D12686C5DF000BD6B4 /* CoffeeBeanViewModel.swift in Sources */,
 				7FCB204F26A10E5900968EDB /* UserDefaultsManager.swift in Sources */,
 				7FCB40A3268D660200785B6C /* CreateRoasterViewModel.swift in Sources */,
+				7FD4339026B25874008072AB /* BrewStrengthView.swift in Sources */,
 				7F79F1CC2686BCC2000BD6B4 /* RatingSelectionView.swift in Sources */,
 				7FF45F92268ACF7600E93D25 /* FavoritesViewModel.swift in Sources */,
 				7F45D57F26A7BFDF004CAB48 /* KeyboardHandler.swift in Sources */,

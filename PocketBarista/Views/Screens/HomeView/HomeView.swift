@@ -14,7 +14,7 @@ struct HomeView: View {
             Text("Welcome!")
                 .font(.largeTitle)
             Text("Are you ready to brew some coffee?")
-            NavigationLink(destination: BrewView()) {
+            NavigationLink(destination: BrewQuantityView()) {
                 Text("Brew Coffee")
             }
         }

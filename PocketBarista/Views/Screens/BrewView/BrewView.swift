@@ -85,7 +85,7 @@ struct BrewPreferencesView: View {
     }
 }
 
-struct AmountBrewLine: View {
+private struct AmountBrewLine: View {
     @Binding var quantity: String
     @Binding var measurement: MeasurementType
     @State var showingMeasurementSheet = false
