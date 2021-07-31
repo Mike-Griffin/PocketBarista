@@ -21,6 +21,11 @@ enum MeasurementType: String, Equatable, CaseIterable {
     }
 }
 
+enum Strength: String, Equatable, CaseIterable {
+    case strong
+    case regular
+}
+
 enum DataModel {
     static let main = "Main"
     static let coffee = "PBCoffee"
@@ -38,6 +43,7 @@ enum DefaultsKeys: String {
     case waterRatioMeasurement
     case coffeeRequiredMeasurement
     case waterRequiredMeasurement
+    case strength
 }
 
 enum PlaceholderImage {

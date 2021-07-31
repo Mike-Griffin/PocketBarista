@@ -24,7 +24,6 @@ private struct AmountBrewLine: View {
     @Binding var quantity: String
     @Binding var measurement: MeasurementType
     @State var showingMeasurementSheet = false
-    @State var showingNumberSheet = false
     var body: some View {
         VStack(spacing: 0) {
             Text("How much coffee are you brewing?")
@@ -42,9 +41,6 @@ private struct AmountBrewLine: View {
         }
         .sheet(isPresented: $showingMeasurementSheet, content: {
             MeasurementSelectionView(selection: $measurement)
-        })
-        .sheet(isPresented: $showingNumberSheet, content: {
-            QuantitySelectionView(selection: $quantity)
         })
         .onTapGesture {
             dismissKeyboard()

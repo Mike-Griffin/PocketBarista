@@ -49,7 +49,13 @@ class BrewStepsViewModel: ObservableObject {
             changedValue()
         }
     }
+    @Published var strength: Strength {
+        didSet {
+            strengthSetRatio(strength)
+        }
+    }
     @Published var keyboardShowing: Bool? = false
+    @Published var showingStrengthSheet: Bool = false
 
     init() {
         brewQuantity = UserDefaultsManager.shared.getBrewQuantity()
@@ -60,6 +66,7 @@ class BrewStepsViewModel: ObservableObject {
         waterRatioMeasurement = UserDefaultsManager.shared.getWaterRatioMeasurement()
         coffeeRequiredMeasurement = UserDefaultsManager.shared.getCoffeeRequiredMeasurement()
         waterRequiredMeasurement = UserDefaultsManager.shared.getWaterRequiredMeasurement()
+        strength = UserDefaultsManager.shared.getStrength()
     }
     func changedValue() {
         let requiredWater = brewQuantityToGrams
@@ -118,6 +125,20 @@ class BrewStepsViewModel: ObservableObject {
             return value / 1000
         case .cup:
             return value / (28.3495 * 8)
+        }
+    }
+    func strengthSetRatio(_ strength: Strength) {
+        switch strength {
+        case .strong:
+            coffeeRatioQuantity = "1"
+            waterRatioQuantity = "15"
+            coffeeRatioMeasurement = .gram
+            waterRatioMeasurement = .gram
+        case .regular:
+            coffeeRatioQuantity = "1"
+            waterRatioQuantity = "17"
+            coffeeRatioMeasurement = .gram
+            waterRatioMeasurement = .gram
         }
     }
     func saveDefaults() {

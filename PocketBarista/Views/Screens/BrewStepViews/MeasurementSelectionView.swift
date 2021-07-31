@@ -10,10 +10,15 @@ import SwiftUI
 struct MeasurementSelectionView: View {
     @Binding var selection: MeasurementType
     var body: some View {
-        Picker("Measurement Selection Picker", selection: $selection) {
-            ForEach(MeasurementType.allCases, id: \.self) { type in
-                Text(type.rawValue)
+        VStack {
+            DismissButton()
+            Spacer()
+            Picker("Measurement Selection Picker", selection: $selection) {
+                ForEach(MeasurementType.allCases, id: \.self) { type in
+                    Text(type.rawValue)
+                }
             }
+            Spacer()
         }
     }
 }

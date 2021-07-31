@@ -94,4 +94,15 @@ struct UserDefaultsManager {
     func setWaterRequiredMeasurement(_ measurement: MeasurementType) {
         defaults.set(measurement.rawValue, forKey: DefaultsKeys.waterRequiredMeasurement.rawValue)
     }
+    // MARK: Strengh
+    func getStrength() -> Strength {
+        if let strengthDefault = defaults.object(forKey: DefaultsKeys.strength.rawValue) as? String {
+            return Strength(rawValue: strengthDefault) ?? .regular
+        } else {
+            return .regular
+        }
+    }
+    func setStrength(_ strength: Strength) {
+        defaults.set(strength.rawValue, forKey: DefaultsKeys.strength.rawValue)
+    }
 }

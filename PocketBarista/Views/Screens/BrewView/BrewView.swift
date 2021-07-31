@@ -89,7 +89,6 @@ private struct AmountBrewLine: View {
     @Binding var quantity: String
     @Binding var measurement: MeasurementType
     @State var showingMeasurementSheet = false
-    @State var showingNumberSheet = false
     var body: some View {
         HStack(spacing: 0) {
             Text("Now brewing ")
@@ -106,9 +105,6 @@ private struct AmountBrewLine: View {
         .sheet(isPresented: $showingMeasurementSheet, content: {
             MeasurementSelectionView(selection: $measurement)
         })
-        .sheet(isPresented: $showingNumberSheet, content: {
-            QuantitySelectionView(selection: $quantity)
-        })
         .onTapGesture {
             dismissKeyboard()
         }
@@ -121,7 +117,6 @@ struct RatioSelectionLine: View {
     @Binding var quantity: String
     @Binding var measurement: MeasurementType
     @State var showingMeasurementSheet = false
-    @State var showingNumberSheet = false
     var body: some View {
         HStack(spacing: 0) {
             QuantityTextField(quantity: $quantity)
@@ -137,9 +132,6 @@ struct RatioSelectionLine: View {
         }
         .sheet(isPresented: $showingMeasurementSheet, content: {
             MeasurementSelectionView(selection: $measurement)
-        })
-        .sheet(isPresented: $showingNumberSheet, content: {
-            QuantitySelectionView(selection: $quantity)
         })
     }
 }
