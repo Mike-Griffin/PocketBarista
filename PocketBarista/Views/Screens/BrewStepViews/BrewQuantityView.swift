@@ -10,12 +10,24 @@ import SwiftUI
 struct BrewQuantityView: View {
     @StateObject var viewModel = BrewStepsViewModel()
     var body: some View {
-        AmountBrewLine(quantity: $viewModel.brewQuantity, measurement: $viewModel.brewMeasurement)
-            .font(.largeTitle)
-            .multilineTextAlignment(.center)
-            .padding()
-        NavigationLink(destination: BrewStrengthView(viewModel: viewModel)) {
-            Text("Confirm")
+        VStack {
+            Spacer()
+            AmountBrewLine(quantity: $viewModel.brewQuantity, measurement: $viewModel.brewMeasurement)
+                .font(.largeTitle)
+                .multilineTextAlignment(.center)
+                .padding()
+            Spacer()
+            NavigationLink(destination: BrewStrengthView(viewModel: viewModel)) {
+                VStack {
+                    Image(systemName: "chevron.forward")
+                        .padding()
+                        .foregroundColor(.white)
+                        .background(Color.brandPrimary)
+                        .clipShape(Circle())
+                    Text("Continue")
+                        .font(.subheadline)
+                }
+            }
         }
     }
 }

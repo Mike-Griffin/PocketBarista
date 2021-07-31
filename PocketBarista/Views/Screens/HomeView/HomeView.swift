@@ -13,9 +13,15 @@ struct HomeView: View {
         VStack {
             Text("Welcome!")
                 .font(.largeTitle)
+            Spacer()
             Text("Are you ready to brew some coffee?")
+            Spacer()
             NavigationLink(destination: BrewQuantityView()) {
                 Text("Brew Coffee")
+                    .padding()
+                    .foregroundColor(.white)
+                    .background(Color.brandPrimary)
+                    .cornerRadius(15)
             }
         }
         }

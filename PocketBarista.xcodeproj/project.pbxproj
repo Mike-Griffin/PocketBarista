@@ -73,6 +73,7 @@
 		7FF45F92268ACF7600E93D25 /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF45F91268ACF7600E93D25 /* FavoritesViewModel.swift */; };
 		7FFC36A126B4DB1400AEB073 /* StrengthSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFC36A026B4DB1400AEB073 /* StrengthSelectionView.swift */; };
 		7FFC36A526B4DFAC00AEB073 /* DismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFC36A426B4DFAC00AEB073 /* DismissButton.swift */; };
+		7FFC36A726B5D32A00AEB073 /* BrewRequiredSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFC36A626B5D32A00AEB073 /* BrewRequiredSummaryView.swift */; };
 		7FFCF8B226840B9F00041FA5 /* Float+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFCF8B126840B9F00041FA5 /* Float+Ext.swift */; };
 		7FFCF8B42684300F00041FA5 /* MeasurementSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFCF8B32684300F00041FA5 /* MeasurementSelectionView.swift */; };
 		7FFCF8BA2684371300041FA5 /* LogBrewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFCF8B92684371300041FA5 /* LogBrewView.swift */; };
@@ -149,6 +150,7 @@
 		7FF45F91268ACF7600E93D25 /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
 		7FFC36A026B4DB1400AEB073 /* StrengthSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrengthSelectionView.swift; sourceTree = "<group>"; };
 		7FFC36A426B4DFAC00AEB073 /* DismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissButton.swift; sourceTree = "<group>"; };
+		7FFC36A626B5D32A00AEB073 /* BrewRequiredSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewRequiredSummaryView.swift; sourceTree = "<group>"; };
 		7FFCF8B126840B9F00041FA5 /* Float+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Float+Ext.swift"; sourceTree = "<group>"; };
 		7FFCF8B32684300F00041FA5 /* MeasurementSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurementSelectionView.swift; sourceTree = "<group>"; };
 		7FFCF8B92684371300041FA5 /* LogBrewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogBrewView.swift; sourceTree = "<group>"; };
@@ -340,6 +342,7 @@
 				7FD4338D26B256B2008072AB /* BrewStepsViewModel.swift */,
 				7FD4338B26B2558E008072AB /* BrewQuantityView.swift */,
 				7FD4338F26B25874008072AB /* BrewStrengthView.swift */,
+				7FFC36A626B5D32A00AEB073 /* BrewRequiredSummaryView.swift */,
 				7FFCF8B32684300F00041FA5 /* MeasurementSelectionView.swift */,
 				7FFC36A026B4DB1400AEB073 /* StrengthSelectionView.swift */,
 			);
@@ -560,6 +563,7 @@
 				7FEC22302696A2A8007466D7 /* SelectTagsViewModel.swift in Sources */,
 				7FC9D64F26B107FB0066CBD1 /* RatingDisplayView.swift in Sources */,
 				7FF45F8D268AC3EA00E93D25 /* CoreDataManager.swift in Sources */,
+				7FFC36A726B5D32A00AEB073 /* BrewRequiredSummaryView.swift in Sources */,
 				7F4CB2D62682DEA8003F0D06 /* BrewView.swift in Sources */,
 				7FC9D65226B125D20066CBD1 /* HomeView.swift in Sources */,
 				7F79F1CE2686C588000BD6B4 /* CoffeeBeanView.swift in Sources */,

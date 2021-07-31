@@ -10,7 +10,36 @@ import SwiftUI
 struct BrewStrengthView: View {
     @ObservedObject var viewModel: BrewStepsViewModel
     var body: some View {
-        StrengthPromptView(strength: $viewModel.strength, showingStrengthSheet: $viewModel.showingStrengthSheet)
+        VStack {
+            Spacer()
+            StrengthPromptView(strength: $viewModel.strength, showingStrengthSheet: $viewModel.showingStrengthSheet)
+            Spacer()
+            HStack(alignment: .center) {
+                Spacer()
+                NavigationLink(destination: BrewRequiredSummaryView(viewModel: viewModel)) {
+                    VStack {
+                        Image(systemName: "chevron.forward")
+                            .padding()
+                            .foregroundColor(.white)
+                            .background(Color.brandPrimary)
+                            .clipShape(Circle())
+                        Text("Continue")
+                            .font(.subheadline)
+                    }
+                }
+                Spacer()
+                Button {
+                    print("ya boy")
+                } label: {
+                    VStack {
+                        Image(systemName: "pencil.circle")
+                        Text("Custom\nRatio")
+                            .font(.subheadline)
+                    }
+                }
+            }
+            .padding()
+        }
     }
 }
 
