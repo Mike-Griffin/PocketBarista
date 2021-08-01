@@ -10,12 +10,13 @@ import SwiftUI
 struct HomeView: View {
     var body: some View {
         NavigationView {
-        VStack {
+            VStack(alignment: .center, spacing: 64) {
             Text("Welcome!")
                 .font(.largeTitle)
-            Spacer()
             Text("Are you ready to brew some coffee?")
-            Spacer()
+                .font(.title2)
+                .multilineTextAlignment(.center)
+                .padding(.horizontal, 64)
             NavigationLink(destination: BrewQuantityView()) {
                 Text("Brew Coffee")
                     .padding()

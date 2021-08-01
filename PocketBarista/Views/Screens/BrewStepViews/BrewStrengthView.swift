@@ -12,7 +12,11 @@ struct BrewStrengthView: View {
     var body: some View {
         VStack {
             Spacer()
-            StrengthPromptView(strength: $viewModel.strength, showingStrengthSheet: $viewModel.showingStrengthSheet)
+            if viewModel.customRatio {
+                RatioSelectionView(viewModel: viewModel)
+            } else {
+                StrengthPromptView(strength: $viewModel.strength, showingStrengthSheet: $viewModel.showingStrengthSheet)
+            }
             Spacer()
             HStack(alignment: .center) {
                 Spacer()
@@ -29,17 +33,65 @@ struct BrewStrengthView: View {
                 }
                 Spacer()
                 Button {
-                    print("ya boy")
+                    viewModel.customRatio.toggle()
                 } label: {
                     VStack {
                         Image(systemName: "pencil.circle")
                         Text("Custom\nRatio")
                             .font(.subheadline)
+                            .multilineTextAlignment(.center)
                     }
                 }
             }
+            .offset(y: -24)
             .padding()
         }
+    }
+}
+
+private struct RatioSelectionView: View {
+    @ObservedObject var viewModel: BrewStepsViewModel
+    var body: some View {
+        VStack {
+            Text("What ratio for your brew?")
+            RatioSelectionLine(categoryText: "coffee",
+                               quantity: $viewModel.coffeeRatioQuantity,
+                               measurement: $viewModel.coffeeRatioMeasurement,
+                               showingMeasurementSheet: $viewModel.showingMeasurementSheet)
+            Text("to")
+                .foregroundColor(.secondary)
+            RatioSelectionLine(categoryText: "water",
+                               quantity: $viewModel.waterRatioQuantity,
+                               measurement: $viewModel.waterRatioMeasurement,
+                               showingMeasurementSheet: $viewModel.showingMeasurementSheet)
+        }
+        .font(.title2)
+
+    }
+}
+
+private struct RatioSelectionLine: View {
+    var categoryText: String
+    @Binding var quantity: String
+    @Binding var measurement: MeasurementType
+    @Binding var showingMeasurementSheet: Bool
+//    @State var showingMeasurementSheet = false
+    var body: some View {
+        HStack(spacing: 0) {
+            QuantityTextField(quantity: $quantity)
+            Text(" ")
+            Text(measurement.checkPlural(Float(quantity) ?? 0))
+                .underline()
+                .onTapGesture {
+                    dismissKeyboard()
+                    showingMeasurementSheet = true
+                }
+            Text(" \(categoryText)")
+                .foregroundColor(.secondary)
+        }
+        .sheet(isPresented: $showingMeasurementSheet, content: {
+            MeasurementSelectionView(selection: $measurement)
+        })
     }
 }
 
@@ -48,12 +100,14 @@ private struct StrengthPromptView: View {
     @Binding var showingStrengthSheet: Bool
     var body: some View {
         VStack {
-            Text("What strength did you want?")
+            Text("What's your strength preference?")
             Text(strength.rawValue.capitalized)
+                .underline()
                 .onTapGesture {
                     showingStrengthSheet = true
                 }
         }
+        .font(.title2)
         .sheet(isPresented: $showingStrengthSheet, content: {
             StrengthSelectionView(selection: $strength)
         })

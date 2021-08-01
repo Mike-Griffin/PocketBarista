@@ -51,11 +51,19 @@ class BrewStepsViewModel: ObservableObject {
     }
     @Published var strength: Strength {
         didSet {
-            strengthSetRatio(strength)
+            strengthSetRatio()
         }
     }
     @Published var keyboardShowing: Bool? = false
     @Published var showingStrengthSheet: Bool = false
+    @Published var showingMeasurementSheet: Bool = false
+    @Published var customRatio: Bool = false {
+        didSet {
+            if !customRatio {
+                strengthSetRatio()
+            }
+        }
+    }
 
     init() {
         brewQuantity = UserDefaultsManager.shared.getBrewQuantity()
@@ -67,6 +75,11 @@ class BrewStepsViewModel: ObservableObject {
         coffeeRequiredMeasurement = UserDefaultsManager.shared.getCoffeeRequiredMeasurement()
         waterRequiredMeasurement = UserDefaultsManager.shared.getWaterRequiredMeasurement()
         strength = UserDefaultsManager.shared.getStrength()
+        // Need to handle this differently. Currently this is functional but not a good practice
+        if strength == .strong {
+            strengthSetRatio()
+        }
+        changedValue()
     }
     func changedValue() {
         let requiredWater = brewQuantityToGrams
@@ -75,6 +88,8 @@ class BrewStepsViewModel: ObservableObject {
         let coffeeInDisplay = convertToSelectedMeasurement(requiredCoffee, coffeeRequiredMeasurement)
         waterRequiredValue = waterInDisplay
         coffeeRequiredValue = coffeeInDisplay
+        print("Water required: \(waterRequiredValue)")
+        print("Coffee required: \(coffeeRequiredValue)")
     }
     var coffeeRatioQuantityToGrams: Float {
         guard let quantity = Float(coffeeRatioQuantity) else { return 0 }
@@ -127,7 +142,7 @@ class BrewStepsViewModel: ObservableObject {
             return value / (28.3495 * 8)
         }
     }
-    func strengthSetRatio(_ strength: Strength) {
+    func strengthSetRatio() {
         switch strength {
         case .strong:
             coffeeRatioQuantity = "1"
@@ -144,11 +159,15 @@ class BrewStepsViewModel: ObservableObject {
     func saveDefaults() {
         UserDefaultsManager.shared.setBrewQuantity(brewQuantity)
         UserDefaultsManager.shared.setBrewMeasurement(brewMeasurement)
-        UserDefaultsManager.shared.setCoffeeRatioQuantity(coffeeRatioQuantity)
-        UserDefaultsManager.shared.setCoffeeRatioMeasurement(coffeeRatioMeasurement)
-        UserDefaultsManager.shared.setWaterRatioQuantity(waterRatioQuantity)
-        UserDefaultsManager.shared.setWaterRatioMeasurement(waterRatioMeasurement)
         UserDefaultsManager.shared.setCoffeeRequiredMeasurement(coffeeRequiredMeasurement)
         UserDefaultsManager.shared.setWaterRequiredMeasurement(waterRequiredMeasurement)
+        if customRatio {
+            UserDefaultsManager.shared.setCoffeeRatioQuantity(coffeeRatioQuantity)
+            UserDefaultsManager.shared.setCoffeeRatioMeasurement(coffeeRatioMeasurement)
+            UserDefaultsManager.shared.setWaterRatioQuantity(waterRatioQuantity)
+            UserDefaultsManager.shared.setWaterRatioMeasurement(waterRatioMeasurement)
+        } else {
+            UserDefaultsManager.shared.setStrength(strength)
+        }
     }
 }

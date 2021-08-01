@@ -28,6 +28,7 @@ struct BrewQuantityView: View {
                         .font(.subheadline)
                 }
             }
+            .offset(y: -48)
         }
     }
 }

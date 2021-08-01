@@ -112,7 +112,7 @@ private struct AmountBrewLine: View {
     }
 }
 
-struct RatioSelectionLine: View {
+private struct RatioSelectionLine: View {
     var categoryText: String
     @Binding var quantity: String
     @Binding var measurement: MeasurementType
@@ -144,7 +144,7 @@ struct BrewParagraphView_Previews: PreviewProvider {
     }
 }
 
-struct RequiredValuesView: View {
+private struct RequiredValuesView: View {
     var waterValue: Float
     @Binding var waterMeasurement: MeasurementType
     var coffeeValue: Float
