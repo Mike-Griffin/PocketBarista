@@ -46,6 +46,7 @@ struct LogBrewView: View {
                         coffeeQuantity: coffeeRatioQuantity)
                 }, label: {
                     Text("Save")
+                        .foregroundColor(.textColor)
                 })
             }
         }

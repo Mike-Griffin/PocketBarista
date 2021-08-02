@@ -18,8 +18,7 @@ struct BrewStrengthView: View {
                 StrengthPromptView(strength: $viewModel.strength, showingStrengthSheet: $viewModel.showingStrengthSheet)
             }
             Spacer()
-            HStack(alignment: .center) {
-                Spacer()
+            ZStack {
                 NavigationLink(destination: BrewRequiredSummaryView(viewModel: viewModel)) {
                     VStack {
                         Image(systemName: "chevron.forward")
@@ -31,15 +30,18 @@ struct BrewStrengthView: View {
                             .font(.subheadline)
                     }
                 }
-                Spacer()
-                Button {
-                    viewModel.customRatio.toggle()
-                } label: {
-                    VStack {
-                        Image(systemName: "pencil.circle")
-                        Text("Custom\nRatio")
-                            .font(.subheadline)
-                            .multilineTextAlignment(.center)
+                HStack() {
+                    Spacer()
+                    
+                    Button {
+                        viewModel.customRatio.toggle()
+                    } label: {
+                        VStack {
+                            Image(systemName: "pencil.circle")
+                            Text("Custom\nRatio")
+                                .font(.subheadline)
+                                .multilineTextAlignment(.center)
+                        }
                     }
                 }
             }
@@ -52,8 +54,9 @@ struct BrewStrengthView: View {
 private struct RatioSelectionView: View {
     @ObservedObject var viewModel: BrewStepsViewModel
     var body: some View {
-        VStack {
+        VStack(spacing: 0) {
             Text("What ratio for your brew?")
+                .foregroundColor(.secondary)
             RatioSelectionLine(categoryText: "coffee",
                                quantity: $viewModel.coffeeRatioQuantity,
                                measurement: $viewModel.coffeeRatioMeasurement,
@@ -65,8 +68,8 @@ private struct RatioSelectionView: View {
                                measurement: $viewModel.waterRatioMeasurement,
                                showingMeasurementSheet: $viewModel.showingMeasurementSheet)
         }
-        .font(.title2)
-
+        .multilineTextAlignment(.center)
+        .font(.largeTitle)
     }
 }
 
@@ -75,7 +78,7 @@ private struct RatioSelectionLine: View {
     @Binding var quantity: String
     @Binding var measurement: MeasurementType
     @Binding var showingMeasurementSheet: Bool
-//    @State var showingMeasurementSheet = false
+    //    @State var showingMeasurementSheet = false
     var body: some View {
         HStack(spacing: 0) {
             QuantityTextField(quantity: $quantity)
@@ -101,13 +104,15 @@ private struct StrengthPromptView: View {
     var body: some View {
         VStack {
             Text("What's your strength preference?")
+                .foregroundColor(.secondary)
             Text(strength.rawValue.capitalized)
                 .underline()
                 .onTapGesture {
                     showingStrengthSheet = true
                 }
         }
-        .font(.title2)
+        .font(.largeTitle)
+        .multilineTextAlignment(.center)
         .sheet(isPresented: $showingStrengthSheet, content: {
             StrengthSelectionView(selection: $strength)
         })

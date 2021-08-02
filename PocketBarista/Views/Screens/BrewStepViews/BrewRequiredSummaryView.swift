@@ -41,6 +41,9 @@ struct BrewRequiredSummaryView: View {
                 }))
 
         }
+        .font(.largeTitle)
+        .multilineTextAlignment(.center)
+        .padding()
     }
 }
 

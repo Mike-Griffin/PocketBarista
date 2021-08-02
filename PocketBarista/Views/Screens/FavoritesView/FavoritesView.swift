@@ -82,6 +82,7 @@ struct FavoritesView: View {
                         }
                     } label: {
                         Image(systemName: "plus")
+                            .font(.title2)
                     }
                 }
             }

@@ -41,6 +41,7 @@ struct CoffeeBeanView: View {
                         presentationMode.wrappedValue.dismiss()
                     }, label: {
                         Text("Save")
+                            .foregroundColor(.textColor)
                     })
                 }
             }
@@ -105,7 +106,7 @@ private struct CoffeeImage: View {
         Image(uiImage: image)
             .resizable()
             .scaledToFit()
-            .frame(width: 84, height: 84)
+            .frame(width: 180, height: 180)
     }
 }
 
@@ -114,8 +115,8 @@ private struct EditImage: View {
         Image(systemName: "square.and.pencil")
             .resizable()
             .scaledToFit()
-            .frame(width: 12, height: 12)
-            .offset(y: 30)
+            .frame(width: 24, height: 24)
+            .offset(y: 72)
             .foregroundColor(.white)
     }
 }
@@ -161,6 +162,7 @@ private struct TagsSection: View {
                 isShowingTagPicker = true
             }, label: {
                 Text("Select Tags")
+                    .foregroundColor(.textColor)
             })
             if !tags.isEmpty {
                 LazyVGrid(columns: columns, content: {
