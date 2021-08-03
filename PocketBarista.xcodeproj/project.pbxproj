@@ -41,6 +41,7 @@
 		7FD4338C26B2558E008072AB /* BrewQuantityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD4338B26B2558E008072AB /* BrewQuantityView.swift */; };
 		7FD4338E26B256B2008072AB /* BrewStepsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD4338D26B256B2008072AB /* BrewStepsViewModel.swift */; };
 		7FD4339026B25874008072AB /* BrewStrengthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD4338F26B25874008072AB /* BrewStrengthView.swift */; };
+		7FDDCB3726B8F98900F8E780 /* OnboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDDCB3626B8F98900F8E780 /* OnboardView.swift */; };
 		7FEC221226963959007466D7 /* spotlight120.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FEC21F826963958007466D7 /* spotlight120.png */; };
 		7FEC221326963959007466D7 /* ipad76.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FEC21F926963958007466D7 /* ipad76.png */; };
 		7FEC221426963959007466D7 /* notification40.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FEC21FA26963958007466D7 /* notification40.png */; };
@@ -117,6 +118,7 @@
 		7FD4338B26B2558E008072AB /* BrewQuantityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewQuantityView.swift; sourceTree = "<group>"; };
 		7FD4338D26B256B2008072AB /* BrewStepsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewStepsViewModel.swift; sourceTree = "<group>"; };
 		7FD4338F26B25874008072AB /* BrewStrengthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewStrengthView.swift; sourceTree = "<group>"; };
+		7FDDCB3626B8F98900F8E780 /* OnboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardView.swift; sourceTree = "<group>"; };
 		7FEC21F826963958007466D7 /* spotlight120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spotlight120.png; sourceTree = "<group>"; };
 		7FEC21F926963958007466D7 /* ipad76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ipad76.png; sourceTree = "<group>"; };
 		7FEC21FA26963958007466D7 /* notification40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = notification40.png; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 				7F4CB2C726818DCD003F0D06 /* AppTabView.swift */,
 				7FFCF8B52684320700041FA5 /* CustomViews */,
 				7F4CB2C626818D52003F0D06 /* Screens */,
+				7FDDCB3626B8F98900F8E780 /* OnboardView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -550,6 +553,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F99077726AE59EC00E6FC33 /* Main.xcdatamodeld in Sources */,
+				7FDDCB3726B8F98900F8E780 /* OnboardView.swift in Sources */,
 				7FC2E8AF26A4EA2100670480 /* Color+Ext.swift in Sources */,
 				7FCB205626A2219A00968EDB /* SelectCoffeeViewModel.swift in Sources */,
 				7F4AA1AC26ADF26500B12E0D /* LargeTextEditor.swift in Sources */,
