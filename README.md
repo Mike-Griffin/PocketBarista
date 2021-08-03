@@ -1,5 +1,5 @@
 # PocketBarista
-Application to use with coffee brewing at home. Users can easily calculate how much coffee and water they will need in order to make the amount of coffee they want with the ratio of water to coffee that they want.
+Application to use with coffee brewing at home. Users can easily calculate how much coffee and water they will need in order to make the amount of coffee they want with a configurable ratio of water to coffee.
 
 Users can then log of the brew with a rating and input other data like which coffee bean they used and grind setting.
 
