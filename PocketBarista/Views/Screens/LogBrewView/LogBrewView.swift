@@ -34,7 +34,7 @@ struct LogBrewView: View {
                     Text(viewModel.selectedCoffee == nil ? "Select Coffee" : viewModel.selectedCoffee!.name!)
                         .onTapGesture(count: 1) {
                             viewModel.isShowingCoffeePicker = true
-                        }           
+                        }
                 }
                 Section {
                     TextField("Grind Setting", text: $viewModel.grindSetting)

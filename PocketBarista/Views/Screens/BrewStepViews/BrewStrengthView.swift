@@ -30,9 +30,8 @@ struct BrewStrengthView: View {
                             .font(.subheadline)
                     }
                 }
-                HStack() {
+                HStack {
                     Spacer()
-                    
                     Button {
                         viewModel.customRatio.toggle()
                     } label: {
@@ -118,9 +117,3 @@ private struct StrengthPromptView: View {
         })
     }
 }
-
-//struct BrewStrengthView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        BrewStrengthView()
-//    }
-//}

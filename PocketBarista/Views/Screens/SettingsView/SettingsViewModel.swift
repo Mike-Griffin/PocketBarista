@@ -54,6 +54,12 @@ class SettingsViewModel: ObservableObject {
             UserDefaultsManager.shared.setWaterRequiredMeasurement(waterRequiredMeasurement)
         }
     }
+    @Published var strength: Strength {
+        didSet {
+            UserDefaultsManager.shared.setStrength(strength)
+        }
+    }
+    @Published var customRatioShowing = false
     init() {
         brewQuantity = UserDefaultsManager.shared.getBrewQuantity()
         brewMeasurement = UserDefaultsManager.shared.getBrewMeasurement()
@@ -63,6 +69,7 @@ class SettingsViewModel: ObservableObject {
         waterRatioMeasurement = UserDefaultsManager.shared.getWaterRatioMeasurement()
         coffeeRequiredMeasurement = UserDefaultsManager.shared.getCoffeeRequiredMeasurement()
         waterRequiredMeasurement = UserDefaultsManager.shared.getWaterRequiredMeasurement()
+        strength = UserDefaultsManager.shared.getStrength()
     }
     func getDefaults() {
         brewQuantity = UserDefaultsManager.shared.getBrewQuantity()
@@ -73,5 +80,6 @@ class SettingsViewModel: ObservableObject {
         waterRatioMeasurement = UserDefaultsManager.shared.getWaterRatioMeasurement()
         coffeeRequiredMeasurement = UserDefaultsManager.shared.getCoffeeRequiredMeasurement()
         waterRequiredMeasurement = UserDefaultsManager.shared.getWaterRequiredMeasurement()
+        strength = UserDefaultsManager.shared.getStrength()
     }
 }

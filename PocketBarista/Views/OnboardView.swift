@@ -33,7 +33,6 @@ struct OnboardInfoView: View {
     var imageName: String
     var title: String
     var description: String
-    
     var body: some View {
         HStack(spacing: 26) {
             Image(systemName: imageName)
