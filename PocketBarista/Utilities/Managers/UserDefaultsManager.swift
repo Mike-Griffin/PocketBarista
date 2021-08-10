@@ -118,6 +118,7 @@ struct UserDefaultsManager {
     }
     func setStrength(_ strength: Strength?) {
         if let strength = strength {
+            print("setting strength \(strength.rawValue)")
             defaults.set(strength.rawValue, forKey: DefaultsKeys.strength.rawValue)
         } else {
             defaults.removeObject(forKey: DefaultsKeys.strength.rawValue)

@@ -112,8 +112,13 @@ class SettingsViewModel: ObservableObject {
             UserDefaultsManager.shared.setCoffeeRatioMeasurement(coffeeRatioMeasurement)
             UserDefaultsManager.shared.setWaterRatioQuantity(waterRatioQuantity)
             UserDefaultsManager.shared.setWaterRatioMeasurement(waterRatioMeasurement)
+            UserDefaultsManager.shared.setStrength(nil)
         case false:
             UserDefaultsManager.shared.setStrength(strength)
+            UserDefaultsManager.shared.setCoffeeRatioQuantity(nil)
+            UserDefaultsManager.shared.setCoffeeRatioMeasurement(nil)
+            UserDefaultsManager.shared.setWaterRatioQuantity(nil)
+            UserDefaultsManager.shared.setWaterRatioMeasurement(nil)
         }
     }
 }
