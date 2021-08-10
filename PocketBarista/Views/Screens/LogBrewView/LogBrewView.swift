@@ -27,15 +27,16 @@ struct LogBrewView: View {
             }
             Form {
                 Section {
-                    RatingSelectionView(rating: $viewModel.rating)
-                    LargeTextEditor(text: $viewModel.notes, title: "Notes")
-                }
-                Section {
                     Text(viewModel.selectedCoffee == nil ? "Select Coffee" : viewModel.selectedCoffee!.name!)
                         .onTapGesture(count: 1) {
                             viewModel.isShowingCoffeePicker = true
                         }
                 }
+                Section {
+                    RatingSelectionView(rating: $viewModel.rating)
+                    LargeTextEditor(text: $viewModel.notes, title: "Notes")
+                }
+
                 Section {
                     TextField("Grind Setting", text: $viewModel.grindSetting)
                 }
