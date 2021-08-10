@@ -45,7 +45,7 @@ struct CoffeeBeanView: View {
                     })
                 }
             }
-            .navigationTitle(viewModel.coffee == nil ? "Create Coffee Bean" : "")
+            .navigationBarTitle(viewModel.coffee == nil ? "Create Coffee Bean" : "", displayMode: .inline)
             .toolbar(content: {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
@@ -131,7 +131,7 @@ private struct IdentitySection: View {
             if !availableRoasters.isEmpty {
                 RoasterPicker(selectedRoaster: $selectedRoaster, availableRoasters: availableRoasters)
             } else {
-                NavigationLink(destination: CreateRoasterView(), label: {
+                NavigationLink(destination: RoasterView(viewModel: RoasterViewModel(roaster: selectedRoaster)), label: {
                     Text("No roasters exist. Create one")
                 })
             }

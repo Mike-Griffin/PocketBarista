@@ -33,8 +33,8 @@
 		7FCB205126A20A3000968EDB /* SearchField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCB205026A20A3000968EDB /* SearchField.swift */; };
 		7FCB205326A2216200968EDB /* SelectCoffeeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCB205226A2216200968EDB /* SelectCoffeeView.swift */; };
 		7FCB205626A2219A00968EDB /* SelectCoffeeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCB205526A2219A00968EDB /* SelectCoffeeViewModel.swift */; };
-		7FCB40A1268D65C900785B6C /* CreateRoasterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCB40A0268D65C900785B6C /* CreateRoasterView.swift */; };
-		7FCB40A3268D660200785B6C /* CreateRoasterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCB40A2268D660200785B6C /* CreateRoasterViewModel.swift */; };
+		7FCB40A1268D65C900785B6C /* RoasterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCB40A0268D65C900785B6C /* RoasterView.swift */; };
+		7FCB40A3268D660200785B6C /* RoasterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCB40A2268D660200785B6C /* RoasterViewModel.swift */; };
 		7FD340F026AE407B0057293D /* BrewLogsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD340EF26AE407B0057293D /* BrewLogsView.swift */; };
 		7FD340F226AE408B0057293D /* BrewLogsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD340F126AE408B0057293D /* BrewLogsViewModel.swift */; };
 		7FD4338C26B2558E008072AB /* BrewQuantityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD4338B26B2558E008072AB /* BrewQuantityView.swift */; };
@@ -109,8 +109,8 @@
 		7FCB205026A20A3000968EDB /* SearchField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchField.swift; sourceTree = "<group>"; };
 		7FCB205226A2216200968EDB /* SelectCoffeeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCoffeeView.swift; sourceTree = "<group>"; };
 		7FCB205526A2219A00968EDB /* SelectCoffeeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCoffeeViewModel.swift; sourceTree = "<group>"; };
-		7FCB40A0268D65C900785B6C /* CreateRoasterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRoasterView.swift; sourceTree = "<group>"; };
-		7FCB40A2268D660200785B6C /* CreateRoasterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRoasterViewModel.swift; sourceTree = "<group>"; };
+		7FCB40A0268D65C900785B6C /* RoasterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoasterView.swift; sourceTree = "<group>"; };
+		7FCB40A2268D660200785B6C /* RoasterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoasterViewModel.swift; sourceTree = "<group>"; };
 		7FD340EF26AE407B0057293D /* BrewLogsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewLogsView.swift; sourceTree = "<group>"; };
 		7FD340F126AE408B0057293D /* BrewLogsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewLogsViewModel.swift; sourceTree = "<group>"; };
 		7FD4338B26B2558E008072AB /* BrewQuantityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewQuantityView.swift; sourceTree = "<group>"; };
@@ -225,7 +225,7 @@
 				7FD4338A26B25559008072AB /* BrewStepViews */,
 				7FC9D65026B125B90066CBD1 /* HomeView */,
 				7FEC222C2696A135007466D7 /* SelectTagsView */,
-				7FCB409F268D65BA00785B6C /* CreateRoasterView */,
+				7FCB409F268D65BA00785B6C /* RoasterView */,
 				7F79F1CF2686C5A3000BD6B4 /* CoffeeBeanView */,
 				7FFCF8B82684370700041FA5 /* LogBrewView */,
 				7FCB205426A2217D00968EDB /* SelectCoffeeView */,
@@ -310,13 +310,13 @@
 			path = SelectCoffeeView;
 			sourceTree = "<group>";
 		};
-		7FCB409F268D65BA00785B6C /* CreateRoasterView */ = {
+		7FCB409F268D65BA00785B6C /* RoasterView */ = {
 			isa = PBXGroup;
 			children = (
-				7FCB40A2268D660200785B6C /* CreateRoasterViewModel.swift */,
-				7FCB40A0268D65C900785B6C /* CreateRoasterView.swift */,
+				7FCB40A2268D660200785B6C /* RoasterViewModel.swift */,
+				7FCB40A0268D65C900785B6C /* RoasterView.swift */,
 			);
-			path = CreateRoasterView;
+			path = RoasterView;
 			sourceTree = "<group>";
 		};
 		7FD340EE26AE40680057293D /* BrewLogsView */ = {
@@ -546,7 +546,7 @@
 				7FC2E8AF26A4EA2100670480 /* Color+Ext.swift in Sources */,
 				7FCB205626A2219A00968EDB /* SelectCoffeeViewModel.swift in Sources */,
 				7F4AA1AC26ADF26500B12E0D /* LargeTextEditor.swift in Sources */,
-				7FCB40A1268D65C900785B6C /* CreateRoasterView.swift in Sources */,
+				7FCB40A1268D65C900785B6C /* RoasterView.swift in Sources */,
 				7FD4338E26B256B2008072AB /* BrewStepsViewModel.swift in Sources */,
 				7FFCF8B42684300F00041FA5 /* MeasurementSelectionView.swift in Sources */,
 				7F4CB2D02681925C003F0D06 /* Constants.swift in Sources */,
@@ -578,7 +578,7 @@
 				7F9D57DC26AE572700B8B119 /* PBCoffee+CoreDataClass.swift in Sources */,
 				7F79F1D12686C5DF000BD6B4 /* CoffeeBeanViewModel.swift in Sources */,
 				7FCB204F26A10E5900968EDB /* UserDefaultsManager.swift in Sources */,
-				7FCB40A3268D660200785B6C /* CreateRoasterViewModel.swift in Sources */,
+				7FCB40A3268D660200785B6C /* RoasterViewModel.swift in Sources */,
 				7FD4339026B25874008072AB /* BrewStrengthView.swift in Sources */,
 				7F79F1CC2686BCC2000BD6B4 /* RatingSelectionView.swift in Sources */,
 				7F326FC926C1EF6200574CC3 /* QuantityTextField.swift in Sources */,

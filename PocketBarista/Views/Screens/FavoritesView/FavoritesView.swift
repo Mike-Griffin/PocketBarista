@@ -12,41 +12,8 @@ struct FavoritesView: View {
     var body: some View {
         NavigationView {
             List {
-                Section(header: Text("Coffees")) {
-                    ForEach(viewModel.coffees) { coffee in
-                        HStack {
-                            Button {
-                                viewModel.selectedCoffee = coffee
-                                viewModel.showingCreateCoffee = true
-                            } label: {
-                                Text(coffee.name ?? "Uh oh no name")
-                            }
-                            Spacer()
-                            Menu {
-                                Button {
-                                    viewModel.deleteCoffee(coffee)
-                                    viewModel.fetchCoffees()
-                                } label: {
-                                    Text("Delete Coffee")
-                                }
-                                Button {
-                                    viewModel.selectedCoffee = coffee
-                                    viewModel.showingCreateCoffee = true
-                                } label: {
-                                    Text("Edit Coffee")
-                                }
-                            } label: {
-                                Image(systemName: "ellipsis")
-                                    .frame(width: 30, height: 30)
-                            }
-                        }
-                    }
-                }
-                Section(header: Text("Roasters")) {
-                    ForEach(viewModel.roasters) { roaster in
-                        Text(roaster.name ?? "Uh oh no name")
-                    }
-                }
+                CoffeeSection(viewModel: viewModel)
+                RoasterSection(viewModel: viewModel)
             }
             .navigationBarTitleDisplayMode(.inline)
             .onAppear {
@@ -55,18 +22,18 @@ struct FavoritesView: View {
             }
             .sheet(isPresented: $viewModel.showingCreateCoffee,
                    onDismiss: {
-                viewModel.fetchCoffees()
-                viewModel.selectedCoffee = nil
-            },
+                    viewModel.fetchCoffees()
+                    viewModel.selectedCoffee = nil
+                   },
                    content: {
-                CoffeeBeanView(viewModel: CoffeeBeanViewModel(coffee: viewModel.selectedCoffee))
-            })
+                    CoffeeBeanView(viewModel: CoffeeBeanViewModel(coffee: viewModel.selectedCoffee))
+                   })
             .sheet(isPresented: $viewModel.showingCreateRoaster,
                    onDismiss: {
-                viewModel.fetchRoasters()
-            }, content: {
-                CreateRoasterView()
-            })
+                    viewModel.fetchRoasters()
+                   }, content: {
+                    RoasterView(viewModel: RoasterViewModel(roaster: viewModel.selectedRoaster))
+                   })
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Menu {
@@ -83,6 +50,79 @@ struct FavoritesView: View {
                     } label: {
                         Image(systemName: "plus")
                             .font(.title2)
+                    }
+                }
+            }
+        }
+    }
+}
+
+private struct CoffeeSection: View {
+    @ObservedObject var viewModel: FavoritesViewModel
+
+    var body: some View {
+        Section(header: Text("Coffees")) {
+            ForEach(viewModel.coffees) { coffee in
+                HStack {
+                    Button {
+                        viewModel.selectedCoffee = coffee
+                        viewModel.showingCreateCoffee = true
+                    } label: {
+                        Text(coffee.name ?? "Uh oh no name")
+                    }
+                    Spacer()
+                    Menu {
+                        Button {
+                            viewModel.deleteCoffee(coffee)
+                            viewModel.fetchCoffees()
+                        } label: {
+                            Text("Delete Coffee")
+                        }
+                        Button {
+                            viewModel.selectedCoffee = coffee
+                            viewModel.showingCreateCoffee = true
+                        } label: {
+                            Text("Edit Coffee")
+                        }
+                    } label: {
+                        Image(systemName: "ellipsis")
+                            .frame(width: 30, height: 30)
+                    }
+                }
+            }
+        }
+    }
+}
+
+private struct RoasterSection: View {
+    @ObservedObject var viewModel: FavoritesViewModel
+    var body: some View {
+        Section(header: Text("Roasters")) {
+            ForEach(viewModel.roasters) { roaster in
+                HStack {
+                    Button {
+                        viewModel.selectedRoaster = roaster
+                        viewModel.showingCreateRoaster = true
+                    } label: {
+                        Text(roaster.name ?? "Uh oh no name")
+                    }
+                    Spacer()
+                    Menu {
+                        Button {
+                            viewModel.deleteRoaster(roaster)
+                            viewModel.fetchRoasters()
+                        } label: {
+                            Text("Delete Roaster")
+                        }
+                        Button {
+                            viewModel.selectedRoaster = roaster
+                            viewModel.showingCreateRoaster = true
+                        } label: {
+                            Text("Edit Roaster")
+                        }
+                    } label: {
+                        Image(systemName: "ellipsis")
+                            .frame(width: 30, height: 30)
                     }
                 }
             }

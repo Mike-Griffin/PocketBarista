@@ -11,6 +11,9 @@ struct BrewLogsView: View {
     @StateObject var viewModel = BrewLogsViewModel()
     var body: some View {
         List {
+            if viewModel.brewLogs.isEmpty {
+                Text("No brew logs yet! Start making some coffee!!")
+            } else {
             ForEach(viewModel.brewLogs) { log in
                 VStack(alignment: .leading, spacing: 12) {
                     Text(log.coffee != nil ? log.coffee!.displayText : "No Coffee Selected")
@@ -27,6 +30,7 @@ struct BrewLogsView: View {
                 }
                 .padding()
             }
+        }
         }
             .onAppear {
                 viewModel.fetchBrewLogs()

@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct CreateRoasterView: View {
-    @StateObject var viewModel = CreateRoasterViewModel()
+struct RoasterView: View {
+    @ObservedObject var viewModel: RoasterViewModel
     var body: some View {
         Form {
             TextField("Name", text: $viewModel.name)
@@ -19,11 +19,5 @@ struct CreateRoasterView: View {
                 Text("Save")
             })
         }
-    }
-}
-
-struct CreateRoasterView_Previews: PreviewProvider {
-    static var previews: some View {
-        CreateRoasterView()
     }
 }
