@@ -37,7 +37,7 @@ struct BrewStrengthView: View {
                     } label: {
                         VStack {
                             Image(systemName: "pencil.circle")
-                            Text("Custom\nRatio")
+                            Text(viewModel.customRatio ? "Select\nStrength" : "Custom\nRatio")
                                 .font(.subheadline)
                                 .multilineTextAlignment(.center)
                         }
