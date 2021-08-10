@@ -24,6 +24,7 @@ enum MeasurementType: String, Equatable, CaseIterable {
 enum Strength: String, Equatable, CaseIterable {
     case strong
     case regular
+    case weak
 }
 
 enum DataModel {

@@ -156,16 +156,15 @@ class BrewStepsViewModel: ObservableObject {
     func strengthSetRatio() {
             switch strength {
             case .strong:
-                coffeeRatioQuantity = "1"
                 waterRatioQuantity = "15"
-                coffeeRatioMeasurement = .gram
-                waterRatioMeasurement = .gram
             case .regular:
-                coffeeRatioQuantity = "1"
                 waterRatioQuantity = "17"
-                coffeeRatioMeasurement = .gram
-                waterRatioMeasurement = .gram
+            case .weak:
+                waterRatioQuantity = "19"
             }
+        coffeeRatioQuantity = "1"
+        coffeeRatioMeasurement = .gram
+        waterRatioMeasurement = .gram
     }
     func saveDefaults() {
         print("save defaults. Custom ratio \(customRatio)")
