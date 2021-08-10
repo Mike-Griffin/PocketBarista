@@ -7,16 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F326FC926C1EF6200574CC3 /* QuantityTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F326FC826C1EF6200574CC3 /* QuantityTextField.swift */; };
 		7F45D57F26A7BFDF004CAB48 /* KeyboardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F45D57E26A7BFDF004CAB48 /* KeyboardHandler.swift */; };
 		7F4AA1AC26ADF26500B12E0D /* LargeTextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4AA1AB26ADF26500B12E0D /* LargeTextEditor.swift */; };
 		7F4CB2B726818D0E003F0D06 /* PocketBaristaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4CB2B626818D0E003F0D06 /* PocketBaristaApp.swift */; };
 		7F4CB2BB26818D0F003F0D06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F4CB2BA26818D0F003F0D06 /* Assets.xcassets */; };
 		7F4CB2BE26818D0F003F0D06 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F4CB2BD26818D0F003F0D06 /* Preview Assets.xcassets */; };
 		7F4CB2C826818DCD003F0D06 /* AppTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4CB2C726818DCD003F0D06 /* AppTabView.swift */; };
-		7F4CB2CD26818EC2003F0D06 /* BrewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4CB2CC26818EC2003F0D06 /* BrewViewModel.swift */; };
 		7F4CB2D02681925C003F0D06 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4CB2CF2681925C003F0D06 /* Constants.swift */; };
 		7F4CB2D326819789003F0D06 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4CB2D226819789003F0D06 /* FavoritesView.swift */; };
-		7F4CB2D62682DEA8003F0D06 /* BrewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4CB2D52682DEA8003F0D06 /* BrewView.swift */; };
 		7F79F1CC2686BCC2000BD6B4 /* RatingSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F79F1CB2686BCC2000BD6B4 /* RatingSelectionView.swift */; };
 		7F79F1CE2686C588000BD6B4 /* CoffeeBeanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F79F1CD2686C588000BD6B4 /* CoffeeBeanView.swift */; };
 		7F79F1D12686C5DF000BD6B4 /* CoffeeBeanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F79F1D02686C5DF000BD6B4 /* CoffeeBeanViewModel.swift */; };
@@ -83,6 +82,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7F326FC826C1EF6200574CC3 /* QuantityTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuantityTextField.swift; sourceTree = "<group>"; };
 		7F45D57E26A7BFDF004CAB48 /* KeyboardHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHandler.swift; sourceTree = "<group>"; };
 		7F4AA1AB26ADF26500B12E0D /* LargeTextEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeTextEditor.swift; sourceTree = "<group>"; };
 		7F4CB2B326818D0E003F0D06 /* PocketBarista.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PocketBarista.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,10 +91,8 @@
 		7F4CB2BD26818D0F003F0D06 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7F4CB2BF26818D0F003F0D06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7F4CB2C726818DCD003F0D06 /* AppTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabView.swift; sourceTree = "<group>"; };
-		7F4CB2CC26818EC2003F0D06 /* BrewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewViewModel.swift; sourceTree = "<group>"; };
 		7F4CB2CF2681925C003F0D06 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7F4CB2D226819789003F0D06 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
-		7F4CB2D52682DEA8003F0D06 /* BrewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewView.swift; sourceTree = "<group>"; };
 		7F79F1CB2686BCC2000BD6B4 /* RatingSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingSelectionView.swift; sourceTree = "<group>"; };
 		7F79F1CD2686C588000BD6B4 /* CoffeeBeanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeBeanView.swift; sourceTree = "<group>"; };
 		7F79F1D02686C5DF000BD6B4 /* CoffeeBeanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeBeanViewModel.swift; sourceTree = "<group>"; };
@@ -216,6 +214,7 @@
 				7FFCF8B52684320700041FA5 /* CustomViews */,
 				7F4CB2C626818D52003F0D06 /* Screens */,
 				7FDDCB3626B8F98900F8E780 /* OnboardView.swift */,
+				7F326FC826C1EF6200574CC3 /* QuantityTextField.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -228,7 +227,6 @@
 				7FEC222C2696A135007466D7 /* SelectTagsView */,
 				7FCB409F268D65BA00785B6C /* CreateRoasterView */,
 				7F79F1CF2686C5A3000BD6B4 /* CoffeeBeanView */,
-				7F4CB2C926818E64003F0D06 /* BrewView */,
 				7FFCF8B82684370700041FA5 /* LogBrewView */,
 				7FCB205426A2217D00968EDB /* SelectCoffeeView */,
 				7FD340EE26AE40680057293D /* BrewLogsView */,
@@ -236,15 +234,6 @@
 				7FCB2046269E9FE700968EDB /* SettingsView */,
 			);
 			path = Screens;
-			sourceTree = "<group>";
-		};
-		7F4CB2C926818E64003F0D06 /* BrewView */ = {
-			isa = PBXGroup;
-			children = (
-				7F4CB2CC26818EC2003F0D06 /* BrewViewModel.swift */,
-				7F4CB2D52682DEA8003F0D06 /* BrewView.swift */,
-			);
-			path = BrewView;
 			sourceTree = "<group>";
 		};
 		7F4CB2CE2681924A003F0D06 /* Utilities */ = {
@@ -568,11 +557,9 @@
 				7FC9D64F26B107FB0066CBD1 /* RatingDisplayView.swift in Sources */,
 				7FF45F8D268AC3EA00E93D25 /* CoreDataManager.swift in Sources */,
 				7FFC36A726B5D32A00AEB073 /* BrewRequiredSummaryView.swift in Sources */,
-				7F4CB2D62682DEA8003F0D06 /* BrewView.swift in Sources */,
 				7FC9D65226B125D20066CBD1 /* HomeView.swift in Sources */,
 				7F79F1CE2686C588000BD6B4 /* CoffeeBeanView.swift in Sources */,
 				7F4CB2C826818DCD003F0D06 /* AppTabView.swift in Sources */,
-				7F4CB2CD26818EC2003F0D06 /* BrewViewModel.swift in Sources */,
 				7FFCF8BC26854A1700041FA5 /* View+Ext.swift in Sources */,
 				7FC47EB42693B33F006AAA1E /* PhotoPicker.swift in Sources */,
 				7FD4338C26B2558E008072AB /* BrewQuantityView.swift in Sources */,
@@ -594,6 +581,7 @@
 				7FCB40A3268D660200785B6C /* CreateRoasterViewModel.swift in Sources */,
 				7FD4339026B25874008072AB /* BrewStrengthView.swift in Sources */,
 				7F79F1CC2686BCC2000BD6B4 /* RatingSelectionView.swift in Sources */,
+				7F326FC926C1EF6200574CC3 /* QuantityTextField.swift in Sources */,
 				7FF45F92268ACF7600E93D25 /* FavoritesViewModel.swift in Sources */,
 				7F45D57F26A7BFDF004CAB48 /* KeyboardHandler.swift in Sources */,
 				7F9D57DD26AE572700B8B119 /* PBCoffee+CoreDataProperties.swift in Sources */,
@@ -734,6 +722,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.comedichoney.PocketBarista;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -756,6 +745,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.comedichoney.PocketBarista;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

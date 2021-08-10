@@ -33,42 +33,56 @@ struct UserDefaultsManager {
         defaults.set(measurement.rawValue, forKey: DefaultsKeys.brewMeasurement.rawValue)
     }
     // MARK: Coffee Ratio Quantity
-    func getCoffeeRatioQuantity() -> String {
-        return defaults.object(forKey: DefaultsKeys.coffeeRatioQuantity.rawValue) as? String ?? "1"
+    func getCoffeeRatioQuantity() -> String? {
+        return defaults.object(forKey: DefaultsKeys.coffeeRatioQuantity.rawValue) as? String
     }
-    func setCoffeeRatioQuantity(_ quantity: String) {
-        defaults.set(quantity, forKey: DefaultsKeys.coffeeRatioQuantity.rawValue)
-    }
-    // MARK: Coffee Ratio Measurement
-    func getCoffeeRatioMeasurement() -> MeasurementType {
-        if let measurementDefault = defaults.object(forKey:
-                                                            DefaultsKeys.coffeeRatioMeasurement.rawValue) as? String {
-            return MeasurementType(rawValue: measurementDefault) ?? .gram
+    func setCoffeeRatioQuantity(_ quantity: String?) {
+        if let quantity = quantity {
+            defaults.set(quantity, forKey: DefaultsKeys.coffeeRatioQuantity.rawValue)
         } else {
-            return .gram
+            print("helllloooooo???????")
+            defaults.removeObject(forKey: DefaultsKeys.coffeeRatioQuantity.rawValue)
+            defaults.synchronize()
         }
     }
-    func setCoffeeRatioMeasurement(_ measurement: MeasurementType) {
+    // MARK: Coffee Ratio Measurement
+    func getCoffeeRatioMeasurement() -> MeasurementType? {
+        if let measurementDefault = defaults.object(forKey:
+                                                            DefaultsKeys.coffeeRatioMeasurement.rawValue) as? String {
+            return MeasurementType(rawValue: measurementDefault)
+        } else {
+            return nil
+        }
+    }
+    func setCoffeeRatioMeasurement(_ measurement: MeasurementType?) {
+        if let measurement = measurement {
         defaults.set(measurement.rawValue, forKey: DefaultsKeys.coffeeRatioMeasurement.rawValue)
+        } else {
+            defaults.set(nil, forKey: DefaultsKeys.coffeeRatioMeasurement.rawValue)
+        }
     }
     // MARK: Water Ratio Quantity
-    func getWaterRatioQuantity() -> String {
-        return defaults.object(forKey: DefaultsKeys.waterRatioQuantity.rawValue) as? String ?? "17"
+    func getWaterRatioQuantity() -> String? {
+        return defaults.object(forKey: DefaultsKeys.waterRatioQuantity.rawValue) as? String
     }
-    func setWaterRatioQuantity(_ quantity: String) {
+    func setWaterRatioQuantity(_ quantity: String?) {
         defaults.set(quantity, forKey: DefaultsKeys.waterRatioQuantity.rawValue)
     }
     // MARK: Water Ratio Measurement
-    func getWaterRatioMeasurement() -> MeasurementType {
+    func getWaterRatioMeasurement() -> MeasurementType? {
         if let measurementDefault = defaults.object(forKey:
                                                             DefaultsKeys.waterRatioMeasurement.rawValue) as? String {
-            return MeasurementType(rawValue: measurementDefault) ?? .gram
+            return MeasurementType(rawValue: measurementDefault)
         } else {
-            return .gram
+            return nil
         }
     }
-    func setWaterRatioMeasurement(_ measurement: MeasurementType) {
-        defaults.set(measurement.rawValue, forKey: DefaultsKeys.coffeeRatioMeasurement.rawValue)
+    func setWaterRatioMeasurement(_ measurement: MeasurementType?) {
+        if let measurement = measurement {
+        defaults.set(measurement.rawValue, forKey: DefaultsKeys.waterRatioMeasurement.rawValue)
+        } else {
+            defaults.removeObject(forKey: DefaultsKeys.waterRatioMeasurement.rawValue)
+        }
     }
     // MARK: Coffee Required Measurement
     func getCoffeeRequiredMeasurement() -> MeasurementType {
@@ -95,14 +109,18 @@ struct UserDefaultsManager {
         defaults.set(measurement.rawValue, forKey: DefaultsKeys.waterRequiredMeasurement.rawValue)
     }
     // MARK: Strengh
-    func getStrength() -> Strength {
+    func getStrength() -> Strength? {
         if let strengthDefault = defaults.object(forKey: DefaultsKeys.strength.rawValue) as? String {
-            return Strength(rawValue: strengthDefault) ?? .regular
+            return Strength(rawValue: strengthDefault) ?? nil
         } else {
-            return .regular
+            return nil
         }
     }
-    func setStrength(_ strength: Strength) {
-        defaults.set(strength.rawValue, forKey: DefaultsKeys.strength.rawValue)
+    func setStrength(_ strength: Strength?) {
+        if let strength = strength {
+            defaults.set(strength.rawValue, forKey: DefaultsKeys.strength.rawValue)
+        } else {
+            defaults.removeObject(forKey: DefaultsKeys.strength.rawValue)
+        }
     }
 }

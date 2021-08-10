@@ -12,7 +12,8 @@ struct OnboardView: View {
         VStack(alignment: .leading, spacing: 32) {
             OnboardInfoView(imageName: "questionmark.circle",
                             title: "Coffee Brew Guidance",
-                            description: "Calculate the amount of coffee and water needed to make the best cup of coffee")
+                            description: "Calculate the amount of coffee and "
+                            + "water needed to make the best cup of coffee")
             OnboardInfoView(imageName: "pencil.circle",
                             title: "Log Brews",
                             description: "Keep logs of coffee brews to what see ratios and setups are best for you")

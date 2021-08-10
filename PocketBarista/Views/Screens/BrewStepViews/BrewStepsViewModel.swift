@@ -64,22 +64,35 @@ class BrewStepsViewModel: ObservableObject {
             }
         }
     }
-
     init() {
         brewQuantity = UserDefaultsManager.shared.getBrewQuantity()
         brewMeasurement = UserDefaultsManager.shared.getBrewMeasurement()
-        coffeeRatioQuantity = UserDefaultsManager.shared.getCoffeeRatioQuantity()
-        coffeeRatioMeasurement = UserDefaultsManager.shared.getCoffeeRatioMeasurement()
-        waterRatioQuantity = UserDefaultsManager.shared.getWaterRatioQuantity()
-        waterRatioMeasurement = UserDefaultsManager.shared.getWaterRatioMeasurement()
         coffeeRequiredMeasurement = UserDefaultsManager.shared.getCoffeeRequiredMeasurement()
         waterRequiredMeasurement = UserDefaultsManager.shared.getWaterRequiredMeasurement()
-        strength = UserDefaultsManager.shared.getStrength()
-        // Need to handle this differently. Currently this is functional but not a good practice
-        if strength == .strong {
+        coffeeRatioQuantity = "1"
+        waterRatioQuantity = "17"
+        coffeeRatioMeasurement = .gram
+        waterRatioMeasurement = .gram
+        strength = .regular
+        if let coffeeRatioQuantity = UserDefaultsManager.shared.getCoffeeRatioQuantity(),
+           let coffeeRatioMeasurement = UserDefaultsManager.shared.getCoffeeRatioMeasurement(),
+           let waterRatioQuantity = UserDefaultsManager.shared.getWaterRatioQuantity(),
+           let waterRatioMeasurement = UserDefaultsManager.shared.getWaterRatioMeasurement() {
+            print("these defaults have a value")
+            self.coffeeRatioQuantity = coffeeRatioQuantity
+            self.coffeeRatioMeasurement = coffeeRatioMeasurement
+            self.waterRatioQuantity = waterRatioQuantity
+            self.waterRatioMeasurement = waterRatioMeasurement
+            customRatio = true
+        } else if let strength = UserDefaultsManager.shared.getStrength() {
+            print("in the strength default")
+            self.strength = strength
+            strengthSetRatio()
+        } else {
+            print("no strength...setting it to regular")
+            self.strength = .regular
             strengthSetRatio()
         }
-        changedValue()
     }
     func changedValue() {
         let requiredWater = brewQuantityToGrams
@@ -97,12 +110,10 @@ class BrewStepsViewModel: ObservableObject {
     }
     var waterRatioQuantityToGrams: Float {
         guard let quantity = Float(waterRatioQuantity) else { return 0 }
-
         return convertValueToGrams(quantity, waterRatioMeasurement)
     }
     var brewQuantityToGrams: Float {
         guard let quantity = Float(brewQuantity) else { return 0 }
-
         return convertValueToGrams(quantity, brewMeasurement)
     }
     var coffeeToWaterRatio: Float {
@@ -143,31 +154,41 @@ class BrewStepsViewModel: ObservableObject {
         }
     }
     func strengthSetRatio() {
-        switch strength {
-        case .strong:
-            coffeeRatioQuantity = "1"
-            waterRatioQuantity = "15"
-            coffeeRatioMeasurement = .gram
-            waterRatioMeasurement = .gram
-        case .regular:
-            coffeeRatioQuantity = "1"
-            waterRatioQuantity = "17"
-            coffeeRatioMeasurement = .gram
-            waterRatioMeasurement = .gram
-        }
+            switch strength {
+            case .strong:
+                coffeeRatioQuantity = "1"
+                waterRatioQuantity = "15"
+                coffeeRatioMeasurement = .gram
+                waterRatioMeasurement = .gram
+            case .regular:
+                coffeeRatioQuantity = "1"
+                waterRatioQuantity = "17"
+                coffeeRatioMeasurement = .gram
+                waterRatioMeasurement = .gram
+            }
     }
     func saveDefaults() {
+        print("save defaults. Custom ratio \(customRatio)")
         UserDefaultsManager.shared.setBrewQuantity(brewQuantity)
         UserDefaultsManager.shared.setBrewMeasurement(brewMeasurement)
         UserDefaultsManager.shared.setCoffeeRequiredMeasurement(coffeeRequiredMeasurement)
         UserDefaultsManager.shared.setWaterRequiredMeasurement(waterRequiredMeasurement)
         if customRatio {
+            print("coffee ratio quantity " + coffeeRatioQuantity)
+            print("coffee measurement " + coffeeRatioMeasurement.rawValue)
+            print("water quantity " + waterRatioQuantity)
+            print("water measurement " + waterRatioMeasurement.rawValue)
             UserDefaultsManager.shared.setCoffeeRatioQuantity(coffeeRatioQuantity)
             UserDefaultsManager.shared.setCoffeeRatioMeasurement(coffeeRatioMeasurement)
             UserDefaultsManager.shared.setWaterRatioQuantity(waterRatioQuantity)
             UserDefaultsManager.shared.setWaterRatioMeasurement(waterRatioMeasurement)
+            UserDefaultsManager.shared.setStrength(nil)
         } else {
             UserDefaultsManager.shared.setStrength(strength)
+            UserDefaultsManager.shared.setCoffeeRatioQuantity(nil)
+            UserDefaultsManager.shared.setCoffeeRatioMeasurement(nil)
+            UserDefaultsManager.shared.setWaterRatioQuantity(nil)
+            UserDefaultsManager.shared.setWaterRatioMeasurement(nil)
         }
     }
 }
