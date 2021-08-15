@@ -6,10 +6,19 @@
 //
 
 import Foundation
+import Combine
 
 class SelectTagsViewModel: ObservableObject {
     @Published var availableTags: [PBTag] = []
     @Published var searchTags: [PBTag] = []
+    @Published var createdTag: PBTag? {
+        didSet {
+            if let tag = createdTag {
+                createdTagPublisher.send(tag)
+            }
+        }
+    }
+    var createdTagPublisher = PassthroughSubject<PBTag, Never>()
     @Published var searchText = "" {
         didSet {
             if searchText.isEmpty {
@@ -19,13 +28,20 @@ class SelectTagsViewModel: ObservableObject {
             }
         }
     }
+    @Published var isSearching = false
     func fetchTags() {
         availableTags = CoreDataManager.shared.fetchTags()
+        searchTags = availableTags
     }
     func saveTag() {
         if !searchText.isEmpty {
-            CoreDataManager.shared.addTag(name: searchText)
-            fetchTags()
+            createdTag = CoreDataManager.shared.addTag(name: searchText)
+            // fetchTags()
+            if let createdTag = createdTag {
+                searchTags.append(createdTag)
+                availableTags.append(createdTag)
+                searchText = ""
+            }
         }
     }
 }

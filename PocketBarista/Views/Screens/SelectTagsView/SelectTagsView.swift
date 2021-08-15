@@ -12,18 +12,20 @@ struct SelectTagsView: View {
     @StateObject var viewModel = SelectTagsViewModel()
     var body: some View {
         VStack {
-            SearchField(text: "Search Tags", searchText: $viewModel.searchText)
+            // SearchField(text: "Search Tags", searchText: $viewModel.searchText)
+            SearchBarView(searchText: $viewModel.searchText, isSearching: $viewModel.isSearching)
             if viewModel.availableTags.isEmpty
                 && viewModel.searchText.isEmpty {
                 Text("No tags yet. Start typing the name of a tag")
             } else {
-                ForEach(viewModel.availableTags) { tag in
+                ForEach(viewModel.searchTags) { tag in
                     HStack {
                         Text(tag.name!)
                         Spacer()
                         Image(systemName: tags.contains(tag) ? "checkmark.square" : "square")
                     }
-                    .padding(.horizontal)
+                    .padding(.vertical, 4)
+                    .padding(.horizontal, 24)
                     .onTapGesture {
                         playHaptic()
                         if let index = tags.firstIndex(of: tag) {
@@ -45,6 +47,9 @@ struct SelectTagsView: View {
         }
         .onAppear {
             viewModel.fetchTags()
+        }
+        .onReceive(viewModel.createdTagPublisher) { tag in
+            tags.append(tag)
         }
     }
 }

@@ -11,6 +11,8 @@ final class BrewLogsViewModel: ObservableObject {
     @Published var brewLogs: [PBBrewLog] = []
     func fetchBrewLogs() {
         brewLogs = CoreDataManager.shared.fetchBrewLogs()
-        print(brewLogs)
+        for log in brewLogs {
+            print(log.coffee?.name ?? "nil coffee")
+        }
     }
 }

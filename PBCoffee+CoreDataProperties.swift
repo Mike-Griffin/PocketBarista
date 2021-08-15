@@ -2,7 +2,7 @@
 //  PBCoffee+CoreDataProperties.swift
 //  PocketBarista
 //
-//  Created by Mike Griffin on 7/25/21.
+//  Created by Mike Griffin on 8/14/21.
 //
 //
 
@@ -19,14 +19,16 @@ extension PBCoffee {
     @NSManaged public var name: String?
     @NSManaged public var rating: Int16
     @NSManaged public var review: String?
-    @NSManaged public var brewLogs: PBBrewLog?
+    @NSManaged public var brewLogs: NSSet?
     @NSManaged public var roaster: PBRoaster?
     @NSManaged public var tags: NSSet?
     var displayText: String {
-        guard let name = name else { return "No Name?" }
+        guard let name = name else {
+            return "No name"
+        }
         if let roaster = roaster {
             if let roasterName = roaster.name {
-                return roasterName + " " + name
+                return "\(roasterName): \(name)"
             } else {
                 return name
             }
@@ -34,6 +36,39 @@ extension PBCoffee {
             return name
         }
     }
+}
+
+// MARK: Generated accessors for brewLogs
+extension PBCoffee {
+
+    @objc(addBrewLogsObject:)
+    @NSManaged public func addToBrewLogs(_ value: PBBrewLog)
+
+    @objc(removeBrewLogsObject:)
+    @NSManaged public func removeFromBrewLogs(_ value: PBBrewLog)
+
+    @objc(addBrewLogs:)
+    @NSManaged public func addToBrewLogs(_ values: NSSet)
+
+    @objc(removeBrewLogs:)
+    @NSManaged public func removeFromBrewLogs(_ values: NSSet)
+
+}
+
+// MARK: Generated accessors for roaster
+extension PBCoffee {
+
+    @objc(addRoasterObject:)
+    @NSManaged public func addToRoaster(_ value: PBRoaster)
+
+    @objc(removeRoasterObject:)
+    @NSManaged public func removeFromRoaster(_ value: PBRoaster)
+
+    @objc(addRoaster:)
+    @NSManaged public func addToRoaster(_ values: NSSet)
+
+    @objc(removeRoaster:)
+    @NSManaged public func removeFromRoaster(_ values: NSSet)
 
 }
 
@@ -54,6 +89,6 @@ extension PBCoffee {
 
 }
 
-extension PBCoffee: Identifiable {
+extension PBCoffee : Identifiable {
 
 }

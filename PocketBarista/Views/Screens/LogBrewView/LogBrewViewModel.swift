@@ -19,6 +19,11 @@ class LogBrewViewModel: ObservableObject {
         if let waterQuantity = Float(waterQuantity), let coffeeQuantity = Float(coffeeQuantity) {
             ratioFloat = coffeeQuantity / waterQuantity
         }
+        guard selectedCoffee != nil else {
+            print("throw up an error about no coffee")
+            return
+        }
+        print(rating)
         CoreDataManager.shared.addBrewLog(ratio: ratioFloat,
                                           waterQuantity: brewQuantity,
                                           notes: notes,

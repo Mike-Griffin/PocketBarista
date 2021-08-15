@@ -18,7 +18,7 @@ struct CoreDataManager {
         let roaster = PBRoaster(context: manager.container.viewContext)
         roaster.name = "Chromatic"
         roaster.location = "San Jose"
-        roaster.coffees = coffee
+        roaster.coffees = [coffee]
         return manager
     }()
     init(inMemory: Bool = false) {
@@ -103,10 +103,11 @@ struct CoreDataManager {
             return []
         }
     }
-    func addTag(name: String) {
+    func addTag(name: String) -> PBTag {
         let tag = PBTag(context: container.viewContext)
         tag.name = name
         save()
+        return tag
     }
     // MARK: BrewLog
     func fetchBrewLogs() -> [PBBrewLog] {
@@ -133,7 +134,7 @@ struct CoreDataManager {
         if !notes.isEmpty {
             brewLog.notes = notes
         }
-        if brewLog.rating > 0, brewLog.rating <= 5 {
+        if rating > 0, rating <= 5 {
             brewLog.rating = Int16(rating)
         }
         if let grindSetting = Int16(grindSetting) {

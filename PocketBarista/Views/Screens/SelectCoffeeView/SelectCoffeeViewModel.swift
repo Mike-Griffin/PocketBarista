@@ -19,6 +19,7 @@ class SelectCoffeeViewModel: ObservableObject {
             }
         }
     }
+    @Published var isSearching = false
     func fetchCoffees() {
         availableCoffees = CoreDataManager.shared.fetchCoffees()
         searchCoffees = availableCoffees
