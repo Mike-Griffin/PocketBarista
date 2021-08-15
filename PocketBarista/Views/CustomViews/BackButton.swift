@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DismissButton: View {
+struct BackButton: View {
     @Environment(\.presentationMode) var presentationMode
     var body: some View {
         HStack {
@@ -28,6 +28,6 @@ struct DismissButton: View {
 
 struct BackButton_Previews: PreviewProvider {
     static var previews: some View {
-        DismissButton()
+        BackButton()
     }
 }

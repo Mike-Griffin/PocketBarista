@@ -11,7 +11,7 @@ struct StrengthSelectionView: View {
     @Binding var selection: Strength
     var body: some View {
         VStack {
-            DismissButton()
+            BackButton()
             Spacer()
             Picker("Strength Selection Picker", selection: $selection) {
                 ForEach(Strength.allCases, id: \.self) { type in

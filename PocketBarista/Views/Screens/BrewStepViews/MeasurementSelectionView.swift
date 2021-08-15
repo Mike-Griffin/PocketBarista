@@ -11,7 +11,7 @@ struct MeasurementSelectionView: View {
     @Binding var selection: MeasurementType
     var body: some View {
         VStack {
-            DismissButton()
+            BackButton()
             Spacer()
             Picker("Measurement Selection Picker", selection: $selection) {
                 ForEach(MeasurementType.allCases, id: \.self) { type in
