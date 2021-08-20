@@ -51,6 +51,10 @@ struct LogBrewView: View {
                 })
             }
         }
+        .contentShape(Rectangle())
+        .onTapGesture {
+            dismissKeyboard()
+        }
         .sheet(isPresented: $viewModel.isShowingCoffeePicker, content: {
             SelectCoffeeView(selectedCoffee: $viewModel.selectedCoffee)
         })

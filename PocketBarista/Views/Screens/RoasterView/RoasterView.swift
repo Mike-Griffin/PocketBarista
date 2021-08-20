@@ -19,5 +19,9 @@ struct RoasterView: View {
                 Text("Save")
             })
         }
+        .contentShape(Rectangle())
+        .onTapGesture {
+            dismissKeyboard()
+        }
     }
 }

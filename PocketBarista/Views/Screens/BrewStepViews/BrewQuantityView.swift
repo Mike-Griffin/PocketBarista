@@ -30,6 +30,11 @@ struct BrewQuantityView: View {
             }
             .offset(y: -48)
         }
+        .contentShape(Rectangle())
+        .onTapGesture {
+            dismissKeyboard()
+        }
+
     }
 }
 

@@ -47,6 +47,10 @@ struct BrewStrengthView: View {
             .offset(y: -24)
             .padding()
         }
+        .contentShape(Rectangle())
+        .onTapGesture {
+            dismissKeyboard()
+        }
     }
 }
 
