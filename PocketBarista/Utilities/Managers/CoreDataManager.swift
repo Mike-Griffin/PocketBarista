@@ -92,7 +92,9 @@ struct CoreDataManager {
         roaster.location = location
         save()
     }
-
+    func editRoaster(roaster: PBRoaster) {
+        save()
+    }
     // MARK: Tag
     func fetchTags() -> [PBTag] {
         let request = NSFetchRequest<PBTag>(entityName: DataModel.tag)

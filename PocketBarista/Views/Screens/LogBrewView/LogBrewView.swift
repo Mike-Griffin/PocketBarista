@@ -27,7 +27,7 @@ struct LogBrewView: View {
             }
             Form {
                 Section {
-                    Text(viewModel.selectedCoffee == nil ? "Select Coffee" : viewModel.selectedCoffee!.name!)
+                    Text(viewModel.selectedCoffee == nil ? "Select Coffee" : viewModel.selectedCoffee!.displayText)
                         .onTapGesture(count: 1) {
                             viewModel.isShowingCoffeePicker = true
                         }
@@ -37,18 +37,27 @@ struct LogBrewView: View {
                     LargeTextEditor(text: $viewModel.notes, title: "Notes")
                 }
 
+//                Section {
+//                    TextField("Grind Setting", text: $viewModel.grindSetting)
+//                }
+//                Button(action: {
+//                    viewModel.saveBrewLog(
+//                        brewQuantity: brewQuantity,
+//                        waterQuantity: waterRatioQuantity,
+//                        coffeeQuantity: coffeeRatioQuantity)
+//                }, label: {
                 Section {
-                    TextField("Grind Setting", text: $viewModel.grindSetting)
-                }
-                Button(action: {
-                    viewModel.saveBrewLog(
-                        brewQuantity: brewQuantity,
-                        waterQuantity: waterRatioQuantity,
-                        coffeeQuantity: coffeeRatioQuantity)
-                }, label: {
                     Text("Save")
                         .foregroundColor(.textColor)
-                })
+                        .onTapGesture {
+                            viewModel.saveBrewLog(
+                                brewQuantity: brewQuantity,
+                                waterQuantity: waterRatioQuantity,
+                                coffeeQuantity: coffeeRatioQuantity
+                            )
+                        }
+                }
+                //})
             }
         }
         .contentShape(Rectangle())

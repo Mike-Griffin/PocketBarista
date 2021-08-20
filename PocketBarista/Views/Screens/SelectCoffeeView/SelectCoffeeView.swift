@@ -14,19 +14,29 @@ struct SelectCoffeeView: View {
     var body: some View {
         VStack {
             // SearchField(text: "Search Coffees", searchText: $viewModel.searchText)
+            BackButton()
             SearchBarView(searchText: $viewModel.searchText, isSearching: $viewModel.isSearching)
-            ForEach(viewModel.searchCoffees) { coffee in
-                HStack {
-                    Text(coffee.roaster != nil ? "\(coffee.roaster!.name!): \(coffee.name!)" : coffee.name!)
-                    Spacer()
-                    Image(systemName: viewModel.checkSelected(selected: selectedCoffee, coffee: coffee)
-                          ? "checkmark.square"
-                          : "square")
-                }
-                .onTapGesture {
-                    selectedCoffee = coffee
-                    playHaptic()
-                    presentationMode.wrappedValue.dismiss()
+            List {
+                ForEach(viewModel.searchCoffees) { coffee in
+                    HStack {
+                        Text(coffee.displayText)
+                            .fontWeight(.semibold)
+                            .lineLimit(2)
+                        Spacer()
+                        Image(systemName: viewModel.checkSelected(selected: selectedCoffee, coffee: coffee)
+                                ? "checkmark.square"
+                                : "square")
+                            .resizable()
+                            .frame(width: 24, height: 24)
+                    }
+                    .padding(.leading, 24)
+                    .padding(.trailing, 8)
+                    .padding(.vertical, 8)
+                    .onTapGesture {
+                        selectedCoffee = coffee
+                        playHaptic()
+                        presentationMode.wrappedValue.dismiss()
+                    }
                 }
             }
             Spacer()
@@ -34,7 +44,6 @@ struct SelectCoffeeView: View {
         .onAppear {
             viewModel.fetchCoffees()
         }
-
     }
 }
 

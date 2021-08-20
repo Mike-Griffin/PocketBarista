@@ -12,26 +12,35 @@ struct SelectTagsView: View {
     @StateObject var viewModel = SelectTagsViewModel()
     var body: some View {
         VStack {
-            // SearchField(text: "Search Tags", searchText: $viewModel.searchText)
+            BackButton()
             SearchBarView(searchText: $viewModel.searchText, isSearching: $viewModel.isSearching)
             if viewModel.availableTags.isEmpty
                 && viewModel.searchText.isEmpty {
                 Text("No tags yet. Start typing the name of a tag")
             } else {
-                ForEach(viewModel.searchTags) { tag in
-                    HStack {
-                        Text(tag.name!)
-                        Spacer()
-                        Image(systemName: tags.contains(tag) ? "checkmark.square" : "square")
-                    }
-                    .padding(.vertical, 4)
-                    .padding(.horizontal, 24)
-                    .onTapGesture {
-                        playHaptic()
-                        if let index = tags.firstIndex(of: tag) {
-                            tags.remove(at: index)
-                        } else {
-                            tags.append(tag)
+                List {
+                    ForEach(viewModel.searchTags) { tag in
+                        HStack {
+                            Text(tag.name!)
+                                .fontWeight(.semibold)
+                                .lineLimit(2)
+                            Spacer()
+                            Image(systemName: tags.contains(tag)
+                                    ? "checkmark.square"
+                                    : "square")
+                                .resizable()
+                                .frame(width: 24, height: 24)
+                        }
+                        .padding(.leading, 24)
+                        .padding(.trailing, 8)
+                        .padding(.vertical, 8)
+                        .onTapGesture {
+                            playHaptic()
+                            if let index = tags.firstIndex(of: tag) {
+                                tags.remove(at: index)
+                            } else {
+                                tags.append(tag)
+                            }
                         }
                     }
                 }

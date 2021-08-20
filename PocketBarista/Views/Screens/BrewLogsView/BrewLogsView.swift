@@ -10,32 +10,43 @@ import SwiftUI
 struct BrewLogsView: View {
     @StateObject var viewModel = BrewLogsViewModel()
     var body: some View {
-        List {
+        VStack {
             if viewModel.brewLogs.isEmpty {
-                Text("No brew logs yet! Start making some coffee!!")
-            } else {
-            ForEach(viewModel.brewLogs) { log in
-                VStack(alignment: .leading, spacing: 12) {
-                    Text(log.coffee != nil ? log.coffee!.displayText : "No Coffee Selected")
-                        .font(.title3)
-                    HStack {
-                        HStack {
-                            Text("Rating")
-                            RatingDisplayView(rating: Int(log.rating))
-                        }
-                        Text(log.date?.toDateTime() != nil ? "Brewed \(log.date!.relativeFromToday())" : "no date")
-                        .font(.caption)
-                    }
-                    .frame(height: 24)
+                VStack {
+                    Text("No Brew Logs Yet")
+                        .font(.largeTitle)
+                    Spacer()
+                        .frame(height: 24)
+                    Text("Start making some coffee!")
+                        .font(.callout)
                 }
-                .padding()
+            } else {
+                List {
+                    ForEach(viewModel.brewLogs) { log in
+                        VStack(alignment: .leading, spacing: 12) {
+                            Text(log.coffee != nil ? log.coffee!.displayText : "No Coffee Selected")
+                                .font(.title3)
+                                .fontWeight(.bold)
+                            HStack {
+                                Text(log.date?.toDateTime() != nil ? "Brewed \(log.date!.relativeFromToday())" : "no date")
+                                    .font(.subheadline)
+                                Spacer()
+                                HStack {
+                                    RatingDisplayView(rating: Int(log.rating))
+                                }
+
+                            }
+                            .frame(height: 24)
+                        }
+                        .padding()
+                    }
+                }
             }
         }
+        .onAppear {
+            viewModel.fetchBrewLogs()
+            print(viewModel.brewLogs)
         }
-            .onAppear {
-                viewModel.fetchBrewLogs()
-                print(viewModel.brewLogs)
-            }
     }
 }
 

@@ -15,6 +15,7 @@ final class RoasterViewModel: ObservableObject {
     init(roaster: PBRoaster?) {
         name = ""
         location = ""
+        self.roaster = roaster
         if let roaster = roaster {
             self.name = roaster.name ?? ""
             self.location = roaster.location ?? ""
@@ -23,6 +24,18 @@ final class RoasterViewModel: ObservableObject {
 
     func addRoaster() {
         guard !name.isEmpty, !location.isEmpty else { return }
-        manager.addRoaster(name: name, location: location)
+        if roaster != nil {
+            roaster?.name = name
+            roaster?.location = location
+            manager.editRoaster(roaster: roaster!)
+        } else {
+            manager.addRoaster(name: name, location: location)
+        }
+    }
+    func updateState() {
+        if roaster == nil {
+            name = ""
+            location = ""
+        }
     }
 }
