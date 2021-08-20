@@ -67,10 +67,6 @@ struct CoffeeBeanView: View {
                 }
             })
         }
-        .contentShape(Rectangle())
-        .onTapGesture {
-            dismissKeyboard()
-        }
         .onAppear {
             // doing this to reset all the values in the view model
             // for when the sheet has been closed and opened again

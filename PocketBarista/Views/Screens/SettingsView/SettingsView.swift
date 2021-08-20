@@ -14,54 +14,44 @@ struct SettingsView: View {
             List {
                 Text("Settings")
                 Section(header: Text("Brew Amount")) {
-                    SectionContent(quantityVal: $viewModel.brewQuantity,
+                    SectionContent(quantityString: "Quantity",
+                                    measurementString: "Measurement",
+                                    quantityVal: $viewModel.brewQuantity,
                                    measurement: $viewModel.brewMeasurement)
                 }
                 Section(header: Text("Coffee Strength")) {
                     VStack {
                         if !viewModel.customRatioShowing {
-//                            HStack {
-//                                Text("Strength Value")
-//                                Spacer()
-//                                Text(viewModel.strength.rawValue.capitalized)
+                            StrengthPicker(strength: $viewModel.strength)
+//                            Picker("Strength Value", selection: $viewModel.strength) {
+//                                ForEach(Strength.allCases, id: \.self) { strength in
+//                                    Text(strength.rawValue.capitalized)
+//                                }
 //                            }
-                            Picker("Strength Value", selection: $viewModel.strength) {
-                                ForEach(Strength.allCases, id: \.self) { strength in
-                                    Text(strength.rawValue.capitalized)
-                                }
-                            }
+//                            .padding(8)
                         }
                         HStack {
                             Toggle("Custom Ratio", isOn: $viewModel.customRatioShowing)
                         }
+                        .padding(8)
                         if viewModel.customRatioShowing {
-                            HStack {
-                                Text("Coffee Quantity")
-                                Spacer()
-                                TextField("Quantity", text: $viewModel.coffeeRatioQuantity)
-                                    .multilineTextAlignment(.trailing)
-                            }
-                            Picker("Coffee Measurement", selection: $viewModel.coffeeRatioMeasurement) {
-                                ForEach(MeasurementType.allCases, id: \.self) { type in
-                                    Text(type.checkPlural(Float(viewModel.coffeeRatioQuantity) ?? 0))
-                                }
-                            }
-                            HStack {
-                                Text("Water Quantity")
-                                Spacer()
-                                TextField("Quantity", text: $viewModel.waterRatioQuantity)
-                                    .multilineTextAlignment(.trailing)
-                            }
-                            Picker("Coffee Ratio Quantity", selection: $viewModel.waterRatioMeasurement) {
-                                ForEach(MeasurementType.allCases, id: \.self) { type in
-                                    Text(type.checkPlural(Float(viewModel.waterRatioQuantity) ?? 0))
-                                }
-                            }
+                            SectionContent(quantityString: "Coffee Quantity",
+                                           measurementString: "Coffee Measurement",
+                                           quantityVal: $viewModel.coffeeRatioQuantity,
+                                           measurement: $viewModel.coffeeRatioMeasurement)
+                            SectionContent(quantityString: "Water Quantity",
+                                           measurementString: "Water Measurement",
+                                           quantityVal: $viewModel.waterRatioQuantity,
+                                           measurement: $viewModel.waterRatioMeasurement)
                         }
                     }
                 }
             }
+
         }
+        .simultaneousGesture(TapGesture().onEnded({
+            dismissKeyboard()
+        }))
         .listStyle(GroupedListStyle())
         .onAppear {
             viewModel.getDefaults()
@@ -75,23 +65,61 @@ struct SettingsView_Previews: PreviewProvider {
     }
 }
 
-struct SectionContent: View {
+private struct SectionContent: View {
+    var quantityString: String
+    var measurementString: String
     @Binding var quantityVal: String
     @Binding var measurement: MeasurementType
+    @State var showingMeasurementSheet = false
     var body: some View {
         VStack {
             HStack {
-                Text("Quantity")
+                Text(quantityString)
                 Spacer()
                 TextField("Value", text: $quantityVal)
                     .multilineTextAlignment(.trailing)
             }
-            // Split this out to be a picker
+            .padding(8)
             HStack {
-                Text("Measurement")
+                Text(measurementString)
                 Spacer()
-                Text(measurement.rawValue)
+                HStack {
+                    Text(measurement.checkPlural(Float(quantityVal) ?? 0))
+                    Image(systemName: "chevron.right")
+                }
+            }
+            .onTapGesture {
+                dismissKeyboard()
+                showingMeasurementSheet = true
+            }
+            .padding(8)
+            // Split this out to be a picker
+        }
+        .sheet(isPresented: $showingMeasurementSheet, content: {
+            MeasurementSelectionView(selection: $measurement)
+        })
+    }
+}
+
+private struct StrengthPicker: View {
+    @Binding var strength: Strength
+    @State var showingStrengthSheet = false
+    var body: some View {
+        HStack {
+            Text("Strength Value")
+            Spacer()
+            HStack {
+                Text(strength.rawValue)
+                Image(systemName: "chevron.right")
             }
         }
+        .onTapGesture {
+            dismissKeyboard()
+            showingStrengthSheet = true
+        }
+        .sheet(isPresented: $showingStrengthSheet, content: {
+            StrengthSelectionView(selection: $strength)
+        })
+        .padding(8)
     }
 }
