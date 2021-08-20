@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct AppTabView: View {
+    @StateObject var viewModel = AppTabViewModel()
     var body: some View {
         TabView {
             HomeView()
@@ -19,6 +20,12 @@ struct AppTabView: View {
             SettingsView()
                 .tabItem { Label("Settings", systemImage: "gear") }
         }
+        .onAppear {
+            viewModel.startupChecks()
+        }
+        .sheet(isPresented: $viewModel.isShowingOnboardView, content: {
+            OnboardView(isShowingOnboardView: $viewModel.isShowingOnboardView)
+        })
     }
 }
 

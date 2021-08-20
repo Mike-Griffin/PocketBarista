@@ -13,6 +13,15 @@ struct UserDefaultsManager {
     init() {
         defaults = UserDefaults.standard
     }
+    // MARK: Onboard View
+    func hasSeenOnboardView() -> Bool {
+        return defaults.bool(forKey: DefaultsKeys.seenOnboard.rawValue)
+    }
+    
+    func setSeenOnboardView() {
+        defaults.set(true, forKey: DefaultsKeys.seenOnboard.rawValue)
+    }
+    
     // MARK: Brew Quantity
     func getBrewQuantity() -> String {
         return defaults.object(forKey: DefaultsKeys.brewQuantity.rawValue) as? String ?? "1"

@@ -36,6 +36,7 @@ enum DataModel {
 }
 
 enum DefaultsKeys: String {
+    case seenOnboard
     case brewQuantity
     case brewMeasurement
     case coffeeRatioQuantity
