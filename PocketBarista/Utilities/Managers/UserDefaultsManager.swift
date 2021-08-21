@@ -49,7 +49,6 @@ struct UserDefaultsManager {
         if let quantity = quantity {
             defaults.set(quantity, forKey: DefaultsKeys.coffeeRatioQuantity.rawValue)
         } else {
-            print("helllloooooo???????")
             defaults.removeObject(forKey: DefaultsKeys.coffeeRatioQuantity.rawValue)
             defaults.synchronize()
         }

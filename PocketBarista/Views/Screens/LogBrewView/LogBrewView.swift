@@ -17,14 +17,12 @@ struct LogBrewView: View {
     @StateObject var viewModel = LogBrewViewModel()
     var body: some View {
         VStack {
-            Section {
-                Text("You're brewing \(brewQuantity) \(brewMeasurement.checkPlural(Float(brewQuantity) ?? 0))")
-                Text("with a ratio of")
-                Text("\(coffeeRatioQuantity) "
-                     + "\(coffeeRatioMeasurement.checkPlural(Float(coffeeRatioQuantity) ?? 0))"
-                     + " coffee to \(waterRatioQuantity)"
-                     + " \(waterRatioMeasurement.checkPlural(Float(waterRatioQuantity) ?? 0)) water")
-            }
+            HeaderDetailsSection(brewQuantity: brewQuantity,
+                                 brewMeasurement: brewMeasurement,
+                                 coffeeRatioQuantity: coffeeRatioQuantity,
+                                 coffeeRatioMeasurement: coffeeRatioMeasurement,
+                                 waterRatioQuantity: waterRatioQuantity,
+                                 waterRatioMeasurement: waterRatioMeasurement)
             Form {
                 Section {
                     Text(viewModel.selectedCoffee == nil ? "Select Coffee" : viewModel.selectedCoffee!.displayText)
@@ -36,16 +34,6 @@ struct LogBrewView: View {
                     RatingSelectionView(rating: $viewModel.rating)
                     LargeTextEditor(text: $viewModel.notes, title: "Notes")
                 }
-
-//                Section {
-//                    TextField("Grind Setting", text: $viewModel.grindSetting)
-//                }
-//                Button(action: {
-//                    viewModel.saveBrewLog(
-//                        brewQuantity: brewQuantity,
-//                        waterQuantity: waterRatioQuantity,
-//                        coffeeQuantity: coffeeRatioQuantity)
-//                }, label: {
                 Section {
                     Text("Save")
                         .foregroundColor(.textColor)
@@ -57,13 +45,20 @@ struct LogBrewView: View {
                             )
                         }
                 }
-                //})
             }
         }
         .contentShape(Rectangle())
         .onTapGesture {
             dismissKeyboard()
         }
+        .alert(item: $viewModel.alertItem, content: { alertItem in
+            Alert(title: alertItem.title, message: alertItem.message, primaryButton: .default(Text("Yes"), action: {
+                viewModel.saveWithoutCoffee(
+                    brewQuantity: brewQuantity,
+                    waterQuantity: waterRatioQuantity,
+                    coffeeQuantity: coffeeRatioQuantity)
+            }), secondaryButton: .cancel())
+        })
         .sheet(isPresented: $viewModel.isShowingCoffeePicker, content: {
             SelectCoffeeView(selectedCoffee: $viewModel.selectedCoffee)
         })
@@ -78,5 +73,24 @@ struct LogBrew_Previews: PreviewProvider {
                     coffeeRatioMeasurement: .gram,
                     waterRatioQuantity: "17",
                     waterRatioMeasurement: .gram)
+    }
+}
+
+struct HeaderDetailsSection: View {
+    var brewQuantity: String
+    var brewMeasurement: MeasurementType
+    var coffeeRatioQuantity: String
+    var coffeeRatioMeasurement: MeasurementType
+    var waterRatioQuantity: String
+    var waterRatioMeasurement: MeasurementType
+    var body: some View {
+        Section {
+            Text("You're brewing \(brewQuantity) \(brewMeasurement.checkPlural(Float(brewQuantity) ?? 0))")
+            Text("with a ratio of")
+            Text("\(coffeeRatioQuantity) "
+                 + "\(coffeeRatioMeasurement.checkPlural(Float(coffeeRatioQuantity) ?? 0))"
+                 + " coffee to \(waterRatioQuantity)"
+                 + " \(waterRatioMeasurement.checkPlural(Float(waterRatioQuantity) ?? 0)) water")
+        }
     }
 }

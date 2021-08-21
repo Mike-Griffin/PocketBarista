@@ -10,21 +10,35 @@ import SwiftUI
 struct HomeView: View {
     var body: some View {
         NavigationView {
-            VStack(alignment: .center, spacing: 64) {
-            Text("Welcome!")
-                .font(.largeTitle)
-            Text("Are you ready to brew some coffee?")
-                .font(.title2)
-                .multilineTextAlignment(.center)
-                .padding(.horizontal, 64)
-            NavigationLink(destination: BrewQuantityView()) {
-                Text("Brew Coffee")
-                    .padding()
-                    .foregroundColor(.white)
-                    .background(Color.brandPrimary)
-                    .cornerRadius(15)
+            VStack(alignment: .center, spacing: 44) {
+                ZStack {
+                    VStack {
+                        Text("Pocket")
+                        Text("Barista")
+                    }
+                    .font(Font.custom("Lobster-Regular", size: 64))
+//                    Color.brandPrimary
+//                        .clipShape(Ellipse())
+//                        .padding(.horizontal)
+//                        .zIndex(-1)
+                }
+//                Spacer()
+//                    .frame(height: 20)
+                Text("Welcome!")
+                    .font(.largeTitle)
+                Text("Are you ready to brew some coffee?")
+                    .font(.title2)
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal, 64)
+                NavigationLink(destination: BrewQuantityView()) {
+                    Text("Brew Coffee")
+                        .padding()
+                        .foregroundColor(.white)
+                        .background(Color.brandPrimary)
+                        .cornerRadius(15)
+                }
+                Spacer()
             }
-        }
         }
     }
 }

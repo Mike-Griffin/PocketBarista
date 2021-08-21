@@ -17,6 +17,7 @@ struct SelectTagsView: View {
             if viewModel.availableTags.isEmpty
                 && viewModel.searchText.isEmpty {
                 Text("No tags yet. Start typing the name of a tag")
+                Spacer()
             } else {
                 List {
                     ForEach(viewModel.searchTags) { tag in
@@ -50,6 +51,10 @@ struct SelectTagsView: View {
                     viewModel.saveTag()
                 }, label: {
                     Text("Create tag \(viewModel.searchText)")
+                        .padding()
+                        .foregroundColor(.white)
+                        .background(Color.brandPrimary)
+                        .cornerRadius(15)
                 })
             }
             Spacer()

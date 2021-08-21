@@ -15,4 +15,10 @@ final class BrewLogsViewModel: ObservableObject {
             print(log.coffee?.name ?? "nil coffee")
         }
     }
+    func deleteBrewLog(index: IndexSet.Element?) {
+        if let index = index {
+            CoreDataManager.shared.delete(brewLogs[index])
+        }
+        fetchBrewLogs()
+    }
 }

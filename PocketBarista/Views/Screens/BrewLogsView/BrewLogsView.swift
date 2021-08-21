@@ -10,6 +10,7 @@ import SwiftUI
 struct BrewLogsView: View {
     @StateObject var viewModel = BrewLogsViewModel()
     var body: some View {
+        NavigationView {
         VStack {
             if viewModel.brewLogs.isEmpty {
                 VStack {
@@ -17,35 +18,47 @@ struct BrewLogsView: View {
                         .font(.largeTitle)
                     Spacer()
                         .frame(height: 24)
-                    Text("Start making some coffee!")
+                    NavigationLink(destination: BrewQuantityView()) {
+                        Text("Start making some coffee!")
                         .font(.callout)
+                    }
                 }
             } else {
                 List {
                     ForEach(viewModel.brewLogs) { log in
-                        VStack(alignment: .leading, spacing: 12) {
-                            Text(log.coffee != nil ? log.coffee!.displayText : "No Coffee Selected")
-                                .font(.title3)
-                                .fontWeight(.bold)
-                            HStack {
-                                Text(log.date?.toDateTime() != nil ? "Brewed \(log.date!.relativeFromToday())" : "no date")
-                                    .font(.subheadline)
-                                Spacer()
-                                HStack {
-                                    RatingDisplayView(rating: Int(log.rating))
-                                }
+                        NavigationLink(destination: BrewLogDetailView(brewLog: log)) {
+                            VStack(alignment: .leading, spacing: 12) {
+                                Text(log.coffee != nil ? log.coffee!.displayText : "No Coffee Selected")
+                                    .font(.title2)
+                                    .fontWeight(.bold)
+                                    .lineLimit(2)
+//                                HStack {
+                                    Text(log.date?.toDateTime() != nil
+                                            ? "Brewed \(log.date!.relativeFromToday())"
+                                            : "no date")
+                                        .font(.subheadline)
+//                                    Spacer()
+//                                    HStack {
+//                                    }
+//                                }
+                                RatingDisplayView(rating: Int(log.rating))
 
+                                .frame(height: 24)
                             }
-                            .frame(height: 24)
+                            .padding()
                         }
-                        .padding()
+                    }
+                    .onDelete { index in
+                        viewModel.deleteBrewLog(index: index.first)
                     }
                 }
+                .listStyle(PlainListStyle())
             }
         }
         .onAppear {
             viewModel.fetchBrewLogs()
             print(viewModel.brewLogs)
+        }
         }
     }
 }

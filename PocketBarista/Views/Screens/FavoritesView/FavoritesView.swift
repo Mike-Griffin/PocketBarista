@@ -15,6 +15,7 @@ struct FavoritesView: View {
                 CoffeeSection(viewModel: viewModel)
                 RoasterSection(viewModel: viewModel)
             }
+            .listStyle(GroupedListStyle())
             .navigationBarTitleDisplayMode(.inline)
             .onAppear {
                 viewModel.fetchCoffees()
@@ -23,6 +24,7 @@ struct FavoritesView: View {
             .sheet(isPresented: $viewModel.showingCreateCoffee,
                    onDismiss: {
                     viewModel.fetchCoffees()
+                    viewModel.fetchRoasters()
                     viewModel.selectedCoffee = nil
                    },
                    content: {
@@ -69,6 +71,7 @@ private struct CoffeeSection: View {
                         viewModel.showingCreateCoffee = true
                     } label: {
                         Text(coffee.name ?? "Uh oh no name")
+                            .foregroundColor(.textColor)
                     }
                     Spacer()
                     Menu {
@@ -105,6 +108,7 @@ private struct RoasterSection: View {
                         viewModel.showingCreateRoaster = true
                     } label: {
                         Text(roaster.name ?? "Uh oh no name")
+                            .foregroundColor(.textColor)
                     }
                     Spacer()
                     Menu {

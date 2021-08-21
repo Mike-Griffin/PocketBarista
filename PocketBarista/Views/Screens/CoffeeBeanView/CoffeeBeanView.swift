@@ -73,7 +73,7 @@ struct CoffeeBeanView: View {
             viewModel.updateState()
         }
         .actionSheet(isPresented: $viewModel.isshowingPhotoActionSheet, content: {
-            ActionSheet(title: Text("Photo from what??"),
+            ActionSheet(title: Text("Select Photo Input Method"),
                         buttons: [
                             .default(Text("Take a new photo")) {
                                 viewModel.photoPickerSourceType = .camera
@@ -82,6 +82,9 @@ struct CoffeeBeanView: View {
                             .default(Text("Choose from library")) {
                                 viewModel.photoPickerSourceType = .photoLibrary
                                 viewModel.isShowingPhotoPicker = true
+                            },
+                            .default(Text("Cancel")) {
+                                viewModel.isshowingPhotoActionSheet = false
                             }
                         ])
         })

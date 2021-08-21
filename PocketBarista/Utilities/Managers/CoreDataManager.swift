@@ -114,6 +114,8 @@ struct CoreDataManager {
     // MARK: BrewLog
     func fetchBrewLogs() -> [PBBrewLog] {
         let request = NSFetchRequest<PBBrewLog>(entityName: DataModel.brewLog)
+        let dateSort = NSSortDescriptor(key: "date", ascending: false)
+        request.sortDescriptors = [dateSort]
         do {
             return try container.viewContext.fetch(request)
         } catch {

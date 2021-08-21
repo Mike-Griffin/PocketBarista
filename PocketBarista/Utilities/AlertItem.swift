@@ -5,4 +5,10 @@
 //  Created by Mike Griffin on 8/20/21.
 //
 
-import Foundation
+import SwiftUI
+
+struct AlertItem: Identifiable {
+    let id = UUID()
+    let title: Text
+    let message: Text
+}

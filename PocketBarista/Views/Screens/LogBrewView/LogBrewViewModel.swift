@@ -5,7 +5,7 @@
 //  Created by Mike Griffin on 6/25/21.
 //
 
-import Foundation
+import SwiftUI
 import Combine
 
 class LogBrewViewModel: ObservableObject {
@@ -14,21 +14,35 @@ class LogBrewViewModel: ObservableObject {
     @Published var selectedCoffee: PBCoffee?
     @Published var isShowingCoffeePicker        = false
     @Published var notes = ""
+    @Published var alertItem: AlertItem?
     func saveBrewLog(brewQuantity: String, waterQuantity: String, coffeeQuantity: String) {
         var ratioFloat: Float?
         if let waterQuantity = Float(waterQuantity), let coffeeQuantity = Float(coffeeQuantity) {
             ratioFloat = coffeeQuantity / waterQuantity
         }
         guard selectedCoffee != nil else {
-            print("throw up an error about no coffee")
+            alertItem = AlertItem(title: Text("No Coffee"),
+                                  message: Text("You sure about that"))
             return
         }
-        print(rating)
         CoreDataManager.shared.addBrewLog(ratio: ratioFloat,
                                           waterQuantity: brewQuantity,
                                           notes: notes,
                                           grindSetting: grindSetting,
                                           rating: rating,
                                           coffee: selectedCoffee)
+        alertItem = AlertItem(title: Text("Log Saved"), message: Text("Successfully Saved Coffee log"))
+    }
+    func saveWithoutCoffee(brewQuantity: String, waterQuantity: String, coffeeQuantity: String) {
+        var ratioFloat: Float?
+        if let waterQuantity = Float(waterQuantity), let coffeeQuantity = Float(coffeeQuantity) {
+            ratioFloat = coffeeQuantity / waterQuantity
+        }
+        CoreDataManager.shared.addBrewLog(ratio: ratioFloat,
+                                          waterQuantity: brewQuantity,
+                                          notes: notes,
+                                          grindSetting: grindSetting,
+                                          rating: rating,
+                                          coffee: nil)
     }
 }
