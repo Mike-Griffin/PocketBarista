@@ -44,6 +44,15 @@ struct SelectTagsView: View {
                             }
                         }
                     }
+                    .onDelete { indexSet in
+                        if let index = indexSet.first {
+                            let deletedTag = viewModel.searchTags[index]
+                            if let selectedIndex = tags.firstIndex(of: deletedTag) {
+                                tags.remove(at: selectedIndex)
+                            }
+                        viewModel.deleteTag(index: indexSet.first)
+                        }
+                    }
                 }
             }
             if viewModel.searchTags.isEmpty && !viewModel.searchText.isEmpty {

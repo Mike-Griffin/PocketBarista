@@ -47,14 +47,14 @@ struct CoffeeBeanView: View {
             }
             .navigationBarTitle(viewModel.coffee == nil ? "Create Coffee Bean" : "", displayMode: .inline)
             .toolbar(content: {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button {
-                        viewModel.saveCoffee()
-                        presentationMode.wrappedValue.dismiss()
-                    } label: {
-                        Text("Save")
-                    }
-                }
+//                ToolbarItem(placement: .navigationBarTrailing) {
+//                    Button {
+//                        viewModel.saveCoffee()
+//                        presentationMode.wrappedValue.dismiss()
+//                    } label: {
+//                        Text("Save")
+//                    }
+//                }
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button {
                         presentationMode.wrappedValue.dismiss()

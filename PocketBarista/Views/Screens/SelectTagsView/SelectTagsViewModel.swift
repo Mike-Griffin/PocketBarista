@@ -44,4 +44,10 @@ class SelectTagsViewModel: ObservableObject {
             }
         }
     }
+    func deleteTag(index: IndexSet.Element?) {
+        if let index = index {
+            CoreDataManager.shared.delete(searchTags[index])
+            fetchTags()
+        }
+    }
 }
