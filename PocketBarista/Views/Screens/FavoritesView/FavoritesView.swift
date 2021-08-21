@@ -63,7 +63,7 @@ private struct CoffeeSection: View {
     @ObservedObject var viewModel: FavoritesViewModel
 
     var body: some View {
-        Section(header: Text("Coffees")) {
+        Section(header: Text("Coffees").font(.title3)) {
             ForEach(viewModel.coffees) { coffee in
                 HStack {
                     Button {
@@ -71,7 +71,9 @@ private struct CoffeeSection: View {
                         viewModel.showingCreateCoffee = true
                     } label: {
                         Text(coffee.name ?? "Uh oh no name")
+                            .fontWeight(.semibold)
                             .foregroundColor(.textColor)
+                            .padding()
                     }
                     Spacer()
                     Menu {
@@ -100,7 +102,7 @@ private struct CoffeeSection: View {
 private struct RoasterSection: View {
     @ObservedObject var viewModel: FavoritesViewModel
     var body: some View {
-        Section(header: Text("Roasters")) {
+        Section(header: Text("Roasters").font(.title3)) {
             ForEach(viewModel.roasters) { roaster in
                 HStack {
                     Button {
@@ -108,7 +110,9 @@ private struct RoasterSection: View {
                         viewModel.showingCreateRoaster = true
                     } label: {
                         Text(roaster.name ?? "Uh oh no name")
+                            .fontWeight(.semibold)
                             .foregroundColor(.textColor)
+                            .padding()
                     }
                     Spacer()
                     Menu {
