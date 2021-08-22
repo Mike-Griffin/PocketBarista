@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7F210FDF26D0663A00EEF51F /* BrewLogDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F210FDE26D0663A00EEF51F /* BrewLogDetailView.swift */; };
 		7F210FE526D07EEF00EEF51F /* Lobster-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7F210FE426D07EEF00EEF51F /* Lobster-Regular.ttf */; };
+		7F21100726D2B1A700EEF51F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F21100626D2B1A700EEF51F /* LaunchScreen.storyboard */; };
 		7F326FC926C1EF6200574CC3 /* QuantityTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F326FC826C1EF6200574CC3 /* QuantityTextField.swift */; };
 		7F45D57F26A7BFDF004CAB48 /* KeyboardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F45D57E26A7BFDF004CAB48 /* KeyboardHandler.swift */; };
 		7F4AA1AC26ADF26500B12E0D /* LargeTextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4AA1AB26ADF26500B12E0D /* LargeTextEditor.swift */; };
@@ -90,6 +91,7 @@
 /* Begin PBXFileReference section */
 		7F210FDE26D0663A00EEF51F /* BrewLogDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewLogDetailView.swift; sourceTree = "<group>"; };
 		7F210FE426D07EEF00EEF51F /* Lobster-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lobster-Regular.ttf"; sourceTree = "<group>"; };
+		7F21100626D2B1A700EEF51F /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7F326FC826C1EF6200574CC3 /* QuantityTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuantityTextField.swift; sourceTree = "<group>"; };
 		7F45D57E26A7BFDF004CAB48 /* KeyboardHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHandler.swift; sourceTree = "<group>"; };
 		7F4AA1AB26ADF26500B12E0D /* LargeTextEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeTextEditor.swift; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 		7F4CB2AA26818D0E003F0D06 = {
 			isa = PBXGroup;
 			children = (
+				7F21100626D2B1A700EEF51F /* LaunchScreen.storyboard */,
 				7F4CB2B526818D0E003F0D06 /* PocketBarista */,
 				7F4CB2B426818D0E003F0D06 /* Products */,
 			);
@@ -520,6 +523,7 @@
 				7FEC222A26963959007466D7 /* ipadSettings58.png in Resources */,
 				7FEC221826963959007466D7 /* mac64.png in Resources */,
 				7FEC221A26963959007466D7 /* ipad152.png in Resources */,
+				7F21100726D2B1A700EEF51F /* LaunchScreen.storyboard in Resources */,
 				7FEC222026963959007466D7 /* Contents.json in Resources */,
 				7FEC221326963959007466D7 /* ipad76.png in Resources */,
 				7FEC222526963959007466D7 /* notification60.png in Resources */,
