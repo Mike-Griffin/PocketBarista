@@ -202,7 +202,6 @@
 		7F4CB2AA26818D0E003F0D06 = {
 			isa = PBXGroup;
 			children = (
-				7F21100626D2B1A700EEF51F /* LaunchScreen.storyboard */,
 				7F4CB2B526818D0E003F0D06 /* PocketBarista */,
 				7F4CB2B426818D0E003F0D06 /* Products */,
 			);
@@ -223,6 +222,7 @@
 				7F4CB2C526818D49003F0D06 /* Views */,
 				7F210FE126D07B8400EEF51F /* Fonts */,
 				7F4CB2B626818D0E003F0D06 /* PocketBaristaApp.swift */,
+				7F21100626D2B1A700EEF51F /* LaunchScreen.storyboard */,
 				7F4CB2BA26818D0F003F0D06 /* Assets.xcassets */,
 				7F4CB2BF26818D0F003F0D06 /* Info.plist */,
 				7F4CB2BC26818D0F003F0D06 /* Preview Content */,

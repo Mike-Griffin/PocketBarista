@@ -17,6 +17,7 @@ struct LogBrewView: View {
     @StateObject var viewModel = LogBrewViewModel()
     var body: some View {
         VStack {
+            NavigationLink(destination: HomeView(), isActive: $viewModel.navigateHome) { EmptyView() }
             HeaderDetailsSection(brewQuantity: brewQuantity,
                                  brewMeasurement: brewMeasurement,
                                  coffeeRatioQuantity: coffeeRatioQuantity,
@@ -52,12 +53,19 @@ struct LogBrewView: View {
             dismissKeyboard()
         }
         .alert(item: $viewModel.alertItem, content: { alertItem in
-            Alert(title: alertItem.title, message: alertItem.message, primaryButton: .default(Text("Yes"), action: {
+            if alertItem.primaryButton != nil {
+            return Alert(title: alertItem.title, message: alertItem.message,
+                         primaryButton: .default(Text("Yes"), action: {
                 viewModel.saveWithoutCoffee(
                     brewQuantity: brewQuantity,
                     waterQuantity: waterRatioQuantity,
                     coffeeQuantity: coffeeRatioQuantity)
-            }), secondaryButton: .cancel())
+            }), secondaryButton: .cancel()) } else {
+                return Alert(title: alertItem.title, message: alertItem.message,
+                             dismissButton: .default(Text("Ok"), action: {
+                    viewModel.navigateHome = true
+                }))
+            }
         })
         .sheet(isPresented: $viewModel.isShowingCoffeePicker, content: {
             SelectCoffeeView(selectedCoffee: $viewModel.selectedCoffee)

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct RoasterView: View {
+    @Environment(\.presentationMode) var presentationMode
     @ObservedObject var viewModel: RoasterViewModel
     var body: some View {
         VStack {
@@ -17,6 +18,7 @@ struct RoasterView: View {
                 TextField("Location", text: $viewModel.location)
                 Button(action: {
                     viewModel.addRoaster()
+                    presentationMode.wrappedValue.dismiss()
                 }, label: {
                     Text("Save")
                 })

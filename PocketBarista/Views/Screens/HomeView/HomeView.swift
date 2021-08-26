@@ -9,7 +9,6 @@ import SwiftUI
 
 struct HomeView: View {
     var body: some View {
-        NavigationView {
             VStack(alignment: .center, spacing: 44) {
                 ZStack {
                     VStack {
@@ -38,8 +37,8 @@ struct HomeView: View {
                         .cornerRadius(15)
                 }
                 Spacer()
-            }
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
 

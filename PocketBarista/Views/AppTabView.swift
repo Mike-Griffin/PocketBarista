@@ -11,7 +11,9 @@ struct AppTabView: View {
     @StateObject var viewModel = AppTabViewModel()
     var body: some View {
         TabView {
-            HomeView()
+            NavigationView {
+                HomeView()
+            }
                 .tabItem { Label("Home", systemImage: "house") }
             FavoritesView()
                 .tabItem { Label("Favorites", systemImage: "star") }
