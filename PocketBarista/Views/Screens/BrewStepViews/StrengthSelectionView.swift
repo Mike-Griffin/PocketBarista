@@ -18,6 +18,7 @@ struct StrengthSelectionView: View {
                     Text(type.rawValue)
                 }
             }
+            .pickerStyle(.wheel)
             .padding()
             Spacer()
         }

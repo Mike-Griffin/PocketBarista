@@ -56,6 +56,7 @@ struct FavoritesView: View {
                 }
             }
         }
+        .navigationViewStyle(.stack)
     }
 }
 

@@ -60,6 +60,7 @@ struct BrewLogsView: View {
             print(viewModel.brewLogs)
         }
         }
+        .navigationViewStyle(.stack)
     }
 }
 

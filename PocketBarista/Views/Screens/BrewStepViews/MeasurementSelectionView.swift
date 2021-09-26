@@ -18,6 +18,7 @@ struct MeasurementSelectionView: View {
                     Text(type.rawValue)
                 }
             }
+            .pickerStyle(.wheel)
             Spacer()
         }
     }

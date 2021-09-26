@@ -10,7 +10,7 @@ import SwiftUI
 struct SettingsView: View {
     @StateObject var viewModel = SettingsViewModel()
     var body: some View {
-        NavigationView {
+//        NavigationView {
             List {
                 Text("Settings")
                 Section(header: Text("Brew Amount")) {
@@ -23,12 +23,6 @@ struct SettingsView: View {
                     VStack {
                         if !viewModel.customRatioShowing {
                             StrengthPicker(strength: $viewModel.strength)
-//                            Picker("Strength Value", selection: $viewModel.strength) {
-//                                ForEach(Strength.allCases, id: \.self) { strength in
-//                                    Text(strength.rawValue.capitalized)
-//                                }
-//                            }
-//                            .padding(8)
                         }
                         HStack {
                             Toggle("Custom Ratio", isOn: $viewModel.customRatioShowing)
@@ -48,11 +42,12 @@ struct SettingsView: View {
                 }
             }
 
-        }
+
+//        }
         .simultaneousGesture(TapGesture().onEnded({
             dismissKeyboard()
         }))
-        .listStyle(GroupedListStyle())
+//        .listStyle(GroupedListStyle())
         .onAppear {
             viewModel.getDefaults()
         }

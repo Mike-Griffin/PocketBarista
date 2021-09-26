@@ -14,12 +14,16 @@ struct AppTabView: View {
             NavigationView {
                 HomeView()
             }
+            .navigationViewStyle(.stack)
                 .tabItem { Label("Home", systemImage: "house") }
             FavoritesView()
                 .tabItem { Label("Favorites", systemImage: "star") }
             BrewLogsView()
                 .tabItem { Label("Logs", systemImage: "text.book.closed")}
-            SettingsView()
+            NavigationView {
+                SettingsView()
+            }
+            .navigationViewStyle(.stack)
                 .tabItem { Label("Settings", systemImage: "gear") }
         }
         .onAppear {
